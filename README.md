@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿#Välkommen till Grupp 7 / Welcome to Group 7:)
 
 !!!!!!PLEASE SCROLL DOWN TO SEE EXPLANATION OF HOW TO USE THE FOLDER STRUCTURE!!!!!
