@@ -7,7 +7,6 @@ $(document).ready(function(){
 	console.log(username);
 	console.log(pwd);
     $.ajax({
-      url: '/checklogin.php', //PHP file you want to access
       url: '/php/checklogin.php', //PHP file you want to access
       type: 'POST',
 	  contentType: "application/json; charset=utf-8", //Sets data you are sending as JSON
@@ -17,22 +16,18 @@ $(document).ready(function(){
 		  $('#login_error').html(""); 
 		  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 		  if(recv === -1) {
-			$('#errormsg').append("<p>Database error! Please consult administrator</p>");  
 			$('#login_error').append("<p>Database error! Please consult administrator</p>");  
 		  }
 		  else if(recv === 0) {
-			$('#errormsg').append("<p>Wrong username or password!</p>");  
 			$('#login_error').append("<p>Wrong username or password!</p>");  
 		  }
 		  else if(recv === 1) {
 			window.location.replace("http://localhost:8080/start.php");
 		  }
 		  else{
-			$('#errormsg').append("<p>Something went terribly wrong</p>");  
 			$('#login_error').append("<p>Something went terribly wrong</p>");  
 		  }
 		  console.log(recv);
-          $('#errormsg').append("<p>"+recv+"</p>");
       },
       error: function(xhr, desc, err) {
         console.log(xhr);

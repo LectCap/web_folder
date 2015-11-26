@@ -8,7 +8,6 @@ function db_connect() {
 	// Try and connect to the database, if a connection has not been established yet
 	if(!isset($connection)) {
 		 // Load configuration as an array. Use the actual location of your configuration file
-		$config = parse_ini_file('F:/Program Files/wamp/config.ini'); 
 		$config = parse_ini_file('C:/config.ini'); 
 		$connection = mysqli_connect('localhost',$config['username'],$config['password'],$config['dbname']);
 	}

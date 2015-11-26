@@ -106,7 +106,6 @@ form.forgot_password{
 	margin:10px 0px 0px 0px;
 }
 .form_wrapper input[type="text"],
-.form_wrapper input[type="password"]{
 .form_wrapper input[type="password"],
 .form_wrapper input[type="email"]{
 	border: solid 1px #E5E5E5;
@@ -137,7 +136,6 @@ form.forgot_password{
 	box-shadow: 0px 0px 8px #f0f0f0;
 }
 .form_wrapper input[type="text"]:focus,
-.form_wrapper input[type="password"]:focus{
 .form_wrapper input[type="password"]:focus,
 .form_wrapper input[type="email"]:focus{
 	background:#feffef;

@@ -36,27 +36,20 @@ session_start();
 						</div>
 					</form>
 					
-						<form class="register">
 						<form id="register-form" class="register">
 						<h3>Register</h3>
 						<div class="column">
 							<div>
-								<label>Name:</label>
-								<input type="text" name="name" required="required"/>
 								<label>First Name<em class="reqfield"> *</em></label>
 								<input type="text" name="firstname" required="required"/>
 								<span class="error">This is an error</span>
 							</div>
 							<div>
-								<label>Last Name:</label>
-								<input type="text" />
 								<label>Last Name<em class="reqfield"> *</em></label>
 								<input type="text" name="lastname" required="required"/>
 								<span class="error">This is an error</span>
 							</div>
 							<div>
-								<label>Website:</label>
-								<input type="text" value="http://"/>
 								<label>School</label>
 								<input type="text" name="school"/>
 								<span class="error">This is an error</span>
@@ -69,15 +62,11 @@ session_start();
 						</div>
 						<div class="column">
 							<div>
-								<label>Username:</label>
-								<input type="text"/>
 								<label>Username<em class="reqfield"> *</em></label>
 								<input type="text" name="username_reg" required="required"/>
 								<span class="error">This is an error</span>
 							</div>
 							<div>
-								<label>Email:</label>
-								<input type="text" />
 								<label>Email<em class="reqfield" name="email" required="required"> *</em></label>
 								<input type="email" />
 								<span class="error">This is an error</span>
@@ -88,14 +77,12 @@ session_start();
 								<span class="error">This is an error</span>
 							</div>
 							<div>
-								<label>Password:</label>
 								<label>Confirm Password<em class="reqfield" name="password_confirm" required="required"> *</em></label>
 								<input type="password" />
 								<span class="error">This is an error</span>
 							</div>
 						</div>
 						<div class="bottom">
-							<input type="submit" value="Register" />
 							<div id="register_error"></div>
 							<input type="submit" name="register" value="Register" />
 							<a href="" rel="login" class="linkform">You have an account already? Log in here</a>
