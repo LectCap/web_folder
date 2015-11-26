@@ -16,7 +16,6 @@ if(!isset($_SESSION['username'])) {
 		echo "<p>Welcome ". $_SESSION['username'] ."</p>";
 		?>
 		<form action="logout.php" method="POST">
-		<form action="php/logout.php" method="POST">
            <input type="submit" name="submit" value="Logout"/>
         </form>
     </body>
