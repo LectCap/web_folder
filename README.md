@@ -15,18 +15,18 @@
 .#Questions and/or a more detailed description, contact Anif
 
 
-Folder structure
+###Folder structure
 
-All code is by default in the www folder found in the wamp folder. I will refer to this as the root folder.
+All code is by default in the *www* folder found in the *wamp* folder. I will refer to this as the root folder.
 
-Put PHP code with HTML code embedded in the root folder (www). DO NOT PUT PURE PHP FILES IN THE ROOT FOLDER
+- Put **PHP** code with **HTML** code embedded in the root folder *www*. **DO NOT PUT PURE PHP FILES IN THE ROOT FOLDER**
 
-Pure PHP files are located in php subfolder (www/php). A pure PHP file has ONLY php code, not HTML!
+- Pure **PHP** files are located in php subfolder *www/php*. A pure **PHP** file has ONLY **PHP** code, not **HTML**!
 
-Put JavaScript files in the js subfolder (www/js)
+- Put **JavaScript** files in the js subfolder *www/js*
 
-Put CSS files in the css subfolder (www/css)
+- Put **CSS** files in the css subfolder *www/css*
 
-Put config.ini in C:/ so the path is C:/config.ini. FAILURE TO DO THIS WILL MAKE THE DATABASE FAIL IN ESTABLISHING CONNECTION!
+- Put *config.ini* in *C:/* so the path is *C:/config.ini*. **FAILURE TO DO THIS WILL MAKE THE DATABASE FAIL IN ESTABLISHING CONNECTION!**
 
-Ask Stefan if you have any questions!
+- Ask Stefan if you have any questions!
