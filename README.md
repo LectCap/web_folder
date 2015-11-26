@@ -11,6 +11,7 @@
 .#Nu kan du börja använda GitHub, ändra på själva sökvägen så synkar det automatiskt med programmet
 
 .#För fler frågor samt detaljerad beskrivning, skriv till Anif
+.#--------English---------
 
 .#Download GitHub desktop
 
