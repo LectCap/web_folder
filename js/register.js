@@ -25,7 +25,7 @@ $(document).ready(function(){
 			$('#register_error').append("<p>Database error! Please consult administrator</p>");  
 		  }
 		  else if(recv === -1) {
-			$('#register_error').append("<p>Wrong username or password!</p>");  
+			$('#register_error').append("<p>Passwords don't match!</p>");  
 		  }
 		  else if(recv === 0) {
 			$('#register_error').append("<p>Username already exists!</p>");  
@@ -39,8 +39,6 @@ $(document).ready(function(){
 		  else{
 			$('#register_error').append("<p>Something went terribly wrong</p>");  
 		  }
-		  console.log(recv);
-          $('#register_error').append("<p>"+recv+"</p>");
       },
       error: function(xhr, desc, err) {
         console.log(xhr);

@@ -18,5 +18,8 @@ if(!isset($_SESSION['username'])) {
 		<form action="php/logout.php" method="POST">
            <input type="submit" name="submit" value="Logout"/>
         </form>
+		<form action="editAcc.php" method="POST">
+           <input type="submit" name="edit_submit" value="Edit Account"/>
+        </form>
     </body>
 </html>

@@ -23,6 +23,7 @@ function checklogin() {
 		else if(mysqli_num_rows($result) === 1) {
 			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 			if(password_verify($password, $row['password'])) {
+				$username = str_replace("'", "", $username);
 				$_SESSION['username'] = $username;
 				$return = array('code' => 1);
 				echo json_encode($return);

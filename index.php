@@ -67,18 +67,18 @@ session_start();
 								<span class="error">This is an error</span>
 							</div>
 							<div>
-								<label>Email<em class="reqfield" name="email" required="required"> *</em></label>
-								<input type="email" />
+								<label>Email<em class="reqfield"> *</em></label>
+								<input type="email" name="email" required="required"/>
 								<span class="error">This is an error</span>
 							</div>
 							<div>
-								<label>Password<em class="reqfield" name="password_reg" required="required"> *</em></label>
-								<input type="password" />
+								<label>Password<em class="reqfield"> *</em></label>
+								<input type="password" name="password_reg"  required="required"/>
 								<span class="error">This is an error</span>
 							</div>
 							<div>
-								<label>Confirm Password<em class="reqfield" name="password_confirm" required="required"> *</em></label>
-								<input type="password" />
+								<label>Confirm Password<em class="reqfield" > *</em></label>
+								<input type="password" name="password_confirm" required="required"/>
 								<span class="error">This is an error</span>
 							</div>
 						</div>
