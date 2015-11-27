@@ -46,7 +46,7 @@ $(document).ready(function(){
 			$('#editAcc_error').append("<p>Email already taken!</p>");  
 		  }
 		  else if(recv === 1) {
-			$('#editAcc_error').css('color', 'green');
+			$('#editAcc_error').css('color', 'lime');
 			$('#editAcc_error').append("<p>Account information successfully changed!</p>"); 
 			$('#editAcc_error').fadeOut(3000);
 		  }
