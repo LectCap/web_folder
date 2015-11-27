@@ -7,7 +7,6 @@ body{
 	font-size:14px;
 	background:#f4f4f4 url(../images/bg.gif) repeat top left;
 	color:#333;
-	text-shadow:1px 1px 1px #fff;
 	overflow-y:scroll;
 }
 h1{
@@ -89,8 +88,8 @@ form.login{
 form.register{
 	width:550px;
 }
-form.forgot_password{
-	width:300px;
+form.edit{
+	width:350px;
 }
 .form_wrapper a{
 	text-decoration:none;

@@ -11,34 +11,40 @@ if(!isset($_SESSION['username'])) {
         <title>My first PHP Website</title>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="/js/editAcc.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/css/master.css">
     </head>
     <body>
-		<div class="column">
-			<form id="edit-accinfo">
-				<h3>Edit account information</h3>
-				<div class="column">
-					<div>
-						<label>First Name<em class="reqfield"> *</em></label>
-						<input type="text" name="firstname" required="required"/>
-					</div>
-					<div>
-						<label>Last Name<em class="reqfield"> *</em></label>
-						<input type="text" name="lastname" required="required"/>
-					</div>
-					<div>
-						<label>School</label>
-						<input type="text" name="school"/>
-					</div>
-					<div>
-						<label>Programme</label>
-						<input type="text" name="programme"/>
-					</div>
-					<div>
-						<input type="submit" name="edit-accinfo" value="Apply"/>
-					</div>
-					<div id="editAcc_error">
-					</div>
+		<div class="wrapper">
+			<h1>Online Lecture </h1>
+			<h2>Edit account information,<span> email</span> or change password</h2>
+			
+			<div class="content">
+				<div id="form_wrapper" class="form_wrapper">
+					<form id="edit-accinfo" class="edit active">
+					<h3>Edit account <i class="fa fa-user"></i>information</h3>	
+							<div>
+								<label>First Name<em class="reqfield"> *</em></label>
+								<input type="text" name="firstname" required="required"/>
+							</div>
+							<div>
+								<label>Last Name<em class="reqfield"> *</em></label>
+								<input type="text" name="lastname" required="required"/>
+							</div>
+							<div>
+								<label>School</label>
+								<input type="text" name="school"/>
+							</div>
+							<div>
+								<label>Programme</label>
+								<input type="text" name="programme"/>
+							</div>
+							<div class="bottom">
+								<div id="editAcc_error"></div>
+								<input type="submit" name="edit-accinfo" value="Apply"/>
+								<div class="clear"></div>
+							</div>
+					</form>		
 				</div>
 		</div>
 		<div class="column">
@@ -55,32 +61,37 @@ if(!isset($_SESSION['username'])) {
 				</div>
 				<div>
 					<input type="submit" name="edit-email" value="Apply"/>
+			</div>
+			
+			<div class="content" style="margin-top:20px">
+				<div id="form_wrapper" class="form_wrapper">
+					<form id="edit-pwd" class="edit active">
+					<h3>Change password <i class="fa fa-user-secret"></i></h3>
+						<div class="column2">
+							<div>
+								<label>Current Password<em class="reqfield"> *</em></label>
+								<input type="password" name="current_password"  required="required"/>
+							</div>
+							<div>
+								<label>New Password<em class="reqfield" > *</em></label>
+								<input type="password" name="new_password" required="required"/>
+							</div							<div>
+								<label>Confirm New Password<em class="reqfield" > *</em></label>
+								<input type="password" name="password_confirm" required="required"/>
+							</div>
+							<div class="bottom">
+								<div id="editPwd_error"></div>
+								<input type="submit" name="edit-pwd" value="Apply"/>
+								<div class="clear"></div>
+							</div>
+						</div>
+					</form>
 				</div>
 				<div id="editEmail_error">
 				</div>
 			</form>
+			</div>
+			
 		</div>
-			<form id="edit-pwd" style="margin-top: 50px">
-				<h3>Change password</h3>
-				<div class="column">
-					<div>
-						<label>Current Password<em class="reqfield"> *</em></label>
-						<input type="password" name="current_password"  required="required"/>
-					</div>
-					<div>
-						<label>New Password<em class="reqfield"> *</em></label>
-						<input type="password" name="new_password"  required="required"/>
-					</div>
-					<div>
-						<label>Confirm New Password<em class="reqfield" > *</em></label>
-						<input type="password" name="password_confirm" required="required"/>
-					</div>
-					<div>
-						<input type="submit" name="edit-pwd" value="Apply"/>
-					</div>
-					<div id="editPwd_error">
-					</div>
-				</div>
-			</form>
 	</body>
 </html>
