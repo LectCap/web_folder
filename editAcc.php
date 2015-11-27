@@ -61,7 +61,10 @@ if(!isset($_SESSION['username'])) {
 				</div>
 				<div>
 					<input type="submit" name="edit-email" value="Apply"/>
-			</div>
+				</div>
+				<div id="editEmail_error">
+				</div>
+			</form>
 			
 			<div class="content" style="margin-top:20px">
 				<div id="form_wrapper" class="form_wrapper">
@@ -87,9 +90,6 @@ if(!isset($_SESSION['username'])) {
 						</div>
 					</form>
 				</div>
-				<div id="editEmail_error">
-				</div>
-			</form>
 			</div>
 			
 		</div>

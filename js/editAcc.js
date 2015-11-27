@@ -134,11 +134,11 @@ $(document).ready(function(){
 		  }
 		  else if(recv === 0) {
 			$('#editPwd_error').css('color', 'red');
-			$('#editPwd_error').append("<p>Email already taken or it\'s your current email!</p>");  
+			$('#editPwd_error').append("<p>Entered passwords don\'t match!</p>");  
 		  }
 		  else if(recv === 1) {
 			$('#editPwd_error').css('color', 'green');
-			$('#editPwd_error').append("<p>Email successfully changed!</p>"); 
+			$('#editPwd_error').append("<p>Password successfully changed!</p>"); 
 			$('#editPwd_error').fadeOut(3000);
 		  }
 		  else if(recv === -2) {
