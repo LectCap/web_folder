@@ -36,7 +36,7 @@ session_start();
 						</div>
 					</form>
 					
-						<form id="register-form" class="register">
+					<form id="register-form" class="register">
 						<h3>Register</h3>
 						<div class="column">
 							<div>

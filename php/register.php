@@ -40,6 +40,7 @@ function register() {
 					$return = array('code' => -2);
 					echo json_encode($return);
 				} else {
+					$username = str_replace("'", "", $username);
 					$_SESSION['username'] = $username;
 					$return = array('code' => 1);
 					echo json_encode($return);
