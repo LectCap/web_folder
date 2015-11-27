@@ -8,7 +8,7 @@ if(!isset($_SESSION['username'])) {
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>My first PHP Website</title>
+        <title>Welcome</title>
     </head>
     <body>
         <h2>Main start page</h2>
