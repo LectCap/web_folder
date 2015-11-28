@@ -30,3 +30,4 @@ All code is by default in the *www* folder found in the *wamp* folder. I will re
 - Put *config.ini* in *C:/* so the path is *C:/config.ini*. **FAILURE TO DO THIS WILL MAKE THE DATABASE FAIL IN ESTABLISHING CONNECTION!**
 
 - Ask Stefan if you have any questions!
+- Jannis mkt djurig
