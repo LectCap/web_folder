@@ -9,7 +9,6 @@ session_start();
 		<script src="/js/checklogin.js"></script>
 		<script src="/js/login_register.js"></script>
 		<script src="/js/register.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/css/master.css">
     </head>
     <body>
@@ -20,7 +19,7 @@ session_start();
 				<div id="form_wrapper" class="form_wrapper">
 				
 					<form id="login-form" class="login active">
-					<h3>Login <i class="fa fa-sign-in"></i></h3>
+					<h3>Login</h3>
 						<div>
 							<label>Username:</label> 
 							<input type="text" name="username" required="required" />
@@ -38,7 +37,7 @@ session_start();
 					</form>
 					
 					<form id="register-form" class="register">
-						<h3>Register <i class="fa fa-user"></i></h3>
+						<h3>Register</h3>
 						<div class="column">
 							<div>
 								<label>First Name<em class="reqfield"> *</em></label>

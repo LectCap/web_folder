@@ -1,0 +1,49 @@
+﻿Merge branch 'master' of https://github.com/LectCap/web_folder
+
+# Conflicts:
+#	editAcc.php
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 1 and 1 different commit each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   editAcc.php
+#	modified:   js/editAcc.js
+#	modified:   php/setPwd.php
+#
+# Changes not staged for commit:
+#	modified:   README.md
+#	modified:   config.ini
+#	modified:   css/master.css
+#	modified:   index.php
+#	modified:   js/checklogin.js
+#	modified:   js/editAcc.js
+#	modified:   js/login_register.js
+#	modified:   js/register.js
+#	modified:   php/checklogin.php
+#	modified:   php/db.php
+#	modified:   php/getAccinfo.php
+#	modified:   php/logout.php
+#	modified:   php/register.php
+#	modified:   php/setAccinfo.php
+#	modified:   php/setEmail.php
+#	modified:   php/setPwd.php
+#	modified:   start.php
+#
+# Untracked files:
+#	2driyqpq.4ls.txt
+#	zlyn210p.yjv.txt
+#
+
