@@ -215,3 +215,9 @@ form.edit{
 .reqfield {
 	color: red;
 }
+
+.edit_error {
+	font-weight: bold;
+	font-size: 16px;
+	margin-left: 2px;
+}
