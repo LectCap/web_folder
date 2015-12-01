@@ -221,3 +221,8 @@ form.edit{
 	font-size: 16px;
 	margin-left: 2px;
 }
+.edit_error {
+	font-weight: bold;
+	font-size: 16px;
+	margin-left: 2px;
+}
