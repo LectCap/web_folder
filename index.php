@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(isset($_SESSION['username'])) {
+	header('Location: http://localhost:8080/start.php');
+	die();
+}
 ?>
 <!DOCTYPE HTML>
 <html>
