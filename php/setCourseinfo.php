@@ -1,4 +1,5 @@
 <?php
+/* I HAVENT REALLY TOUCHED THIS FILE ITS A COPY PASTE OF ANOTHER FILE. PLEASE BE AWARE */
 session_start();
 include($_SERVER['DOCUMENT_ROOT']."/php/db.php");
 setCourseinfo();

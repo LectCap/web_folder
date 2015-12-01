@@ -106,7 +106,8 @@ form.edit{
 }
 .form_wrapper input[type="text"],
 .form_wrapper input[type="password"],
-.form_wrapper input[type="email"]{
+.form_wrapper input[type="email"],
+.form_wrapper textarea {
 	border: solid 1px #E5E5E5;
 	background: #FFFFFF;
 	margin: 5px 30px 0px 30px;
@@ -133,6 +134,7 @@ form.edit{
 	-moz-box-shadow: 0px 0px 8px #f0f0f0;
 	-webkit-box-shadow: 0px 0px 8px #f0f0f0;
 	box-shadow: 0px 0px 8px #f0f0f0;
+	resize: none;
 }
 .form_wrapper input[type="text"]:focus,
 .form_wrapper input[type="password"]:focus,
@@ -216,11 +218,6 @@ form.edit{
 	color: red;
 }
 
-.edit_error {
-	font-weight: bold;
-	font-size: 16px;
-	margin-left: 2px;
-}
 .edit_error {
 	font-weight: bold;
 	font-size: 16px;
