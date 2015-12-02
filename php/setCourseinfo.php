@@ -46,7 +46,6 @@ function setCourseinfo() {
 					$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 					$course_id = $row['id'];
 					$result = db_query("INSERT INTO user_course (user_id,course_id,teacher) VALUES ('$user_id', '$course_id', '1')");
-					//$result = db_query("INSERT INTO courses (name,description,code) VALUES ($course_name, $course_description, $course_code)");
 					if($result === false) {
 						$return = array('code' => -6);
 						echo json_encode($return);

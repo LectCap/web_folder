@@ -16,7 +16,7 @@ include($_SERVER['DOCUMENT_ROOT']."/php/courseHeader.php");
 			<h2>Log in <span>or register</span> to take part of online lectures</h2>
 			<div class="content">
 				<div id="form_wrapper" class="form_wrapper">					
-					<form id="editCourse-form" class="edit active" data-id="<?php echo $course_id; ?>">
+					<form id="editCourse-form" class="edit active" data-courseid="<?php echo $course_id; ?>" data-userid="<?php echo $_SESSION['user_id']; ?>">
 						<?php echo '<h3>Edit course '.$course_code.' <i class="fa fa-book"></i></h3>'; ?>
 						<div>
 							<label>Course code<em class="reqfield"> *</em></label>
@@ -33,7 +33,7 @@ include($_SERVER['DOCUMENT_ROOT']."/php/courseHeader.php");
 							<textarea rows="5" cols="40" name="edit_course_description" placeholder="Write a short course description" maxlength="250"></textarea>
 						</div>
 						<div class="bottom">
-							<div id="editCourse_error"></div>
+							<div id="editCourse_error" style="color: #ffa800"></div>
 							<input type="submit" name="editCourse" value="Apply changes" />
 							<div class="clear"></div>
 						</div>
