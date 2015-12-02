@@ -40,11 +40,8 @@ function register() {
 					$return = array('code' => -2);
 					echo json_encode($return);
 				} else {
-					$result = db_query("SELECT * FROM users WHERE username = $username");
-					$row = mysqli_fetch_array($result, MYSQLI_ASSOC); 
 					$username = str_replace("'", "", $username);
 					$_SESSION['username'] = $username;
-					$_SESSION['user_id'] = $row['id'];
 					$return = array('code' => 1);
 					echo json_encode($return);
 				}

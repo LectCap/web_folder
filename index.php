@@ -34,7 +34,7 @@ if(isset($_SESSION['username'])) {
 							<input type="password" name="password" required="required" />
 						</div>
 						<div class="bottom">
-							<div id="login_error"></div>
+							<div id="login_error" class="edit_error"></div>
 							<input type="submit" name="login" value="Login"/>
 							<a href="" rel="register" class="linkform">You don't have an account yet? Register here</a>
 							<div class="clear"></div>
@@ -88,7 +88,7 @@ if(isset($_SESSION['username'])) {
 							</div>
 						</div>
 						<div class="bottom">
-							<div id="register_error"></div>
+							<div id="register_error" class="edit_error"></div>
 							<input type="submit" name="register" value="Register" />
 							<a href="" rel="login" class="linkform">You have an account already? Log in here</a>
 							<div class="clear"></div>

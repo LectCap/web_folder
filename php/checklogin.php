@@ -25,7 +25,6 @@ function checklogin() {
 			if(password_verify($password, $row['password'])) {
 				$username = str_replace("'", "", $username);
 				$_SESSION['username'] = $username;
-				$_SESSION['user_id'] = $row['id'];
 				$return = array('code' => 1);
 				echo json_encode($return);
 			} else {

@@ -5,7 +5,7 @@
 body{
 	font-family:/*"Trebuchet MS",*/ "Myriad Pro", Arial, sans-serif;
 	font-size:14px;
-	background:#f4f4f4 url(../images/bg.gif) repeat top left;
+	background:#f4f4f4 url("../images/bg.gif") repeat top left;
 	color:#333;
 	overflow-y:scroll;
 }
@@ -221,5 +221,6 @@ form.edit{
 .edit_error {
 	font-weight: bold;
 	font-size: 16px;
-	margin-left: 2px;
+	margin-left: 5px;
+	color: red;
 }
