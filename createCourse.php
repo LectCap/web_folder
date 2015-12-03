@@ -34,10 +34,10 @@ if(!isset($_SESSION['username'])) {
 						</div>
 						<div>
 							<label>Course description</label>
-							<textarea rows="5" cols="40" name="course_description" placeholder="Write a short course description" maxlength="250"></textarea>
+							<textarea id="styled" rows="5" cols="40" name="course_description" placeholder="Write a short course description" maxlength="250"></textarea>
 						</div>
 						<div class="bottom">
-							<div id="createCourse_error"></div>
+							<div id="createCourse_error" class="edit_error"></div>
 							<input type="submit" name="createCourse" value="Create course" />
 							<div class="clear"></div>
 						</div>

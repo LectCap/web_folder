@@ -5,7 +5,7 @@
 body{
 	font-family:/*"Trebuchet MS",*/ "Myriad Pro", Arial, sans-serif;
 	font-size:14px;
-	background:#f4f4f4 url(../images/bg.gif) repeat top left;
+	background:#f4f4f4 url("../images/bg.gif") repeat top left;
 	color:#333;
 	overflow-y:scroll;
 }
@@ -66,10 +66,15 @@ a.back{
 }
 .form_wrapper h3{
 	padding:20px 30px 20px 30px;
+	background: url("../images/bg1.png");
 	background-color:#444;
 	color:#fff;
 	font-size:25px;
 	border-bottom:1px solid #ddd;
+	
+	border: 3px solid #ffa800;
+	border-radius: 3px;
+	box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
 }
 .form_wrapper form{
 	display:none;
@@ -90,6 +95,11 @@ form.register{
 }
 form.edit{
 	width:350px;
+}
+
+form.start {
+	width:750px;
+	margin:auto;
 }
 .form_wrapper a{
 	text-decoration:none;
@@ -142,12 +152,17 @@ form.edit{
 	background:#feffef;
 }
 .form_wrapper .bottom{
+	background: url("../images/bg1.png");
 	background-color:#444;
 	border-top:1px solid #ddd;
 	margin-top:20px;
 	clear:both;
 	color:#fff;
 	text-shadow:1px 1px 1px #000;
+	
+	/*border: 3px solid #ffa800;
+	border-radius: 3px;
+	box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);*/
 }
 .form_wrapper .bottom a{
 	display:block;
@@ -221,5 +236,29 @@ form.edit{
 .edit_error {
 	font-weight: bold;
 	font-size: 16px;
-	margin-left: 2px;
+	margin-left: 5px;
+	color: red;
+}
+
+.startpage {
+	padding:10px;
+	color:#aaa;
+	font-size:20px;
+}
+
+.startheadline span {
+	color:#ffa800;
+}
+
+.startheadline {
+	padding-top:15px;
+	padding-left:10px;
+	color:#aaa;
+	font-size:40px;
+}
+
+.contact {
+	padding:10px;
+	color:#ffa800;
+	font-size:80%;
 }

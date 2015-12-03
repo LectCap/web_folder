@@ -23,12 +23,12 @@ include($_SERVER['DOCUMENT_ROOT']."/php/courseHeader.php");
 		<form action="php/logout.php" method="POST">
            <input type="submit" name="submit" value="Logout"/>
         </form>
-		<form action="editAcc.php" method="POST">
-           <input type="submit" name="edit_submit" value="Edit Account"/>
-        </form>
-		<?php echo '<form action="editCourse.php?user='.$user_id.'&course='.$course_id.'" method="POST">'; ?>
-		<form action="editCourse.php" method="POST">
-           <input type="submit" name="create_course_submit" value="Edit or close course"/>
-        </form>
+		<?php 
+			if($teacher == 1) {
+				echo '<form action="editCourse.php?user='.$user_id.'&course='.$course_id.'" method="POST">';
+				echo '<input type="submit" name="create_course_submit" value="Edit or close course"/>';
+				echo '</form>';
+			}
+		?>
     </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-/* Gets the current attributes for a course */
+/* Gets the current attributes for a course. Called from editCourse.js */
 session_start();
 include($_SERVER['DOCUMENT_ROOT']."/php/db.php");
 getCourseinfo();
