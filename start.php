@@ -12,6 +12,7 @@ if(!isset($_SESSION['username'])) {
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/css/master.css">
+		<script src="/js/login_register.js"></script>
 		
 		<meta charset='utf-8'>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,16 +37,25 @@ if(!isset($_SESSION['username'])) {
 			<div class="content">
 				<div id="form_wrapper" class="form_wrapper">
 				
-					<form id="edit-accinfo" class="edit active">
-						lorem</br>ipsum
-						lorem</br>ipsum
-						lorem</br>ipsum
-						lorem</br>ipsum
-						lorem</br>ipsum
+					<form id="startpage" class="start active">
+							<p class="startheadline">
+								Welcome to<span> Online Lecture</span>!
+							</p>
+							<p class="startpage">
+								Lorem ipsum dolor sit amet, 
+								consectetur adipiscing elit, 
+								sed do eiusmod tempor incididunt 
+								ut labore et dolore magna aliqua. 
+								Ut enim ad minim veniam, quis nostrud 
+								exercitation ullamco laboris nisi ut 
+								aliquip ex ea commodo consequat.
+								Duis aute irure dolor in reprehenderit in voluptate 
+								velit esse cillum dolore eu fugiat nulla pariatur. 
+								Excepteur sint occaecat cupidatat non proident, 
+								sunt in culpa qui officia deserunt mollit anim id est laborum
+							</p>
 						<div class="bottom">
-							<div id="editAcc_error" class="edit_error"></div>
-							lorem</br>ipsum
-							<div class="clear"></div>
+							<p class="contact">Contact information: onlinelecture@team7.net</p>
 						</div>
 					</form>	
 					

@@ -28,13 +28,13 @@
   display: none;
 }
 #cssmenu {
-  width: 700px;
-  margin:20px auto;
+  width: 750px;
+  margin:auto;
   border: 3px solid #ffa800;
   border-radius: 3px;
   font-family: 'Oswald', sans-serif;
   line-height: 1;
-  background: #f7f7f7;
+  background: #444;
   box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
 }
 #cssmenu > ul {
@@ -69,7 +69,7 @@
 #cssmenu > ul > li > a:hover,
 #cssmenu > ul > li:hover > a,
 #cssmenu > ul > li.active > a {
-  color: #444444;
+  color: #FFFFFF;
 }
 #cssmenu #menu-indicator {
   position: absolute;
