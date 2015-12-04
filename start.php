@@ -36,10 +36,16 @@ if(!isset($_SESSION['username'])) {
 					
 			<div class="content">
 				<div id="form_wrapper" class="form_wrapper">
-				
-					<form id="startpage" class="start active">
+					<div id="startpage" class="start active">
 							<p class="startheadline">
 								Welcome to<span> Online Lecture</span>!
+								<?php
+								if(isset($_GET['info'])) {
+									if($_GET['info'] == 'courseClosed') {
+										echo "</br><p>The course has been successfully closed</p>";
+									}
+								}
+								?>
 							</p>
 							<p class="startpage">
 								Lorem ipsum dolor sit amet, 
@@ -57,7 +63,7 @@ if(!isset($_SESSION['username'])) {
 						<div class="bottom">
 							<p class="contact">Contact information: onlinelecture@team7.net</p>
 						</div>
-					</form>	
+					</div>	
 					
 					<!--<?php
 						echo "<h2>Welcome ". $_SESSION['username'] ."</h2>";

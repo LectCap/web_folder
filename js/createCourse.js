@@ -1,3 +1,5 @@
+/** Belongs to createCourse.php and is responsible for creating a new course **/
+
 $(document).ready(function(){
   $('#createCourse-form').submit(function(e){
     e.preventDefault();

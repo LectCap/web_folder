@@ -35,7 +35,7 @@ function editCourseinfo() {
 			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 			$db_course_id = db_quote($row['id']);
 			if($db_course_id != $course_id) {
-				$return = array('code' => -1, 'db_id' => $db_course_id, 'entered_id' => $course_id);
+				$return = array('code' => -1);
 				echo json_encode($return);
 			}
 			else {

@@ -7,6 +7,7 @@ include($_SERVER['DOCUMENT_ROOT']."/php/courseHeader.php");
         <?php echo "<title>Edit course $course_name </title>"; ?>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="/js/editCourse.js"></script>
+		<script src="/js/closeCourse.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/css/master.css">
     </head>
@@ -35,6 +36,21 @@ include($_SERVER['DOCUMENT_ROOT']."/php/courseHeader.php");
 						<div class="bottom">
 							<div id="editCourse_error" style="color: #ffa800"></div>
 							<input type="submit" name="editCourse" value="Apply changes" />
+							<div class="clear"></div>
+						</div>
+					</form>
+				</div>
+				<div id="form_wrapper" style="margin-top: 50px" class="form_wrapper">					
+					<form id="closeCourse-form" class="edit active" data-courseid="<?php echo $course_id; ?>" data-userid="<?php echo $_SESSION['user_id']; ?>">
+						<?php echo '<h3>Close course '.$course_code.' <i class="fa fa-trash"></i></h3>'; ?>
+						<div id="close_course_confirm" style="display: none">
+							<label>Confirm with password<em class="reqfield"> *</em></label>
+							<input type="password" name="close_course_password" maxlength="45"/>
+							<span class="error">This is an error</span>
+						</div>
+						<div class="bottom">
+							<div id="closeCourse_error" style="color: #ffa800"></div>
+							<input type="submit" name="closeCourse" value="Close course" />
 							<div class="clear"></div>
 						</div>
 					</form>

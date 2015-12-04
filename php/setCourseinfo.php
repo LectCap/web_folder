@@ -1,4 +1,5 @@
 <?php
+/** Called by createCourse.js in order to create a course entry in the database **/
 session_start();
 include($_SERVER['DOCUMENT_ROOT']."/php/db.php");
 setCourseinfo();
@@ -32,24 +33,23 @@ function setCourseinfo() {
 			$user_id = $row['id'];
 			$result = db_query("INSERT INTO courses (name,description,code) VALUES ($course_name, $course_description, $course_code)");
 			if (!$result){
-				$errormsg = db_error();
-				$return = array('code' => -3, 'errormsg' => $errormsg, 'course_code' => $course_code, 'name' => $course_name, 'descr' => $course_description);
+				$return = array('code' => -2);
 				echo json_encode($return);
 			} else {
 				/* Get course id to form user_course table entry */
-				$result = db_query("SELECT * FROM courses WHERE name = $course_name");
+				$result = db_query("SELECT * FROM courses WHERE code = $course_code");
 				if(!$result) {
-					$return = array('code' => -4);
+					$return = array('code' => -2);
 					echo json_encode($return);
 				} else {
 					$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 					$course_id = $row['id'];
 					$result = db_query("INSERT INTO user_course (user_id,course_id,teacher) VALUES ('$user_id', '$course_id', '1')");
-					if($result === false) {
-						$return = array('code' => -6);
+					if(!$result) {
+						$return = array('code' => -2);
 						echo json_encode($return);
 					} else {
-						$return = array('code' => 1, 'user_id' => $user_id, 'course_id' => $course_id);
+						$return = array('code' => 1);
 						echo json_encode($return);
 					}
 				}
