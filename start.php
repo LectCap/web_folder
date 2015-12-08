@@ -32,6 +32,7 @@ if(!isset($_SESSION['username'])) {
 						   <li><a href='editAcc.php'>Edit Account</a></li>
 						   <li><a href='createCourse.php'>Create a Course</a></li>
 						   <li><a href='addVideo.php'>Add video</a></li>
+						   <li><a href='viewCourses.php'>View courses</a></li>
 						</ul>
 					</div>	
 					
