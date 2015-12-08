@@ -14,11 +14,10 @@ else {
 	$user_id = $_GET['user'];
 	$result = db_query("SELECT * FROM users WHERE id = '$user_id'");
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-	if(!$result || ($row['username'] != $_SESSION['username']))
+	if(!$result || (strtolower($row['username']) != strtolower($_SESSION['username'])))
 	{
-		echo "tjo ".$row['username'];
-		//header('Location: http://localhost:8080/index.php');
-		//die();
+		header('Location: http://localhost:8080/index.php');
+		die();
 	} else {
 		$result = db_query("SELECT * FROM user_course WHERE user_id = '$user_id' AND course_id = '$course_id'");
 		if(!$result || (mysqli_num_rows($result) != 1)) {
