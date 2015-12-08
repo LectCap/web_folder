@@ -23,7 +23,22 @@ if(!isset($_SESSION['username'])) {
     </head>
     <body>
 		<div class="wrapper">
+<<<<<<< HEAD
 		<?php include($_SERVER['DOCUMENT_ROOT']."/php/navigator.php"); ?>
+=======
+			<h1>Online Lecture</h1>
+			<h2>Log in <span>or register</span> to take part of online lectures</h2>
+			
+					<div id='cssmenu'>
+						<ul>
+						   <li class='active'><a href='php/logout.php'>Logout</a></li>
+						   <li><a href='editAcc.php'>Edit Account</a></li>
+						   <li><a href='createCourse.php'>Create a Course</a></li>
+						   <li><a href='addVideo.php'>Add video</a></li>
+						   <li><a href='viewCourses.php'>View courses</a></li>
+						</ul>
+					</div>	
+>>>>>>> e39a105e85b545d1216e8b25731217dd75068afd
 					
 			<div class="content">
 			</div>

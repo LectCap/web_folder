@@ -50,7 +50,7 @@ function setCourseinfo() {
 						$return = array('code' => -2);
 						echo json_encode($return);
 					} else {
-						$return = array('code' => 1);
+						$return = array('code' => 1, 'user_id' => $user_id, 'course_id' => $course_id);
 						echo json_encode($return);
 					}
 				}
