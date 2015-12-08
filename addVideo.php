@@ -21,7 +21,7 @@ if(!isset($_SESSION['username'])) {
 			<div class="content">
 				<div id="form_wrapper" class="form_wrapper">
 				
-					<form id="addVid-form" class="vid active">
+					<form id="createVideo-form" class="vid active">
 					<h3>Upload Lecture <i class="fa fa-eject"></i></h3>
 						<div>
 							<label>Title</label> 
@@ -29,15 +29,14 @@ if(!isset($_SESSION['username'])) {
 						</div>
 						<div>
 							<label>Description</label> 
-							<input type="text" name="video_desc" required="required" />
+							<input type="text" name="video_description" required="required" />
 						</div>
 						<div>
 							<label>YouTube-Link</label> 
 							<input type="text" name="url" required="required" />
 						</div>
 						<div class="bottom">
-							<div id="upload_error"></div>
-							<input type="submit" name="createVideo" value="Add video"/>
+							<input type="submit" name="setVideo" value="Add_video"/>
 							<div class="clear"></div>
 						</div>
 					</form>

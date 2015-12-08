@@ -31,6 +31,7 @@ if(!isset($_SESSION['username'])) {
 						   <li class='active'><a href='php/logout.php'>Logout</a></li>
 						   <li><a href='editAcc.php'>Edit Account</a></li>
 						   <li><a href='createCourse.php'>Create a Course</a></li>
+						   <li><a href='addVideo.php'>Add video</a></li>
 						</ul>
 					</div>	
 					
