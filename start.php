@@ -23,54 +23,9 @@ if(!isset($_SESSION['username'])) {
     </head>
     <body>
 		<div class="wrapper">
-			<h1>Online Lecture</h1>
-			<h2>Log in <span>or register</span> to take part of online lectures</h2>
-			
-					<div id='cssmenu'>
-						<ul>
-						   <li class='active'><a href='php/logout.php'>Logout</a></li>
-						   <li><a href='editAcc.php'>Edit Account</a></li>
-						   <li><a href='createCourse.php'>Create a Course</a></li>
-						   <li><a href='addVideo.php'>Add video</a></li>
-						</ul>
-					</div>	
+		<?php include($_SERVER['DOCUMENT_ROOT']."/php/navigator.php"); ?>
 					
 			<div class="content">
-				<div id="form_wrapper" class="form_wrapper">
-					<div id="startpage" class="start active">
-							<p class="startheadline">
-								Welcome to<span> Online Lecture</span>!
-								<?php
-								if(isset($_GET['info'])) {
-									if($_GET['info'] == 'courseClosed') {
-										echo "</br><p>The course has been successfully closed</p>";
-									}
-								}
-								?>
-							</p>
-							<p class="startpage">
-								Lorem ipsum dolor sit amet, 
-								consectetur adipiscing elit, 
-								sed do eiusmod tempor incididunt 
-								ut labore et dolore magna aliqua. 
-								Ut enim ad minim veniam, quis nostrud 
-								exercitation ullamco laboris nisi ut 
-								aliquip ex ea commodo consequat.
-								Duis aute irure dolor in reprehenderit in voluptate 
-								velit esse cillum dolore eu fugiat nulla pariatur. 
-								Excepteur sint occaecat cupidatat non proident, 
-								sunt in culpa qui officia deserunt mollit anim id est laborum
-							</p>
-						<div class="bottom">
-							<p class="contact">Contact information: onlinelecture@team7.net</p>
-						</div>
-					</div>	
-					
-					<!--<?php
-						echo "<h2>Welcome ". $_SESSION['username'] ."</h2>";
-					?>-->
-					
-				</div>
 			</div>
 		</div>
 	</body>

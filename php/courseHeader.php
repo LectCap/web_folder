@@ -1,3 +1,5 @@
+
+
 <?php
 /* Used as a header for the course related pages to check if the user has permission to visit the page
 and also to check if user is teacher or not */
@@ -14,8 +16,9 @@ else {
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	if(!$result || ($row['username'] != $_SESSION['username']))
 	{
-		header('Location: http://localhost:8080/index.php');
-		die();
+		echo "tjo ".$row['username'];
+		//header('Location: http://localhost:8080/index.php');
+		//die();
 	} else {
 		$result = db_query("SELECT * FROM user_course WHERE user_id = '$user_id' AND course_id = '$course_id'");
 		if(!$result || (mysqli_num_rows($result) != 1)) {

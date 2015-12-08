@@ -8,19 +8,21 @@ if(!isset($_SESSION['username'])) {
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>My first PHP Website</title>
+        <title>Edit account</title>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="/js/editAcc.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/css/master.css">
+		<script src="/js/startmenu.js"></script>
+		<link rel="stylesheet" href="/css/startmenu.css">
+		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     </head>
     <body>
-		<div class="wrapper">
-			<h1>Online Lecture </h1>
-			<h2>Edit account information,<span> email</span> or change password</h2>
-			
+			<div class="wrapper">
+			<?php include($_SERVER['DOCUMENT_ROOT']."/php/navigator.php"); ?>
+					
 			<div class="content">
-				<div id="form_wrapper" class="form_wrapper">
+			<div id="form_wrapper" class="form_wrapper">
 					<form id="edit-accinfo" class="edit active">
 					<h3>Edit account <i class="fa fa-user"></i>information</h3>	
 						<div>
@@ -46,9 +48,8 @@ if(!isset($_SESSION['username'])) {
 						</div>
 					</form>		
 				</div>
-			</div>
-			
-			<div class="content" style="margin-top:20px">
+				
+				<div class="content" style="margin-top:20px">
 				<div id="form_wrapper" class="form_wrapper">
 					<form id="edit-email" class="edit active">
 					<h3>Change email <i class="fa fa-envelope"></i></h3>
@@ -68,6 +69,8 @@ if(!isset($_SESSION['username'])) {
 					</form>
 				</div>
 			</div>
+			
+			
 			
 			<div class="content" style="margin-top:20px">
 				<div id="form_wrapper" class="form_wrapper">
@@ -93,6 +96,16 @@ if(!isset($_SESSION['username'])) {
 					</form>
 				</div>
 			</div>
+			
+			</div>
+		</div>
+	
+	
+		<div class="wrapper">			
+
+			
+
+			
 			
 		</div>
 	</body>

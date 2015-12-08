@@ -13,13 +13,16 @@ if(!isset($_SESSION['username'])) {
 		<script src="/js/createCourse.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/css/master.css">
+		<script src="/js/startmenu.js"></script>
+		<link rel="stylesheet" href="/css/startmenu.css">
+		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     </head>
     <body>
-		<div class="wrapper">
-			<h1>Online Lecture</h1>
-			<h2>Log in <span>or register</span> to take part of online lectures</h2>
+			<div class="wrapper">
+			<?php include($_SERVER['DOCUMENT_ROOT']."/php/navigator.php"); ?>
+					
 			<div class="content">
-				<div id="form_wrapper" class="form_wrapper">					
+							<div id="form_wrapper" class="form_wrapper">					
 					<form id="createCourse-form" class="edit active">
 						<h3>Create a Course <i class="fa fa-book"></i></h3>
 						<div>
@@ -45,5 +48,10 @@ if(!isset($_SESSION['username'])) {
 				</div>
 			</div>
 		</div>
+		
+		
+
+
+
     </body>
 </html>
