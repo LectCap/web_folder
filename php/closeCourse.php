@@ -36,17 +36,21 @@ function closeCourse() {
 			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 			if(password_verify($password, $row['password'])) {
 				/* A delete query. Will delete entries in user_course table as well as courses table */
+				db_begin_transaction();
 				$result = db_query("DELETE FROM user_course WHERE course_id = $course_id");
 				if(!$result) {
 					$return = array('code' => -2);
+					db_rollback();
 					echo json_encode($return);
 				} else {
 					$result = db_query("DELETE FROM courses WHERE id = $course_id");
 					if(!$result) {
 						$return = array('code' => -2);
+						db_rollback();
 						echo json_encode($return);
 					} else {
 						$return = array('code' => 1);
+						db_commit();
 						echo json_encode($return);
 					}
 				}
