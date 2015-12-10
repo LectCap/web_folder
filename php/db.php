@@ -60,4 +60,31 @@ function db_error() {
 	$connection = db_connect();
 	return mysqli_error($connection);
 }
+
+function db_begin_transaction () {
+	$connection = db_connect();
+	if(!$connection) {
+		return false;
+	} else {
+		return mysqli_begin_transaction($connection);
+	}
+}
+
+function db_rollback() {
+	$connection = db_connect();
+	if(!$connection) {
+		return false;
+	} else {
+		return mysqli_rollback($connection);
+	}
+}
+
+function db_commit() {
+	$connection = db_connect();
+	if(!$connection) {
+		return false;
+	} else {
+		return mysqli_commit($connection);
+	}
+}
 ?>

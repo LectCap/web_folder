@@ -23,8 +23,15 @@ if(!isset($_SESSION['username'])) {
     </head>
     <body>
 		<div class="wrapper">
-		<?php include($_SERVER['DOCUMENT_ROOT']."/php/navigator.php"); ?>
-					
+		<?php include($_SERVER['DOCUMENT_ROOT']."/php/navigator.php"); 
+		if(isset($_GET['info'])) {
+			if($_GET['info'] == 'courseClosed') {	
+				echo "</br><p>The course has been successfully closed</p>";				
+			} else if($_GET['info'] == 'exitedCourse')	{
+				echo "</br><p>You have successfully left the course</p>";	
+			}		
+		}
+		?>
 					
 			<div class="content">
 			</div>

@@ -31,26 +31,37 @@ function setCourseinfo() {
 		} else {
 			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 			$user_id = $row['id'];
-			$result = db_query("INSERT INTO courses (name,description,code) VALUES ($course_name, $course_description, $course_code)");
-			if (!$result){
+			$result = db_begin_transaction();
+			if(!$result) {
 				$return = array('code' => -2);
+				$result = db_rollback();
 				echo json_encode($return);
 			} else {
-				/* Get course id to form user_course table entry */
-				$result = db_query("SELECT * FROM courses WHERE code = $course_code");
-				if(!$result) {
+				$result = db_query("INSERT INTO courses (name,description,code) VALUES ($course_name, $course_description, $course_code)");
+				if (!$result){
 					$return = array('code' => -2);
+					$result = db_rollback();
 					echo json_encode($return);
 				} else {
-					$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-					$course_id = $row['id'];
-					$result = db_query("INSERT INTO user_course (user_id,course_id,teacher) VALUES ('$user_id', '$course_id', '1')");
+					/* Get course id to form user_course table entry */
+					$result = db_query("SELECT * FROM courses WHERE code = $course_code");
 					if(!$result) {
 						$return = array('code' => -2);
+						$result = db_rollback();
 						echo json_encode($return);
 					} else {
-						$return = array('code' => 1, 'user_id' => $user_id, 'course_id' => $course_id);
-						echo json_encode($return);
+						$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+						$course_id = $row['id'];
+						$result = db_query("INSERT INTO user_course (user_id,course_id,teacher) VALUES ('$user_id', '$course_id', '1')");
+						if(!$result) {
+							$result = db_rollback();
+							$return = array('code' => -2);
+							echo json_encode($return);
+						} else {
+							$return = array('code' => 1, 'user_id' => $user_id, 'course_id' => $course_id);
+							$result = db_commit();
+							echo json_encode($return);
+						}
 					}
 				}
 			}
