@@ -11,7 +11,6 @@ function setCourseinfo() {
 	$course_name = db_quote($values['course_name']);
 	$course_description = db_quote($values['course_description']);
 	$username = db_quote($_SESSION['username']);
-	echo "CHECK 1";
 	/* Check if course code is taken */
 	$result = db_query("SELECT * FROM courses WHERE code = $course_code");
 	if(!$result) {

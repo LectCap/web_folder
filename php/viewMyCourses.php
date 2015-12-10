@@ -18,11 +18,14 @@
  * Easy set variables
  */
 session_start();
-// DB table to use
-$table = 'courses';
+// DB table to use - In this case a VIEW
+$table = 'view_mycourses';
  
 // Table's primary key
 $primaryKey = 'id';
+
+// Identify which user is logged in
+$user_id = $_SESSION['user_id'];
  
 // Array of database columns which should be read and sent back to DataTables.
 // The `db` parameter represents the column name in the database, while the `dt`
@@ -50,6 +53,7 @@ $sql_details = array(
     'db'   => $config['dbname'],
     'host' => 'localhost'
 );
+$whereAll = "user_id = '$user_id'";
  
  
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -60,6 +64,6 @@ $sql_details = array(
 require( 'ssp.class.php' );
  
 echo json_encode(
-    SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns )
+	SSP::complex( $_GET, $sql_details, $table, $primaryKey, $columns, null, $whereAll )
 );
 ?>

@@ -27,7 +27,7 @@ function enrollCourse() {
 			$result = db_query("INSERT INTO user_course (user_id,course_id,teacher) VALUES ($user_id, $course_id, '0')");
 			if(!$result) {
 				$return = array('code' => -2);
-				echo json_encode($return);					
+				echo json_encode($return);
 			} else {
 				$return = array('code' => 1);
 				echo json_encode($return);					

@@ -30,7 +30,7 @@ include($_SERVER['DOCUMENT_ROOT']."/php/courseHeader.php");
 	
 		<?php if($teacher == 1): ?>
 				<div class="content">
-				<form action="editCourse.php?user=<?php echo $user_id; ?>&course= <?php echo $course_id; ?>" method="POST">
+				<form action="editCourse.php?user=<?php echo $user_id; ?>&course=<?php echo $course_id; ?>" method="POST">
 				<input type="submit" name="create_course_submit" value="Edit or close course"/>
 				</form>
 				</div>
