@@ -43,8 +43,10 @@ function switchPic()
 }
 function slideshowimages(){ //adding image to cache
 for (i=0;i<slideshowimages.arguments.length;i++){
+	if(slideshowimages.arguments[i] != ""){
 	slideimages[i]=new Image()
 	slideimages[i].src=slideshowimages.arguments[i]
+	}
 	}
 }
 </script>
@@ -80,7 +82,7 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 				echo '"'.$row['path'].'",';
 			} 
-		?> "")
+		?>"")
 		var slidespeed = [4000, 8000, 5000];
 		startSlide();
 		</script>
