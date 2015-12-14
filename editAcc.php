@@ -5,25 +5,24 @@ if(!isset($_SESSION['username'])) {
 	die();
 }
 ?>
-<!DOCTYPE HTML>
+
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Edit account</title>
+        <title>OnlineLecture</title>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="/js/editAcc.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="/css/master.css">
-		<script src="/js/startmenu.js"></script>
-		<link rel="stylesheet" href="/css/startmenu.css">
 		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+		<script src="js/login_register.js"></script>
+		<script src="js/editAcc.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="css/master.css">
+		</script>
     </head>
     <body>
-			<div class="wrapper">
-			<?php include($_SERVER['DOCUMENT_ROOT']."/php/navigator.php"); ?>
-					
+		<div class="wrapper">
 			<div class="content">
-			<div id="form_wrapper" class="form_wrapper">
-					<form id="edit-accinfo" class="edit active">
+				<div id="form_wrapper" class="form_wrapper">
+					<form id="edit-accinfo" class="edit"><!-- this is the edit account info box -->
 					<h3>Edit account <i class="fa fa-user"></i>information</h3>	
 						<div>
 							<label>First Name<em class="reqfield"> *</em></label>
@@ -44,14 +43,13 @@ if(!isset($_SESSION['username'])) {
 						<div class="bottom">
 							<div id="editAcc_error" class="edit_error"></div>
 							<input type="submit" name="edit-accinfo" value="Apply"/>
+							<a href="" rel="login" class="linkform">You wish to edit your email instead?</a>
+							<a href="" rel="forgot_password" class="linkform">Or your password?</a>
 							<div class="clear"></div>
 						</div>
-					</form>		
-				</div>
-				
-				<div class="content" style="margin-top:20px">
-				<div id="form_wrapper" class="form_wrapper">
-					<form id="edit-email" class="edit active">
+					</form>
+					
+					<form id="edit-email" class="login active"><!-- this is the edit email box-->
 					<h3>Change email <i class="fa fa-envelope"></i></h3>
 						<div>
 							<label>Email<em class="reqfield"> *</em></label>
@@ -64,17 +62,13 @@ if(!isset($_SESSION['username'])) {
 						<div class="bottom">
 							<div id="editEmail_error" class="edit_error"></div>
 							<input type="submit" name="edit-email" value="Apply"/>
+							<a href="" rel="edit" class="linkform">You wish to edit your account information instead?</a>
+							<a href="" rel="forgot_password" class="linkform">Or your password?</a>
 							<div class="clear"></div>
 						</div>
 					</form>
-				</div>
-			</div>
-			
-			
-			
-			<div class="content" style="margin-top:20px">
-				<div id="form_wrapper" class="form_wrapper">
-					<form id="edit-pwd" class="edit active">
+					
+					<form id="edit-pwd" class="forgot_password"><!-- this is the edit password box-->
 					<h3>Change password <i class="fa fa-key"></i></h3>
 						<div>
 							<label>Current Password<em class="reqfield"> *</em></label>
@@ -91,22 +85,13 @@ if(!isset($_SESSION['username'])) {
 						<div class="bottom">
 							<div id="editPwd_error" class="edit_error"></div>
 							<input type="submit" name="edit-pwd" value="Apply"/>
+							<a href="" rel="login" class="linkform">You wish to edit your email instead?</a>
+							<a href="" rel="edit" class="linkform">Or your account information?</a>
 							<div class="clear"></div>
 						</div>
 					</form>
 				</div>
-			</div>
-			
-			</div>
+			<div class="clear"></div>
 		</div>
-	
-	
-		<div class="wrapper">			
-
-			
-
-			
-			
-		</div>
-	</body>
+    </body>
 </html>

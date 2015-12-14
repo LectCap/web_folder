@@ -1,3 +1,6 @@
+.nav > ul > li.active > a {
+	color:#FFFFFF;
+}
 .nav > li > a:hover{
 	color:#ffa800 !important;
 }
@@ -45,6 +48,10 @@
 .footer-nav a:hover {
 	color:#ffa800;
 	text-decoration:none;
+}
+
+.footer-nav li.active {
+	color:#FFFFFF;
 }
 
 .startdiv{

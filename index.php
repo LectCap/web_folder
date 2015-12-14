@@ -8,7 +8,7 @@ if(isset($_SESSION['username'])) {
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>My first PHP Website</title>
+        <title>OnlineLecture</title>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="/js/checklogin.js"></script>
 		<script src="/js/login_register.js"></script>
