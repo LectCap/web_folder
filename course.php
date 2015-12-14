@@ -1,5 +1,6 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT']."/php/courseHeader.php");
+$lectnr = 1;
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -25,9 +26,12 @@ include($_SERVER['DOCUMENT_ROOT']."/php/courseHeader.php");
 		else {
 			echo "<br><p>You are a student in this course </p>";
 		}
-		
-		echo "Lecture 1 - Start-up week <br>";
-		echo "Lecture 2 - How to do shit <br>";
+		$result = db_query("SELECT * FROM videos WHERE course_id = $course_id");
+		while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+			echo "<b>Lecture " . $lectnr." - </b><a href='./lecture.php?user=".$user_id."&course=".$course_id."&lecture_id=".$row['id']."'>".$row['title']."</a><br>";
+			$lectnr++;
+		}
+		$lectnr = 0;
 		?>
 		</br>
 		<form id="exitCourse_form" data-user="<?php echo $_SESSION['user_id'] ?>" data-course="<?php echo $_GET['course'] ?>" data-teacher="<?php echo $teacher ?>">

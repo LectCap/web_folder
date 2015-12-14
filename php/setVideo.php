@@ -1,4 +1,4 @@
-<?php
+ <?php
 /** Called by createCourse.js in order to create a course entry in the database **/
 session_start();
 include($_SERVER['DOCUMENT_ROOT']."/php/db.php");
@@ -27,7 +27,7 @@ function setCourseinfo() {
 		echo "CHECK 4";
 		echo $video_description;
 		$user_id = $row['id'];
-		$result = db_query("INSERT INTO videos (title,description,course_id, slide_id, url) VALUES ($video_title, $video_description, 5, 1, $url)");
+		$result = db_query("INSERT INTO videos (title,description,course_id, slide_id, url) VALUES ($video_title, $video_description, 41, 2, $url)");
 		echo "VALUES UPLOADED";
 		if (!$result){
 			$return = array('code' => -2);
