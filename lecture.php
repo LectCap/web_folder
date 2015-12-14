@@ -4,10 +4,6 @@ $course_id = $_GET['course'];
 $result = db_query("SELECT * FROM videos WHERE course_id = $course_id");
 $lect = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-$result = db_query("SELECT * FROM slides WHERE id = ".$lect['slide_id']."");
-while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-	echo '"'.$row['path'].'",';
-}
 
 ?>
 <!DOCTYPE HTML>
