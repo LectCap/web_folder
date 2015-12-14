@@ -79,7 +79,7 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 				echo '"'.$row['path'].'",';
 			} 
 		?>"")
-		var slidespeed = [4000, 8000, 5000];
+		var slidespeed = [0, 4000, 8000, 5000];
 		startSlide();
 		</script>
 		
