@@ -55,7 +55,7 @@ $lectnr = 1;
 			<form action="editCourse.php?user=<?php echo $user_id; ?>&course=<?php echo $course_id; ?>" method="POST">
 			<input type="submit" name="create_course_submit" value="Edit or close course"/>
 			</form>
-			<form action="addVideo.php" method="POST">
+			<form action="addVideo.php<?php echo "?user={$_SESSION['user_id']}&course={$_GET['course']}"; ?>" method="POST">
 			<input type="submit" name="addVid" value="Add lecture"/>
 			</form>
 			

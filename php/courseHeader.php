@@ -1,5 +1,3 @@
-
-
 <?php
 /* Used as a header for the course related pages to check if the user has permission to visit the page
 and also to check if user is teacher or not */

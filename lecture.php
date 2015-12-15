@@ -1,10 +1,9 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT']."/php/courseHeader.php");
-$course_id = $_GET['course'];
-$result = db_query("SELECT * FROM videos WHERE course_id = $course_id");
+$course_id = db_quote($_GET['course']);
+$lecture_id = db_quote($_GET['lecture_id']);
+$result = db_query("SELECT * FROM videos WHERE course_id = $course_id AND id = $lecture_id");
 $lect = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
-
 ?>
 <!DOCTYPE HTML>
 <html>

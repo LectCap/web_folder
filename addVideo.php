@@ -1,9 +1,5 @@
 <?php
-session_start();
-if(!isset($_SESSION['username'])) {
-	header('Location: http://localhost:8080/index.php');
-	die();
-}
+include($_SERVER['DOCUMENT_ROOT']."/php/courseHeader.php");
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -24,7 +20,7 @@ if(!isset($_SESSION['username'])) {
 					
 				<div id="form_wrapper" class="form_wrapper">
 				
-					<form id="createVideo-form" class="vid active">
+					<form id="createVideo-form" class="vid active" data-user="<?php echo $_SESSION['user_id']; ?>" data-course="<?php echo $_GET['course']; ?>">
 					<h3>Upload Lecture <i class="fa fa-eject"></i></h3>
 						<div>
 							<label>Title</label> 
@@ -43,11 +39,9 @@ if(!isset($_SESSION['username'])) {
 							<div class="clear"></div>
 						</div>
 					</form>
+					<div id="createVideo_error">
+					</div>
 				</div>
 		</div>
-		
-	
-
-		
     </body>
 </html>
