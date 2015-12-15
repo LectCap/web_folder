@@ -10,7 +10,7 @@
 			</div>
 		</div>
 		<div class="bottom-footer">
-			<div class="col-md-5">© Copyright OnlineLecture 2015</div>
+			<div class="col-md-5">&copy; Copyright OnlineLecture 2015</div>
 			<div class="col-md-7">
 				<ul class="footer-nav">
 					<li class="active"><a href='start.php'>Start</a></li>

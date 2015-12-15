@@ -43,7 +43,7 @@ if(!isset($_SESSION['username'])) {
 							<div class="clear"></div>
 						</div>
 					</form>
-				</div
+				</div>
 		</div>
 		
 	

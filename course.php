@@ -5,6 +5,9 @@ $lectnr = 1;
 <!DOCTYPE HTML>
 <html>
     <head>
+		<link rel="icon" href="images/favicon.ico">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="utf-8">		
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="/js/createVideo.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -13,11 +16,19 @@ $lectnr = 1;
 		<link rel="stylesheet" href="/css/startmenu.css">
 		<script src="/js/startmenu.js"></script>
 		<script src="/js/exitCourse.js"></script>
+		<script src="/js/createVideo.js"></script>
+		<script src="/js/editCourse.js"></script>
+		<script src="/js/closeCourse.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="bootstrap/css/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+		<script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>		
         <?php echo "<title>$course_name</title>" ?>
     </head>
     <body>
+	<?php include($_SERVER['DOCUMENT_ROOT']."/php/headermenuCourse.php"); ?>
 		<div class="wrapper" align="center">
-		<?php include($_SERVER['DOCUMENT_ROOT']."/php/navigator.php"); ?>
 		<?php echo "<h1>Course $course_name</h1>";
 		echo "Welcome ". $_SESSION['username'];
 		if($teacher == 1) {

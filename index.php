@@ -9,6 +9,7 @@ if(isset($_SESSION['username'])) {
 <html>
     <head>
         <title>OnlineLecture</title>
+		<link rel="icon" href="images/favicon.ico">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="/js/checklogin.js"></script>
 		<script src="/js/login_register.js"></script>

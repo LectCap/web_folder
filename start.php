@@ -32,6 +32,9 @@ if(!isset($_SESSION['username'])) {
 <body>
 
 <?php include($_SERVER['DOCUMENT_ROOT']."/php/headermenu.php"); ?>
+<script>
+	$( "#start" ).addClass( "active" );
+</script>
 
 <div id="startdiv" class="startdiv">
 
