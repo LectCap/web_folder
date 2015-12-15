@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 10 dec 2015 kl 16:54
+-- Tid vid skapande: 15 dec 2015 kl 20:00
 -- Serverversion: 5.6.17
 -- PHP-version: 5.5.12
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `courses` (
   `description` varchar(250) COLLATE latin1_general_ci NOT NULL,
   `code` varchar(45) COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=41 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=44 ;
 
 -- --------------------------------------------------------
 
@@ -41,11 +41,13 @@ CREATE TABLE IF NOT EXISTS `courses` (
 --
 
 CREATE TABLE IF NOT EXISTS `slides` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(45) COLLATE latin1_general_ci NOT NULL,
-  `description` varchar(45) COLLATE latin1_general_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=2 ;
+  `slide_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
+  `page` int(11) NOT NULL,
+  `time` varchar(45) COLLATE latin1_general_ci NOT NULL,
+  `path` varchar(45) COLLATE latin1_general_ci NOT NULL,
+  PRIMARY KEY (`slide_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -64,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(45) COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=13 ;
 
 -- --------------------------------------------------------
 
@@ -76,6 +78,7 @@ CREATE TABLE IF NOT EXISTS `user_course` (
   `user_id` int(11) NOT NULL,
   `course_id` int(11) NOT NULL,
   `teacher` tinyint(1) NOT NULL,
+  `status` tinyint(4) NOT NULL,
   PRIMARY KEY (`user_id`,`course_id`),
   KEY `user_id` (`user_id`),
   KEY `course_id` (`course_id`)
@@ -97,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `videos` (
   PRIMARY KEY (`id`),
   KEY `course_id` (`course_id`),
   KEY `slide_id` (`slide_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=38 ;
 
 -- --------------------------------------------------------
 
@@ -110,6 +113,7 @@ CREATE TABLE IF NOT EXISTS `view_mycourses` (
 ,`name` varchar(45)
 ,`code` varchar(45)
 ,`description` varchar(250)
+,`status` tinyint(4)
 );
 -- --------------------------------------------------------
 
@@ -118,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `view_mycourses` (
 --
 DROP TABLE IF EXISTS `view_mycourses`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_mycourses` AS select `u`.`id` AS `user_id`,`c`.`id` AS `id`,`c`.`name` AS `name`,`c`.`code` AS `code`,`c`.`description` AS `description` from ((`users` `u` join `user_course` `b`) join `courses` `c`) where ((`b`.`user_id` = `u`.`id`) and (`b`.`course_id` = `c`.`id`));
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_mycourses` AS select `u`.`id` AS `user_id`,`c`.`id` AS `id`,`c`.`name` AS `name`,`c`.`code` AS `code`,`c`.`description` AS `description`,`b`.`status` AS `status` from ((`users` `u` join `user_course` `b`) join `courses` `c`) where ((`b`.`user_id` = `u`.`id`) and (`b`.`course_id` = `c`.`id`));
 
 --
 -- Restriktioner för dumpade tabeller
@@ -135,8 +139,7 @@ ALTER TABLE `user_course`
 -- Restriktioner för tabell `videos`
 --
 ALTER TABLE `videos`
-  ADD CONSTRAINT `videos_courses_fk` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `videos_slides_fk` FOREIGN KEY (`slide_id`) REFERENCES `slides` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `videos_courses_fk` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
