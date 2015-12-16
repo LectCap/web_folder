@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-static-top no-margin" role="navigation">
+<nav class="navbar navbar-inverse navbar-static-top no-margin colorClass" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">
 		    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -19,8 +19,8 @@
 		
 		<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><a href='start.php'>Start</a></li>
-				<li><a href='start.php'>Placeholder</a></li>
+				<li id="start"><a href='start.php'>Start</a></li>
+				<li id="course"><a href="/course.php?user=<?php echo $_SESSION['user_id']; ?>&course=<?php echo $_GET['course']; ?>">Course</a></li>
 				<li><a href='php/logout.php'>Logout</a></li>
 				
 				<?php if($teacher == 1): ?>
@@ -84,6 +84,7 @@
 		<div class="bottom">
 			<div id="editCourse_error" style="color: #ffa800"></div>
 			<input type="submit" name="editCourse" value="Apply changes" />
+			<a href="#form_wrapper_closeC" rel="edit" class="linkform closeCourseButton">You wish to close this course?</a>
 			<div class="clear"></div>
 		</div>
 	</form>
@@ -92,7 +93,7 @@
 <div id="form_wrapper_closeC" class="form_wrapper lightboxWrap" style="display:none">					
 	<form id="closeCourse-form" class="edit active" data-courseid="<?php echo $course_id; ?>" data-userid="<?php echo $_SESSION['user_id']; ?>">
 		<?php echo '<h3>Close course '.$course_code.' <i class="fa fa-trash"></i></h3>'; ?>
-		<div id="close_course_confirm" style="display: none">
+		<div id="close_course_confirm">
 			<label>Confirm with password<em class="reqfield"> *</em></label>
 			<input type="password" name="close_course_password" maxlength="45"/>
 			<span class="error">This is an error</span>
@@ -100,6 +101,7 @@
 		<div class="bottom">
 			<div id="closeCourse_error" style="color: #ffa800"></div>
 			<input type="submit" name="closeCourse" value="Close course" />
+			<a href="#form_wrapper_editC" rel="edit" class="linkform editCourseButton">You wish to edit the course instead?</a>
 			<div class="clear"></div>
 		</div>
 	</form>

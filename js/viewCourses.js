@@ -31,7 +31,7 @@ $(document).ready(function() {
 			},
 			{
 				"data": null,
-				"defaultContent": "<button>Enroll</button>",
+				"defaultContent": "<button class='tableButton'>Enroll</button>",
 				"class": "details-control button",
 				"targets": 3
 			}
@@ -64,10 +64,12 @@ $(document).ready(function() {
 			  $('#viewCourses_error').css('opacity', '1');
 			  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 			  if(recv === -2) {
+				$('#viewCourses_error').css('color', '#ffa800');
 				$('#viewCourses_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
 				$('#viewCourses_error').fadeTo(1000, 0.5);	
 			  }
 			  else if(recv === -1) {
+				$('#viewCourses_error').css('color', '#ffa800');
 				$('#viewCourses_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspAlready enrolled!</p>');
 				$('#viewCourses_error').fadeTo(1000, 0.5);	
 			  }
@@ -78,6 +80,7 @@ $(document).ready(function() {
 				button.text("Enrolled!");	
 			  }
 			  else{
+				$('#viewCourses_error').css('color', '#ffa800');
 				$('#viewCourses_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
 				$('#viewCourses_error').fadeTo(1000, 0.5);
 			  }

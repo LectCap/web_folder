@@ -86,17 +86,8 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 			</div>	
 		</div>
 		
-		<?php
-		echo "<h1>".$lect['title']."</h1>";
+		<?php echo "<h1>".$lect['title']."</h1>"; ?>
 		
-		echo "Welcome ". $_SESSION['username'];
-		if($teacher == 1) {
-			echo "<br><p>You are the teacher for this course </p>";
-		}
-		else {
-			echo "<br><p>You are a student in this course </p>";
-		}
-		?>
 		<iframe title="YouTube video player" class="youtube-player" type="text/html" 
 		width="640" height="390" src="<?php echo $lect['url']; ?>"
 		frameborder="0" allowFullScreen></iframe>

@@ -38,21 +38,21 @@ $(document).ready(function(){
 		  $('#editAcc_error').show();
 		  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 		  if(recv === -1) {
-			$('#editAcc_error').css('color', 'red');
-			$('#editAcc_error').append("<p>Database error! Please consult administrator</p>");  
+			$('#editAcc_error').css('color', '#ffa800');
+			$('#editAcc_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');  
 		  }
 		  else if(recv === 0) {
-			$('#editAcc_error').css('color', 'red');
-			$('#editAcc_error').append("<p>Email already taken!</p>");  
+			$('#editAcc_error').css('color', '#ffa800');
+			$('#editAcc_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspEmail already taken!</p>');  
 		  }
 		  else if(recv === 1) {
-			$('#editAcc_error').css('color', 'lime');
-			$('#editAcc_error').append("<p>Account information successfully changed!</p>"); 
+			$('#editAcc_error').css('color', '#ffa800');
+			$('#editAcc_error').append('<p><i class="fa fa-check" style="color: green"></i>&nbspAccount information successfully changed!</p>'); 
 			$('#editAcc_error').fadeOut(3000);
 		  }
 		  else{
-			$('#editAcc_error').css('color', 'red');
-			$('#editAcc_error').append("<p>Something went terribly wrong</p>");  
+			$('#editAcc_error').css('color', '#ffa800');
+			$('#editAcc_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
 		  }
 		  console.log(recv);
       },
@@ -129,25 +129,20 @@ $(document).ready(function(){
 		  $('#editPwd_error').show();
 		  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 		  if(recv === -1) {
-			$('#editPwd_error').css('color', 'red');
-			$('#editPwd_error').append("<p>Database error! Please consult administrator</p>");  
+			$('#editPwd_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');  
 		  }
 		  else if(recv === 0) {
-			$('#editPwd_error').css('color', 'red');
-			$('#editPwd_error').append("<p>Entered passwords don\'t match!</p>");  
+			$('#editPwd_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspEntered passwords don\'t match!</p>');  
 		  }
 		  else if(recv === 1) {
-			$('#editPwd_error').css('color', 'green');
-			$('#editPwd_error').append("<p>Password successfully changed!</p>"); 
+			$('#editPwd_error').append('<p><i class="fa fa-check" style="color: green"></i>&nbspPassword successfully changed!</p>'); 
 			$('#editPwd_error').fadeOut(3000);
 		  }
 		  else if(recv === -2) {
-			$('#editPwd_error').css('color', 'red');
-			$('#editPwd_error').append("<p>Incorrect password!</p>"); 
+			$('#editPwd_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspIncorrect password!</p>'); 
 		  }
 		  else{
-			$('#editPwd_error').css('color', 'red');
-			$('#editPwd_error').append("<p>Something went terribly wrong</p>");  
+			$('#editPwd_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
 		  }
 		  console.log(recv);
       },

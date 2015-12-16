@@ -16,16 +16,16 @@ $(document).ready(function(){
 		  $('#login_error').html(""); 
 		  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 		  if(recv === -1) {
-			$('#login_error').append("<p>Database error! Please consult administrator</p>");  
+			$('#login_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');  
 		  }
 		  else if(recv === 0) {
-			$('#login_error').append("<p>Wrong username or password!</p>");  
+			$('#login_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspWrong username or password!</p>');  
 		  }
 		  else if(recv === 1) {
 			window.location.replace("http://localhost:8080/start.php");
 		  }
 		  else{
-			$('#login_error').append("<p>Something went terribly wrong</p>");  
+			$('#login_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
 		  }
 		  console.log(recv);
       },

@@ -22,22 +22,22 @@ $(document).ready(function(){
 		  $('#register_error').html(""); 
 		  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 		  if(recv === -2) {
-			$('#register_error').append("<p>Database error! Please consult administrator</p>");  
+			$('#register_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');  
 		  }
 		  else if(recv === -1) {
-			$('#register_error').append("<p>Passwords don't match!</p>");  
+			$('#register_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspPasswords do not match!</p>');  
 		  }
 		  else if(recv === 0) {
-			$('#register_error').append("<p>Username already exists!</p>");  
+			$('#register_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspUsername already exists!</p>');  
 		  }
 		  else if(recv === -3) {
-			$('#register_error').append("<p>Email already exists!</p>");  
+			$('#register_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspEmail already exists!</p>');  
 		  }
 		  else if(recv === 1) {
 			window.location.replace("http://localhost:8080/start.php");
 		  }
 		  else{
-			$('#register_error').append("<p>Something went terribly wrong</p>");  
+			$('#register_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
 		  }
       },
       error: function(xhr, desc, err) {

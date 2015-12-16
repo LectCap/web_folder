@@ -25,10 +25,12 @@ $(document).ready(function(){
 				  $('#closeCourse_error').css('opacity', '1');
 				  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 				  if(recv === -2) {
+					$('#closeCourse_error').css('color', '#ffa800');
 					$('#closeCourse_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
 					$('#closeCourse_error').fadeTo(1000, 0.5);	
 				  }
 				  if(recv === -1) {
+					$('#closeCourse_error').css('color', '#ffa800');
 					$('#closeCourse_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspYou have entered the wrong password!</p>');
 					$('#closeCourse_error').fadeTo(1000, 0.5);	
 				  }
@@ -40,6 +42,7 @@ $(document).ready(function(){
 					window.location.replace("http://localhost:8080/start.php?info=courseClosed");
 				  }
 				  else {
+					$('#closeCourse_error').css('color', '#ffa800');
 					$('#closeCourse_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
 					$('#closeCourse_error').fadeTo(1000, 0.5);
 				  }

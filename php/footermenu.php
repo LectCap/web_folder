@@ -13,10 +13,9 @@
 			<div class="col-md-5">&copy; Copyright OnlineLecture 2015</div>
 			<div class="col-md-7">
 				<ul class="footer-nav">
-					<li class="active"><a href='start.php'>Start</a></li>
-				   <li><a href="#form_wrapper_create" class="createCourseButton">Create a Course</a></li>
-				   <li><a href='myCourses.php'>My Courses</a></li>
-				   <li><a href='php/logout.php'>Logout</a></li>
+					<li><a href='start.php'>Start</a></li>
+					<li><a href='myCourses.php'>My Courses</a></li>
+					<li><a href='php/logout.php'>Logout</a></li>
 				</li>
 				</ul>
 			</div>

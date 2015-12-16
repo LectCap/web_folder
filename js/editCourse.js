@@ -49,10 +49,12 @@ $(document).ready(function(){
 		  $('#editCourse_error').css('opacity', '1');
 		  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 		  if(recv === -2) {
+			$('#editCourse_error').css('color', '#ffa800');
 			$('#editCourse_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
 			$('#editCourse_error').fadeTo(1000, 0.5);	
 		  }
 		  else if(recv === -1) {
+			$('#editCourse_error').css('color', '#ffa800');
 			$('#editCourse_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspCourse code already taken!</p>');
 			$('#editCourse_error').fadeTo(1000, 0.5);	
 		  }
@@ -60,10 +62,12 @@ $(document).ready(function(){
 			window.location.replace("http://localhost:8080/index.php"); 
 		  }
 		  else if(recv === 1) {
+			$('#editCourse_error').css('color', '#ffa800');
 			$('#editCourse_error').append('<p><i class="fa fa-check" style="color: lime"></i>&nbspCourse information successfully changed!</p>'); 
 			$('#editCourse_error').fadeTo(1000, 0.5);		
 		  }
 		  else{
+			$('#editCourse_error').css('color', '#ffa800');
 			$('#editCourse_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
 			$('#editCourse_error').fadeTo(1000, 0.5);
 		  }

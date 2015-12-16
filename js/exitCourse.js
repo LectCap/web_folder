@@ -19,10 +19,12 @@ $(document).ready(function(){
 			  $('#exitCourse_error').css('opacity', '1');
 			  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 			  if(recv === -2) {
+				$('#exitCourse_error').css('color', '#ffa800');
 				$('#exitCourse_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
 				$('#exitCourse_error').fadeTo(1000, 0.5);	
 			  }
 			  if(recv === -1) {
+				$('#exitCourse_error').css('color', '#ffa800');
 				$('#exitCourse_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspYou are the only teacher in the course! Assign another user as teacher or close the course.</p>');
 				$('#exitCourse_error').fadeTo(1000, 0.5);	
 			  }
@@ -33,6 +35,7 @@ $(document).ready(function(){
 				window.location.replace("http://localhost:8080/start.php?info=exitedCourse"); 
 			  }
 			  else {
+				$('#exitCourse_error').css('color', '#ffa800');
 				$('#exitCourse_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
 				$('#exitCourse_error').fadeTo(1000, 0.5);
 			  }

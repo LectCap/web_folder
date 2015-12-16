@@ -15,8 +15,8 @@ if(!isset($_SESSION['username'])) {
 		<title>OnlineLecture</title>
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="bootstrap/css/style.css" rel="stylesheet">
-		<link href="css/master.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
+		<link href="css/master.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -71,7 +71,7 @@ if(!isset($_SESSION['username'])) {
 		?>
 	</div>
 
-	<div class="container">
+	<div class="container">	
 		<h2>Browse for new <span>courses</span> and enroll below</h2>
 		<table id="course_list" class="display" cellspacing="0" width="100%" data-userid="<?php echo $_SESSION['user_id']; ?>">
 			<thead>

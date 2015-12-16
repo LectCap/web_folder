@@ -23,17 +23,20 @@ $(document).ready(function(){
 			  $('#createVideo_error').html(""); 
 			  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 			  if(recv === -2) {
-				$('#createVideo_error').append("<p>Database error! Please consult administrator</p>");
+				$('#createVideo_error').css('color', '#ffa800');
+				$('#createVideo_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
 			  }
 			  else if(recv === -1) {
-				$('#createVideo_error').append("<p>Course code already taken!</p>");
+				$('#createVideo_error').css('color', '#ffa800');
+				$('#createVideo_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspCourse code already taken!</p>');
 			  }
 			  else if(recv === 1) {
 				console.log("http://localhost:8080/course.php?user="+user_id+"&course="+course_id);
 				window.location.replace("http://localhost:8080/course.php?user="+user_id+"&course="+course_id);
 			  }
 			  else{
-				$('#createVideo_error').append("<p>Something went terribly wrong</p>");  
+				$('#createVideo_error').css('color', '#ffa800');
+				$('#createVideo_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
 			  }
 		  },
 		  error: function(xhr, desc, err) {
