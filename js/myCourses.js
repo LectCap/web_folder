@@ -22,20 +22,32 @@ $(document).ready(function() {
             { 
 				"data": "description", 
 				"targets": 2 
+			},            
+			{ 
+				"data": "teacher",
+				"targets": 3,
+				// Inserts value 'Teacher' or 'Student' in 'Role' column depending on db value returned
+				"createdCell": function (td, cellData, rowData, row, col) {
+				  if ( cellData == 1 ) {
+					$(td).html(cellData.replace(1, 'Teacher'));
+				  }
+				  else {
+					$(td).html(cellData.replace(0, 'Student'));
+				  }
+				}
 			},
 			{
 				"class": "details-control",
                 //"orderable":      false,
                 "data":           null,
-				"targets": [0,1,2]
+				"targets": [0,1,2,3]
 			},
 			{
 				"data": null,
-				"defaultContent": "<button class='tableButton'>Visit</button>",
+				"defaultContent": "<button>Visit</button>",
 				"class": "details-control button",
-				"targets": 3
-			}
-
+				"targets": 4
+			},
         ],
         "order": [[1, 'asc']]
     } );

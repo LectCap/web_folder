@@ -23,17 +23,23 @@ else {
 			die();
 		}  else {
 			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-			$teacher = $row['teacher'];
-			$result = db_query("SELECT * FROM courses WHERE id = $course_id");
-			if(!$result) {
+			$status = $row['status'];
+			if ($status != 1) {
 				header('Location: http://localhost:8080/index.php');
 				die();
-			}
-			else {
-				$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-				$course_name = $row['name'];
-				$course_code = $row['code'];
-				$course_description = $row['description'];
+			} else {
+				$teacher = $row['teacher'];
+				$result = db_query("SELECT * FROM courses WHERE id = $course_id");
+				if(!$result) {
+					header('Location: http://localhost:8080/index.php');
+					die();
+				}
+				else {
+					$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+					$course_name = $row['name'];
+					$course_code = $row['code'];
+					$course_description = $row['description'];
+				}				
 			}
 		}
 	}

@@ -1,5 +1,6 @@
 <?php
- /* Called by viewCourses.js. The script is basically the default Datatables example */
+ /* Called by viewWaitingStudents.js. Gets information about students in enrollment waiting list and 
+  * displays it in the table */
 /*
  * DataTables example server-side processing script.
  *
@@ -18,22 +19,24 @@
  * Easy set variables
  */
 session_start();
+
 // DB table to use - In this case a VIEW
-$table = 'view_mycourses';
+$table = 'view_waitingstudents';
  
 // Table's primary key
-$primaryKey = 'id';
+$primaryKey = 'user_id';
 
 // Identify which user is logged in
 $user_id = $_SESSION['user_id'];
- 
+// Identify course to access information from
+$course_id = $_GET['course'];
 // Array of database columns which should be read and sent back to DataTables.
 // The `db` parameter represents the column name in the database, while the `dt`
 // parameter represents the DataTables column identifier - in this case object
 // parameter names
 $columns = array(
     array(
-        'db' => 'id',
+        'db' => 'user_id',
         'dt' => 'DT_RowId',
         'formatter' => function( $d, $row ) {
             // Technically a DOM id cannot start with an integer, so we prefix
@@ -42,10 +45,12 @@ $columns = array(
             return 'row_'.$d;
         }
     ),
-    array( 'db' => 'code', 'dt' => 'code' ),
-    array( 'db' => 'name',  'dt' => 'name' ),
-    array( 'db' => 'description',   'dt' => 'description' ),
-    array( 'db' => 'teacher',   'dt' => 'teacher' )
+    array( 'db' => 'username', 'dt' => 'username' ),
+    array( 'db' => 'firstname',  'dt' => 'firstname' ),
+    array( 'db' => 'lastname',   'dt' => 'lastname' ),
+    array( 'db' => 'school',   'dt' => 'school' ),
+    array( 'db' => 'programme',   'dt' => 'programme' )
+	
 );
 $config = parse_ini_file('C:/config.ini'); 
 $sql_details = array(
@@ -54,7 +59,7 @@ $sql_details = array(
     'db'   => $config['dbname'],
     'host' => 'localhost'
 );
-$whereAll = "user_id = '$user_id' AND status = '1'";
+$whereAll = "course_id = '$course_id' AND status = '0'";
  
  
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

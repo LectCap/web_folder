@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 16 dec 2015 kl 14:49
+-- Tid vid skapande: 16 dec 2015 kl 19:13
 -- Serverversion: 5.6.17
 -- PHP-version: 5.5.12
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `courses` (
   `description` varchar(250) COLLATE latin1_general_ci NOT NULL,
   `code` varchar(45) COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=45 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=47 ;
 
 -- --------------------------------------------------------
 
@@ -114,6 +114,7 @@ CREATE TABLE IF NOT EXISTS `view_mycourses` (
 ,`code` varchar(45)
 ,`description` varchar(250)
 ,`status` tinyint(4)
+,`teacher` tinyint(1)
 );
 -- --------------------------------------------------------
 
@@ -137,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `view_waitingstudents` (
 --
 DROP TABLE IF EXISTS `view_mycourses`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_mycourses` AS select `u`.`id` AS `user_id`,`c`.`id` AS `id`,`c`.`name` AS `name`,`c`.`code` AS `code`,`c`.`description` AS `description`,`b`.`status` AS `status` from ((`users` `u` join `user_course` `b`) join `courses` `c`) where ((`b`.`user_id` = `u`.`id`) and (`b`.`course_id` = `c`.`id`));
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_mycourses` AS select `u`.`id` AS `user_id`,`c`.`id` AS `id`,`c`.`name` AS `name`,`c`.`code` AS `code`,`c`.`description` AS `description`,`b`.`status` AS `status`,`b`.`teacher` AS `teacher` from ((`users` `u` join `user_course` `b`) join `courses` `c`) where ((`b`.`user_id` = `u`.`id`) and (`b`.`course_id` = `c`.`id`));
 
 -- --------------------------------------------------------
 

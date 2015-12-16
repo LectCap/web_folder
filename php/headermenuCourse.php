@@ -21,6 +21,10 @@
 			<ul class="nav navbar-nav">
 				<li id="start"><a href='start.php'>Start</a></li>
 				<li id="course"><a href="/course.php?user=<?php echo $_SESSION['user_id']; ?>&course=<?php echo $_GET['course']; ?>">Course</a></li>
+				<?php if($teacher == 1) : ?>
+				<li><a href="#form_wrapper_video" class="addVideoButton">Add Video</a></li>
+				<li id="viewWaitingStudents"><a href="viewWaitingStudents.php?user=<?php echo $_SESSION['user_id']; ?>&course=<?php echo $_GET['course']; ?>">Waiting students <span id="waitingNr" data-user="<?php echo $_SESSION['user_id']; ?>" data-course="<?php echo $_GET['course']; ?>" style="color: red; font-weight: bold"></span></a></li>
+			    <?php endif; ?>
 				<li><a href='php/logout.php'>Logout</a></li>
 				
 				<?php if($teacher == 1): ?>

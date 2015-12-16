@@ -1,6 +1,6 @@
 <?php
-session_start();
-if(!isset($_SESSION['username'])) {
+include($_SERVER['DOCUMENT_ROOT']."/php/courseHeader.php");
+if($teacher != 1) {
 	header('Location: http://localhost:8080/index.php');
 	die();
 }
@@ -22,18 +22,18 @@ if(!isset($_SESSION['username'])) {
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
-		<script src="/js/viewCourses.js"></script>
+		<script src="/js/viewWaitingStudents.js"></script>
 		<script src="/js/login_register.js"></script>
+		<script src="/js/getWaitingNr.js"></script>
 		<script src="js/editAcc.js"></script>
 		<script src="/js/createCourse.js"></script>
-		<script src="/js/myCourses.js"></script>
 		<script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
     </head>
     <body>
-		<?php include($_SERVER['DOCUMENT_ROOT']."/php/headermenu.php"); ?>
+		<?php include($_SERVER['DOCUMENT_ROOT']."/php/headermenuCourse.php"); ?>
 		<script>
-			$( "#myCourses" ).addClass( "active" );
+			$( "#viewWaitingStudents" ).addClass( "active" );
 		</script>
 		
 		<div id="startdiv" class="startdiv">
@@ -60,27 +60,25 @@ if(!isset($_SESSION['username'])) {
 		
 			<div class="container">
 				<h2>View all <span>courses</span> you have enrolled to below</h2>
-				<table id="myCourses_list" class="display" cellspacing="0" width="100%" data-userid="<?php echo $_SESSION['user_id']; ?>">
+				<table id="waitingStudents_list" class="display" cellspacing="0" width="100%" data-course="<?php echo $_GET['course']; ?>">
 					<thead>
 						<tr>
-							<th>Course code</th>
-							<th>Course name</th>
-							<th>Course Description</th>
-							<th>Role</th>
-							<th>Link</th>
+							<th></th>
+							<th>Username</th>
+							<th>Accept</th>
+							<th>Reject</th>
 						</tr>
 					</thead>
 					<tfoot>
 						<tr>
-							<th>Course code</th>
-							<th>Course name</th>
-							<th>Course Description</th>
-							<th>Role</th>
-							<th>Link</th>
+							<th></th>
+							<th>Username</th>
+							<th>Accept</th>
+							<th>Reject</th>
 						</tr>
 					</tfoot>
 				</table>
-				<div id="myCourses_error"></div>
+				<div id="viewWaitingStudents_error"></div>
 			</div>
 		
 		<div class="pagedivider"></div>

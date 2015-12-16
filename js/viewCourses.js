@@ -21,7 +21,7 @@ $(document).ready(function() {
 			},
             { 
 				"data": "description", 
-				"targets": 2 
+				"targets": 2
 			},
 			{
 				"class": "details-control",
@@ -34,9 +34,31 @@ $(document).ready(function() {
 				"defaultContent": "<button class='tableButton'>Enroll</button>",
 				"class": "details-control button",
 				"targets": 3
-			}
-
+			},
         ],
+		//Checks if the user has enrolled in the course. If he/she has, then the row is not shown
+		"createdRow": function( row, data, dataIndex ) {
+			var rowData = row;
+			var course_id = rowData['id'];
+			course_id = course_id.split("_").pop();
+			$.ajax({
+			  url: "/php/checkCourseParticipation.php", //PHP file you want to access
+			  type: 'POST',
+			  contentType: "application/json; charset=utf-8", //Sets data you are sending as JSON
+			  dataType: "json", //Tells AJAX to expect JSON data to be returned
+			  data: JSON.stringify({'course_id' : course_id}), //The data to send. Needs to turned into JSON compatible data
+			  success: function(data) { //Data is the returned variable with echo.
+				  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
+				  if(recv == 1) {
+					row.remove();
+				  }
+			  },
+			  error: function(xhr, desc, err) {
+				console.log(xhr);
+				console.log("Details: " + desc + "\nError:" + err);
+			  }
+			}); // end ajax call
+		},
         "order": [[1, 'asc']]
     } );
  
@@ -77,7 +99,11 @@ $(document).ready(function() {
 				window.location.replace("http://localhost:8080/index.php"); 
 			  }
 			  else if(recv === 1) {
-				button.text("Enrolled!");	
+				//Removes row and notifies user that he/she is enrolled
+				row.remove();
+				dt.draw();
+				$('#viewCourses_error').append('<p><i class="fa fa-times" style="color: green"></i>&nbspYou have enrolled and are now awaiting teacher confirmation!</p>');  
+				$('#viewCourses_error').fadeTo(1000, 0.5);
 			  }
 			  else{
 				$('#viewCourses_error').css('color', '#ffa800');
