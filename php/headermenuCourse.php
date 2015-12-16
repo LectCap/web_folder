@@ -20,10 +20,14 @@
 		<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li><a href='start.php'>Start</a></li>
-			    <li><a href="#form_wrapper_video" class="addVideoButton">Add Video</a></li>
-				<li><a href='start.php'>Start</a></li>
-			    <li><a href='php/logout.php'>Logout</a></li>
-				<li class="dropdown">
+				<li><a href='start.php'>Placeholder</a></li>
+				<li><a href='php/logout.php'>Logout</a></li>
+				
+				<?php if($teacher == 1): ?>
+				<li id="editLecture"><a href='lecture.php'>Edit Lecture</a></li>
+				<li id="editSlide"><a href="#form_wrapper_slide" class="editSlideButton">Edit Slides</a></li>
+				<li id="addLecture"><a href="#form_wrapper_video" class="addVideoButton">Add Lecture</a></li>
+				<li id="dropdownCourse" class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Edit Course <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#form_wrapper_editC" class="editCourseButton">Edit Course info</a></li>
@@ -31,14 +35,14 @@
 						<li><a href="#form_wrapper_closeC" class="closeCourseButton">Close Course</a></li>
 					</ul>
 				</li>
+				<?php endif; ?>
 			</ul>
 		</div>
 	</div>
 </nav>
 
 <div id="form_wrapper_video" class="form_wrapper lightboxWrap" style="display:none">
-
-	<form id="createVideo-form" class="vid active">
+	<form id="createVideo-form" class="vid active" data-user="<?php echo $_SESSION['user_id']; ?>" data-course="<?php echo $_GET['course']; ?>">
 	<h3>Upload Lecture <i class="fa fa-eject"></i></h3>
 		<div>
 			<label>Title</label> 
@@ -57,6 +61,7 @@
 			<div class="clear"></div>
 		</div>
 	</form>
+	<div id="createVideo_error"></div>
 </div>
 
 <div id="form_wrapper_editC" class="form_wrapper lightboxWrap" style="display:none">					
@@ -100,7 +105,26 @@
 	</form>
 </div>
 
-<?php if($teacher == 1): ?>
+<div id="form_wrapper_slide" class="form_wrapper lightboxWrap" style="display:none">					
+	<form id="editCourse-form" class="edit active" >
+		<h3>Add new slide [page x]</h3>
+		<div>
+			<label>Path(upload soon)<em class="reqfield"> *</em></label>
+			<input type="text" name="edit_course_name" required="required" maxlength="45"/>
+			<span class="error">This is an error</span>
+		</div>
+		<div>
+			<label>Seconds</label>
+			<input type="text" name="edit_course_name" required="required" maxlength="45"/>
+		</div>
+		<div class="bottom">
+			<div id="editCourse_error" style="color: #ffa800"></div>
+			<input type="submit" name="editCourse" value="Add slide" />
+			<div class="clear"></div>
+		</div>
+	</form>
+</div>
+
 <script type="text/javascript">
     $(".addVideoButton").fancybox({
 		"scrolling":"no",
@@ -124,4 +148,11 @@
 		"padding":[0,15,15,15]
 	});
 </script>
-<?php endif; ?>
+
+<script type="text/javascript">
+    $(".editSlideButton").fancybox({
+		"scrolling":"no",
+		"arrows":false,
+		"padding":[0,15,15,15]
+	});
+</script>

@@ -13,8 +13,6 @@ $lectnr = 1;
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/css/master.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="/css/startmenu.css">
-		<script src="/js/startmenu.js"></script>
 		<script src="/js/exitCourse.js"></script>
 		<script src="/js/createVideo.js"></script>
 		<script src="/js/editCourse.js"></script>
@@ -28,7 +26,36 @@ $lectnr = 1;
     </head>
     <body>
 	<?php include($_SERVER['DOCUMENT_ROOT']."/php/headermenuCourse.php"); ?>
-		<div class="wrapper" align="center">
+	<script>
+		$( "#editLecture" ).addClass( "hidden" );
+	</script>
+	<script>
+		$( "#editSlide" ).addClass( "hidden" );
+	</script>
+	
+		<div id="startdiv" class="startdiv">
+		
+		<div class="page-header">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4">
+						<img src="bootstrap/images/logo.png" class="img-responsible pull-left" >
+					</div>
+					<div class="col-lg-6">
+						<p>"Lorem ipsum dolor sit amet,
+						consectetur adipiscing elit,
+						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						Duis aute irure dolor in reprehenderit in voluptate
+						velit esse cillum dolore eu fugiat nulla pariatur.
+						Excepteur sint occaecat cupidatat non proident,
+						sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+					</div>
+				</div>
+			</div>	
+		</div>
+		
 		<?php echo "<h1>Course $course_name</h1>";
 		echo "Welcome ". $_SESSION['username'];
 		if($teacher == 1) {
@@ -65,5 +92,10 @@ $lectnr = 1;
 		<?php endif; ?>
 
 		</div>
+		
+	<footer class="site-footer no-margin">
+		<?php include($_SERVER['DOCUMENT_ROOT']."/php/footermenu.php"); ?>
+	</footer>
+		
     </body>
 </html>

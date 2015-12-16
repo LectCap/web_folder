@@ -81,3 +81,7 @@ h2boot span{
 	padding:10px;
 	color:#b2b2b2;
 }
+
+.hidden {
+	display:none;
+}
