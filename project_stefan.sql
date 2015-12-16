@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 15 dec 2015 kl 20:00
+-- Tid vid skapande: 16 dec 2015 kl 14:49
 -- Serverversion: 5.6.17
 -- PHP-version: 5.5.12
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `courses` (
   `description` varchar(250) COLLATE latin1_general_ci NOT NULL,
   `code` varchar(45) COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=44 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=45 ;
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(45) COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=14 ;
 
 -- --------------------------------------------------------
 
@@ -118,11 +118,35 @@ CREATE TABLE IF NOT EXISTS `view_mycourses` (
 -- --------------------------------------------------------
 
 --
+-- Ersättningsstruktur för vy `view_waitingstudents`
+--
+CREATE TABLE IF NOT EXISTS `view_waitingstudents` (
+`user_id` int(11)
+,`course_id` int(11)
+,`username` varchar(45)
+,`firstname` varchar(45)
+,`lastname` varchar(45)
+,`school` varchar(45)
+,`programme` varchar(45)
+,`status` tinyint(4)
+);
+-- --------------------------------------------------------
+
+--
 -- Struktur för vy `view_mycourses`
 --
 DROP TABLE IF EXISTS `view_mycourses`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_mycourses` AS select `u`.`id` AS `user_id`,`c`.`id` AS `id`,`c`.`name` AS `name`,`c`.`code` AS `code`,`c`.`description` AS `description`,`b`.`status` AS `status` from ((`users` `u` join `user_course` `b`) join `courses` `c`) where ((`b`.`user_id` = `u`.`id`) and (`b`.`course_id` = `c`.`id`));
+
+-- --------------------------------------------------------
+
+--
+-- Struktur för vy `view_waitingstudents`
+--
+DROP TABLE IF EXISTS `view_waitingstudents`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_waitingstudents` AS select `u`.`id` AS `user_id`,`c`.`id` AS `course_id`,`u`.`username` AS `username`,`u`.`firstname` AS `firstname`,`u`.`lastname` AS `lastname`,`u`.`school` AS `school`,`u`.`programme` AS `programme`,`b`.`status` AS `status` from ((`users` `u` join `user_course` `b`) join `courses` `c`) where ((`b`.`user_id` = `u`.`id`) and (`b`.`course_id` = `c`.`id`));
 
 --
 -- Restriktioner för dumpade tabeller
