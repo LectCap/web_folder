@@ -21,13 +21,9 @@
 			<ul class="nav navbar-nav">
 				<li id="start"><a href='start.php'>Start</a></li>
 				<li id="course"><a href="/course.php?user=<?php echo $_SESSION['user_id']; ?>&course=<?php echo $_GET['course']; ?>">Course</a></li>
-				<?php if($teacher == 1) : ?>
-				<li><a href="#form_wrapper_video" class="addVideoButton">Add Video</a></li>
-				<li id="viewWaitingStudents"><a href="viewWaitingStudents.php?user=<?php echo $_SESSION['user_id']; ?>&course=<?php echo $_GET['course']; ?>">Waiting students <span id="waitingNr" data-user="<?php echo $_SESSION['user_id']; ?>" data-course="<?php echo $_GET['course']; ?>" style="color: red; font-weight: bold"></span></a></li>
-			    <?php endif; ?>
 				<li><a href='php/logout.php'>Logout</a></li>
-				
 				<?php if($teacher == 1): ?>
+				<li id="viewWaitingStudents"><a href="viewWaitingStudents.php?user=<?php echo $_SESSION['user_id']; ?>&course=<?php echo $_GET['course']; ?>">Waiting students <span id="waitingNr" data-user="<?php echo $_SESSION['user_id']; ?>" data-course="<?php echo $_GET['course']; ?>" style="color: red; font-weight: bold"></span></a></li>
 				<li id="editLecture"><a href='lecture.php'>Edit Lecture</a></li>
 				<li id="editSlide"><a href="#form_wrapper_slide" class="editSlideButton">Edit Slides</a></li>
 				<li id="addLecture"><a href="#form_wrapper_video" class="addVideoButton">Add Lecture</a></li>
@@ -112,7 +108,7 @@
 </div>
 
 <div id="form_wrapper_slide" class="form_wrapper lightboxWrap" style="display:none">					
-	<form id="editCourse-form" class="edit active" >
+	<form id="editSlide-form" class="edit active" >
 		<h3>Add new slide [page x]</h3>
 		<div>
 			<label>Path(upload soon)<em class="reqfield"> *</em></label>
@@ -124,7 +120,7 @@
 			<input type="text" name="edit_course_name" required="required" maxlength="45"/>
 		</div>
 		<div class="bottom">
-			<div id="editCourse_error" style="color: #ffa800"></div>
+			<div id="editSlide_error" style="color: #ffa800"></div>
 			<input type="submit" name="editCourse" value="Add slide" />
 			<div class="clear"></div>
 		</div>

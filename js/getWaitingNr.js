@@ -13,6 +13,10 @@ $(document).ready(function(){
 		var nr = data['nr'];
 		if(nr > 0) {
 			$('#waitingNr').append(data['nr']);
+			$('#viewWaitingStudents').css('display', 'inline-block');
+		}
+		else {
+			$('#viewWaitingStudents').css('display', 'none');
 		}
       },
       error: function(xhr, desc, err) {
