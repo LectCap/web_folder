@@ -64,13 +64,13 @@ $(document).ready(function() {
 			},			
 			{ //Accept student button
 				"data": null,
-				"defaultContent": "<button class='acceptBtn'>Accept</button>",
+				"defaultContent": "<button class='acceptBtn tableButton'>Accept</button>",
 				"class": "acceptBtn",
 				"targets": 2
 			},			
 			{ //Reject student button
 				"data": null,
-				"defaultContent": "<button class='rejectBtn'>Reject</button>",
+				"defaultContent": "<button class='rejectBtn tableButton'>Reject</button>",
 				"class": "rejectBtn",
 				"targets": 3
 			}

@@ -44,7 +44,7 @@ $(document).ready(function() {
 			},
 			{
 				"data": null,
-				"defaultContent": "<button>Visit</button>",
+				"defaultContent": "<button class='tableButton'>Visit</button>",
 				"class": "details-control button",
 				"targets": 4
 			},

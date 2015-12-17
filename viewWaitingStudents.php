@@ -36,6 +36,13 @@ if($teacher != 1) {
 			$( "#viewWaitingStudents" ).addClass( "active" );
 		</script>
 		
+		<script>
+			$( "#editLecture" ).addClass( "hidden" );
+		</script>
+		<script>
+			$( "#editSlide" ).addClass( "hidden" );
+		</script>
+		
 		<div id="startdiv" class="startdiv">
 			<div class="page-header">
 				<div class="container">

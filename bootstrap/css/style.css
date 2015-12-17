@@ -71,6 +71,56 @@
 	box-shadow:1px 1px 7px #ccc;
 }
 
+.lecturediv{
+	background:#fff;
+	border:1px solid #ddd;
+	margin:0 auto;
+	width:1400px;
+	font-size:16px;
+	-moz-box-shadow:1px 1px 7px #ccc;
+	-webkit-box-shadow:1px 1px 7px #ccc;
+	box-shadow:1px 1px 7px #ccc;
+}
+
+.lectureContainer {
+	width:1400px;
+}
+
+.youtube-player{
+	border:1px solid #ccc;
+    height: 390px;
+    width: 580px;
+    padding: 0px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+	-moz-box-shadow:5px 5px 7px #ccc;
+	-webkit-box-shadow:5px 5px 7px #ccc;
+	box-shadow:5px 5px 7px #ccc;
+}
+
+.youtube-playerbig {
+	border:1px solid #ccc;
+    height: 720px;
+    width: 1280px;
+    padding: 0px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+	-moz-box-shadow:5px 5px 7px #ccc;
+	-webkit-box-shadow:5px 5px 7px #ccc;
+	box-shadow:5px 5px 7px #ccc;
+}
+
+.youtubeCol {
+	width:600px;
+	margin-left:15px;
+}
+
+.slideCol {
+	width:600px;
+	margin-top:70px;
+	margin-left:100px;
+}
+
 h2boot{
 	font-size:20px;
 	color:#aaa;

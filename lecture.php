@@ -16,6 +16,9 @@ $lect = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/css/master.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<?php if($teacher == 1): ?>
+		<script src="/js/getWaitingNr.js"></script>
+		<?php endif; ?>
 		<script src="/js/exitCourse.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -63,7 +66,7 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 			$( "#addLecture" ).addClass( "hidden" );
 		</script>
 		
-		<div id="startdiv" class="startdiv">
+		<div id="lecturediv" class="lecturediv">
 		
 		<div class="page-header">
 			<div class="container">
@@ -87,26 +90,41 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 		</div>
 		
 		<?php echo "<h1>".$lect['title']."</h1>"; ?>
+		<div class="container fluid lectureContainer">
+			<div class="row">
+				<div class="col-lg-6 youtubeCol">
+					<iframe title="YouTube video player" class="youtube-player" type="text/html" 
+					width="640" height="390" src="<?php echo $lect['url']; ?>"
+					frameborder="0" allowFullScreen></iframe>
+					</br>
+				</div>
+				<div class="col-lg-6 slideCol">
+					<img src="images/default.png" id="slide" width="640" height="390" />
+					<script type="text/javascript">
+					<?php 
+						$result = db_query("SELECT * FROM slides WHERE id = ".$lect['slide_id']."");
+						echo "slideshowimages(";
+						while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+							echo '"'.$row['path'].'",';
+						} 
+					?>"")
+					var slidespeed = [0, 4000, 8000, 5000];
+					startSlide();
+					</script>
+				</div>
+			</div>
+		</div>
 		
-		<iframe title="YouTube video player" class="youtube-player" type="text/html" 
+		<iframe title="YouTube video player" id="yt_player_big" class="youtube-playerbig" style="display:none" type="text/html" 
 		width="640" height="390" src="<?php echo $lect['url']; ?>"
 		frameborder="0" allowFullScreen></iframe>
-		</br>
-		
-		<img src="images/default.png" id="slide" width="640" height="390" />
-		
-		
+		<a href="#yt_player_big" class="ytBigButton">Enlarge</a>
 		<script type="text/javascript">
-		
-		<?php 
-			$result = db_query("SELECT * FROM slides WHERE id = ".$lect['slide_id']."");
-			echo "slideshowimages(";
-			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-				echo '"'.$row['path'].'",';
-			} 
-		?>"")
-		var slidespeed = [0, 4000, 8000, 5000];
-		startSlide();
+			$(".ytBigButton").fancybox({
+				"scrolling":"no",
+				"arrows":false,
+				"padding":[0],
+			});
 		</script>
 		
 		<?php if($teacher == 1): ?>

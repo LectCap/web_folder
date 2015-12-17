@@ -38,7 +38,7 @@ $lectnr = 1;
 		$( "#course" ).addClass( "active" );
 	</script>
 	
-		<div id="startdiv" class="startdiv">
+		<div id="coursediv" class="startdiv">
 		
 		<div class="page-header">
 			<div class="container">
