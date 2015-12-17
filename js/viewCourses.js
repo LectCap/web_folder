@@ -8,7 +8,6 @@ function format ( d ) {
 $(document).ready(function() {
     var dt = $('#course_list').DataTable( {
         "processing": true,
-        "serverSide": true,
         "ajax": "php/getCourselist.php",
         "columnDefs": [
             { 
@@ -33,6 +32,7 @@ $(document).ready(function() {
 				"data": null,
 				"defaultContent": "<button class='tableButton'>Enroll</button>",
 				"class": "details-control button",
+				"searchable": false,
 				"targets": 3
 			},
         ],
@@ -44,13 +44,14 @@ $(document).ready(function() {
 			$.ajax({
 			  url: "/php/checkCourseParticipation.php", //PHP file you want to access
 			  type: 'POST',
+			  async: false, // We need a synced response to allow removal of unwanted rows
 			  contentType: "application/json; charset=utf-8", //Sets data you are sending as JSON
 			  dataType: "json", //Tells AJAX to expect JSON data to be returned
 			  data: JSON.stringify({'course_id' : course_id}), //The data to send. Needs to turned into JSON compatible data
 			  success: function(data) { //Data is the returned variable with echo.
 				  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 				  if(recv == 1) {
-					row.remove();
+					dt.rows($(row)).remove();
 				  }
 			  },
 			  error: function(xhr, desc, err) {
@@ -102,7 +103,7 @@ $(document).ready(function() {
 				//Removes row and notifies user that he/she is enrolled
 				row.remove();
 				dt.draw();
-				$('#viewCourses_error').append('<p><i class="fa fa-times" style="color: green"></i>&nbspYou have enrolled and are now awaiting teacher confirmation!</p>');  
+				$('#viewCourses_error').append('<p><i class="fa fa-check" style="color: green"></i>&nbspYou have enrolled and are now awaiting teacher confirmation!</p>');  
 				$('#viewCourses_error').fadeTo(1000, 0.5);
 			  }
 			  else{

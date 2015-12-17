@@ -26,6 +26,7 @@
 				<?php if($teacher == 1): ?>
 				<li id="viewWaitingStudents"><a href="viewWaitingStudents.php?user=<?php echo $_SESSION['user_id']; ?>&course=<?php echo $_GET['course']; ?>">Waiting students 
 				<span id="waitingNr" data-user="<?php echo $_SESSION['user_id']; ?>" data-course="<?php echo $_GET['course']; ?>" style="color: red; font-weight: bold"></span></a></li>
+				<li id="addStudents"><a href="addStudents.php?user=<?php echo $_SESSION['user_id']; ?>&course=<?php echo $_GET['course']; ?>">Add Students</a></li>
 				<li id="editLecture"><a href='lecture.php'>Edit Lecture</a></li>
 				<li id="editSlide"><a href="#form_wrapper_slide" class="editSlideButton">Edit Slides</a></li>
 				<li id="addLecture"><a href="#form_wrapper_video" class="addVideoButton">Add Lecture</a></li>

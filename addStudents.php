@@ -8,7 +8,7 @@ if($teacher != 1) {
 <!DOCTYPE HTML>
 <html>
     <head>
-        <?php echo "<title>$course_name - Waiting Students</title>" ?>
+        <?php echo "<title>$course_name - Add Students</title>" ?>
 		<link rel="icon" href="images/favicon.ico">
 		<meta charset='utf-8'>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,7 +22,7 @@ if($teacher != 1) {
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
-		<script src="/js/viewWaitingStudents.js"></script>
+		<script src="/js/addStudents.js"></script>
 		<script src="/js/login_register.js"></script>
 		<script src="/js/getWaitingNr.js"></script>
 		<script src="js/editAcc.js"></script>
@@ -33,14 +33,8 @@ if($teacher != 1) {
     <body>
 		<?php include($_SERVER['DOCUMENT_ROOT']."/php/headermenuCourse.php"); ?>
 		<script>
-			$( "#viewWaitingStudents" ).addClass( "active" );
-		</script>
-		
-		<script>
-			$( "#editLecture" ).addClass( "hidden" );
-		</script>
-		<script>
-			$( "#editSlide" ).addClass( "hidden" );
+			// Highlights the page in the menu
+			$( "#addStudents" ).addClass( "active" );
 		</script>
 		
 		<div id="startdiv" class="startdiv">
@@ -62,30 +56,28 @@ if($teacher != 1) {
 							sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
 						</div>
 					</div>
-				</div>	
+				</div>
 			</div>
 		
 			<div class="container">
 				<h2>View all <span>courses</span> you have enrolled to below</h2>
-				<table id="waitingStudents_list" class="display" cellspacing="0" width="100%" data-course="<?php echo $_GET['course']; ?>">
+				<table id="addStudents_list" class="display" cellspacing="0" width="100%" data-course="<?php echo $_GET['course']; ?>">
 					<thead>
 						<tr>
 							<th></th>
 							<th>Username</th>
-							<th>Accept</th>
-							<th>Reject</th>
+							<th>Add to Course</th>
 						</tr>
 					</thead>
 					<tfoot>
 						<tr>
 							<th></th>
 							<th>Username</th>
-							<th>Accept</th>
-							<th>Reject</th>
+							<th>Add to Course</th>
 						</tr>
 					</tfoot>
 				</table>
-				<div id="viewWaitingStudents_error"></div>
+				<div id="addStudents_error"></div>
 			</div>
 		
 		<div class="pagedivider"></div>

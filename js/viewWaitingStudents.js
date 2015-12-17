@@ -60,18 +60,21 @@ $(document).ready(function() {
 				"data": null,
 				"defaultContent": "<i class='fa fa-plus-circle'></i>",
 				"class": "details-control",
+				"searchable": false,
 				"targets": 0
 			},			
 			{ //Accept student button
 				"data": null,
 				"defaultContent": "<button class='acceptBtn tableButton'>Accept</button>",
 				"class": "acceptBtn",
+				"searchable": false,
 				"targets": 2
 			},			
 			{ //Reject student button
 				"data": null,
 				"defaultContent": "<button class='rejectBtn tableButton'>Reject</button>",
 				"class": "rejectBtn",
+				"searchable": false,
 				"targets": 3
 			}
 
@@ -129,7 +132,7 @@ $(document).ready(function() {
 			  } else if(recv === 1) {
 				row.remove();
 				table.draw();
-				$('#viewWaitingStudents_error').append('<p><i class="fa fa-times" style="color: green"></i>&nbspUser has been accepted!</p>');  
+				$('#viewWaitingStudents_error').append('<p><i class="fa fa-check" style="color: green"></i>&nbspUser has been accepted!</p>');  
 				$('#viewWaitingStudents_error').fadeTo(1000, 0.5);			
 			  }
 			  else{
@@ -171,7 +174,7 @@ $(document).ready(function() {
 			  } else if(recv === 1) {
 				row.remove();
 				table.draw();
-				$('#viewWaitingStudents_error').append('<p><i class="fa fa-times" style="color: green"></i>&nbspUser has been rejected!</p>');  
+				$('#viewWaitingStudents_error').append('<p><i class="fa fa-check" style="color: green"></i>&nbspUser has been rejected!</p>');  
 				$('#viewWaitingStudents_error').fadeTo(1000, 0.5);				
 			  }
 			  else{
