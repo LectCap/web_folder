@@ -21,6 +21,7 @@
 			<ul class="nav navbar-nav">
 				<li id="start"><a href='start.php'>Start</a></li>
 				<li id="course"><a href="/course.php?user=<?php echo $_SESSION['user_id']; ?>&course=<?php echo $_GET['course']; ?>">Course</a></li>
+				<li id="viewParticipants"><a href="/viewParticipants.php?user=<?php echo $_SESSION['user_id']; ?>&course=<?php echo $_GET['course']; ?>">View Participants</a></li>
 				<li><a href='php/logout.php'>Logout</a></li>
 				
 				<?php if($teacher == 1): ?>
