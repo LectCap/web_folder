@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 16 dec 2015 kl 19:13
+-- Tid vid skapande: 18 dec 2015 kl 18:11
 -- Serverversion: 5.6.17
 -- PHP-version: 5.5.12
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `courses` (
   `description` varchar(250) COLLATE latin1_general_ci NOT NULL,
   `code` varchar(45) COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=47 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=56 ;
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(45) COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=16 ;
 
 -- --------------------------------------------------------
 
@@ -100,8 +100,23 @@ CREATE TABLE IF NOT EXISTS `videos` (
   PRIMARY KEY (`id`),
   KEY `course_id` (`course_id`),
   KEY `slide_id` (`slide_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=38 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=40 ;
 
+-- --------------------------------------------------------
+
+--
+-- Ersättningsstruktur för vy `view_courseparticipants`
+--
+CREATE TABLE IF NOT EXISTS `view_courseparticipants` (
+`user_id` int(11)
+,`course_id` int(11)
+,`username` varchar(45)
+,`firstname` varchar(45)
+,`lastname` varchar(45)
+,`school` varchar(45)
+,`programme` varchar(45)
+,`teacher` tinyint(1)
+);
 -- --------------------------------------------------------
 
 --
@@ -131,6 +146,15 @@ CREATE TABLE IF NOT EXISTS `view_waitingstudents` (
 ,`programme` varchar(45)
 ,`status` tinyint(4)
 );
+-- --------------------------------------------------------
+
+--
+-- Struktur för vy `view_courseparticipants`
+--
+DROP TABLE IF EXISTS `view_courseparticipants`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_courseparticipants` AS select `u`.`id` AS `user_id`,`c`.`id` AS `course_id`,`u`.`username` AS `username`,`u`.`firstname` AS `firstname`,`u`.`lastname` AS `lastname`,`u`.`school` AS `school`,`u`.`programme` AS `programme`,`b`.`teacher` AS `teacher` from ((`users` `u` join `user_course` `b`) join `courses` `c`) where ((`b`.`user_id` = `u`.`id`) and (`b`.`course_id` = `c`.`id`) and (`b`.`status` = '1'));
+
 -- --------------------------------------------------------
 
 --
