@@ -29,7 +29,7 @@ function setCourseinfo() {
 		} else {
 			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 			$user_id = $row['id'];
-			$result = db_query("INSERT INTO videos (title,description,course_id, slide_id, url) VALUES ($video_title, $video_description, $course_id, 2, $url)");
+			$result = db_query("INSERT INTO videos (title,description,course_id, url) VALUES ($video_title, $video_description, $course_id, $url)");
 			if (!$result){
 				$return = array('code' => -2);
 				echo json_encode($return);

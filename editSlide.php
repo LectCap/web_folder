@@ -1,5 +1,7 @@
 <?php
 //include($_SERVER['DOCUMENT_ROOT']."/php/courseHeader.php");
+include($_SERVER['DOCUMENT_ROOT']."/php/db.php");
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -12,29 +14,42 @@
 		<link rel="stylesheet" type="text/css" href="/css/master.css">
     </head>
     <body>
+		<?php //include($_SERVER['DOCUMENT_ROOT']."/php/headermenuCourse.php");?>
 		<div class="wrapper">
-
 			<div class="content">
-				<div id="form_wrapper" class="form_wrapper">					
-					<form id="editCourse-form" class="edit active" >
-						<h3>Add new slide [page x]</h3>
-						<div>
-							<label>Path(upload soon)<em class="reqfield"> *</em></label>
-							<input type="text" name="edit_course_name" required="required" maxlength="45"/>
-							<span class="error">This is an error</span>
-						</div>
-						<div>
-							<label>Seconds</label>
-							<input type="text" name="edit_course_name" required="required" maxlength="45"/>
-						</div>
-						<div class="bottom">
-							<div id="editCourse_error" style="color: #ffa800"></div>
-							<input type="submit" name="editCourse" value="Add slide" />
-							<div class="clear"></div>
-						</div>
-					</form>
-				</div>
-				
+			<?php
+			// sending query
+			$result = db_query("SELECT * FROM slides WHERE id = ".$_GET['lecture_id']);
+			if (!$result) {
+				die("Query to show fields from table failed");
+			}
+
+
+			echo "<h1>Slides</h1>";
+			echo "<table border='1'><tr>";
+			// printing table headers
+			echo "<td>Time</td>";
+			echo "<td>Path</td>";
+			echo "<td>Action</td>";
+			echo "</tr>\n";
+			// printing table rows
+			while($row = mysqli_fetch_array($result, MYSQLI_NUM))
+			{
+				echo "<tr>";
+				echo "<td>".$row[2]."</td>";
+				echo "<td>".$row[3]."</td>";
+				echo "<td><input type=\"submit\" value=\"edit\" name=\"edit\"><input type=\"submit\" value=\"delete\" name=\"delete\"></td>";
+				echo "</tr>\n";
+			}
+			?>
+			<form method="POST" action="php/upload_slide.php" enctype="multipart/form-data">
+			<td><input type="text" value="start sec" name="start_sec"></td>
+			<td><input type="file" name="fileToUpload" id="fileToUpload"></td>
+			<input type="hidden" name="lect_id" value="<?php echo $_GET['lecture_id']; ?>">
+			<td><input type="submit" value="upload" name="submit"></td>
+			</form>
+
+</body></html>
 			</div>
 		</div>
     </body>

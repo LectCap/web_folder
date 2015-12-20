@@ -2,6 +2,7 @@
 include($_SERVER['DOCUMENT_ROOT']."/php/courseHeader.php");
 $course_id = db_quote($_GET['course']);
 $lecture_id = db_quote($_GET['lecture_id']);
+$user= db_quote($_GET['user']);
 $result = db_query("SELECT * FROM videos WHERE course_id = $course_id AND id = $lecture_id");
 $lect = mysqli_fetch_array($result, MYSQLI_ASSOC);
 ?>
@@ -16,9 +17,6 @@ $lect = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/css/master.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<?php if($teacher == 1): ?>
-		<script src="/js/getWaitingNr.js"></script>
-		<?php endif; ?>
 		<script src="/js/exitCourse.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -29,22 +27,23 @@ $lect = mysqli_fetch_array($result, MYSQLI_ASSOC);
 <script language="JavaScript">
 
 var slideimages = new Array()
-var slidespeed = new Array()
+var player;
 
-var step = 0
-function startSlide()
+function start(time)
 {
-  setTimeout(switchPic, slidespeed[step]) //wait for next slide
+	if(step<4){
+	switchPic(time)
+	start();
+	}
 }
-function switchPic()
-{
+function switchPic(time)
+{	
+	if(slidetime[step] < time && time < slidetime[step+1]){
 	document.getElementById('slide').src = slideimages[step].src
 	step++;
-	if(step<4){
-		startSlide()
 	}
-   //finish doing things after the pause
 }
+
 function slideshowimages(){ //adding image to cache
 for (i=0;i<slideshowimages.arguments.length;i++){
 	if(slideshowimages.arguments[i] != ""){
@@ -58,6 +57,7 @@ for (i=0;i<slideshowimages.arguments.length;i++){
         <?php echo "<title>".$lect['title']."</title>" ?>
     </head>
     <body>
+		
 		<?php include($_SERVER['DOCUMENT_ROOT']."/php/headermenuCourse.php");?>
 		<script>
 			$( "#dropdownCourse" ).addClass( "hidden" );
@@ -75,56 +75,88 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 						<img src="bootstrap/images/logo.png" class="img-responsible pull-left" >
 					</div>
 					<div class="col-lg-6">
-						<p>"Lorem ipsum dolor sit amet,
-						consectetur adipiscing elit,
-						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-						Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-						Duis aute irure dolor in reprehenderit in voluptate
-						velit esse cillum dolore eu fugiat nulla pariatur.
-						Excepteur sint occaecat cupidatat non proident,
-						sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+						<p></p>
 					</div>
 				</div>
 			</div>	
 		</div>
 		
-		<?php echo "<h1>".$lect['title']."</h1>"; ?>
-		<div class="container fluid lectureContainer">
-			<div class="row">
-				<div class="col-lg-6 youtubeCol">
-					<iframe title="YouTube video player" class="youtube-player" type="text/html" 
-					width="640" height="390" src="<?php echo $lect['url']; ?>"
-					frameborder="0" allowFullScreen></iframe>
-					</br>
-				</div>
-				<div class="col-lg-6 slideCol">
-					<img src="images/default.png" id="slide" width="640" height="390" />
-					<script type="text/javascript">
-					<?php 
-						$result = db_query("SELECT * FROM slides WHERE id = ".$lect['slide_id']."");
-						echo "slideshowimages(";
-						while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-							echo '"'.$row['path'].'",';
-						} 
-					?>"")
-					var slidespeed = [0, 4000, 8000, 5000];
-					startSlide();
-					</script>
-				</div>
-			</div>
-		</div>
+		<?php echo "<h>".$lect['title']."</h><br>".$lect['description']."<br>"; ?>
 		
-		<iframe title="YouTube video player" id="yt_player_big" class="youtube-playerbig" style="display:none" type="text/html" 
-		width="640" height="390" src="<?php echo $lect['url']; ?>"
-		frameborder="0" allowFullScreen></iframe>
-		<a href="#yt_player_big" class="ytBigButton">Enlarge</a>
+		
+		<?php
+		$times = array();
+		$result = db_query("SELECT time FROM slides WHERE id=".$lect['id']." ORDER by time");
+		/* numeric array */
+		while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
+			array_push($times, $row[0]);
+		}?>
+	    <div id="player" align="left">
+		</div>
+		<img src="images/bgslide.png" id="slide" align="right" width="558" height="390" />
+
 		<script type="text/javascript">
-			$(".ytBigButton").fancybox({
-				"scrolling":"no",
-				"arrows":false,
-				"padding":[0],
-			});
+				//loads the pictures
+		<?php 
+			$result = db_query("SELECT * FROM slides WHERE id = ".$lect['id']."");
+			echo "slideshowimages(";
+			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+			echo '"'.$row['path'].'",';
+			} 
+			echo '"");';
+		?>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '390',
+          width: '640',
+          videoId: '<?php echo $lect['url']; ?>',
+          events: {
+			'onReady': onPlayerReady,
+          }
+        });
+      }
+		var videotime = 0;
+		var timeupdater = null;
+
+		// when the player is ready, start checking the current time every 100 ms.
+		function onPlayerReady() {
+		  function updateTime() {
+			var oldTime = videotime;
+			if(player && player.getCurrentTime) {
+			  videotime = player.getCurrentTime();
+			}
+			if(videotime !== oldTime) {
+			  onProgress(videotime);
+			}
+		  }
+		  timeupdater = setInterval(updateTime, 3000);
+		}
+		
+		
+		function onProgress(currentTime) {
+		<?php 
+		if(sizeof($times)>0){
+		$ind = 0;
+		for($i = 0; $i<sizeof($times)-1; $i++){
+			echo "if(currentTime > ".$times[$i]." && currentTime < ".$times[$i+1]."){ document.getElementById('slide').src = slideimages[".$i."].src }";
+			$ind++;
+		}
+		echo "if(currentTime > ".$times[$ind]."){ document.getElementById('slide').src = slideimages[".$ind."].src }";
+		$ind = 0;
+		}
+
+		?>
+		}
 		</script>
 		
 		<?php if($teacher == 1): ?>
@@ -132,12 +164,13 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 			<form action="" method="POST">
 			<input type="submit" name="edit_lecture" value="Edit lecture"/>
 			</form>
-			<form action="editslide.php" method="POST">
-			<input type="submit" name="editslides" value="Edit slides"/>
+			<form action="editslide.php" method="GET">
+			<input type="submit" name="edit_slide" value="Edit slides"/>
+			<input type="hidden" name="user" value="<?php echo $user;?>"/>
+			<input type="hidden" name="lecture_id" value="<?php echo $lecture_id; ?>"/>
+
 			</form>
-			
 			</div>
-		
 			</div>
 		<?php endif; ?>
 		
