@@ -28,7 +28,7 @@ include($_SERVER['DOCUMENT_ROOT']."/php/db.php");
 			echo "<h1>Slides</h1>";
 			echo "<table border='1'><tr>";
 			// printing table headers
-			echo "<td>Time</td>";
+			echo "<td>Start ime</td>";
 			echo "<td>Path</td>";
 			echo "<td>Action</td>";
 			echo "</tr>\n";
@@ -43,7 +43,7 @@ include($_SERVER['DOCUMENT_ROOT']."/php/db.php");
 			}
 			?>
 			<form method="POST" action="php/upload_slide.php" enctype="multipart/form-data">
-			<td><input type="text" value="start sec" name="start_sec"></td>
+			<td><input type="number" value="0" name="start_sec"></td>
 			<td><input type="file" name="fileToUpload" id="fileToUpload"></td>
 			<input type="hidden" name="lect_id" value="<?php echo $_GET['lecture_id']; ?>">
 			<td><input type="submit" value="upload" name="submit"></td>

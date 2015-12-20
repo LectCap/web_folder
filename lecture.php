@@ -66,7 +66,7 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 			$( "#addLecture" ).addClass( "hidden" );
 		</script>
 		
-		<div id="lecturediv" class="lecturediv">
+		<div id="lecturediv" class="startdiv">
 		
 		<div class="page-header">
 			<div class="container">
