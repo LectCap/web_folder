@@ -5,11 +5,7 @@ $(document).ready(function(){
 	var video_title = $('input[name=video_title]').val();
 	var video_description = $('input[name=video_description]').val();
 	var url = $('input[name=url]').val();
-	var video_id = youtube_parser(url);
-	if (!video_id) {
-		$('#createVideo_error').append("<p>Not a valid Youtube URL!</p>");;
-	} else {
-		url = "https://www.youtube.com/embed/"+video_id;
+		
 		var course_id = $("#createVideo-form").data("course");
 		var user_id = $("#createVideo-form").data("user");
 		console.log(user_id);
@@ -44,13 +40,8 @@ $(document).ready(function(){
 			console.log("Details: " + desc + "\nError:" + err);
 		  }
 		}); // end ajax call
-	}
+	
   });
   
-  /* Function which extracts Youtube video id. Needed to create an embedded link */
-  function youtube_parser(url){
-    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
-    var match = url.match(regExp);
-    return (match&&match[7].length==11)? match[7] : false;
-	}
+
 })
