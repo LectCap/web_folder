@@ -154,6 +154,8 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 		}
 		echo "if(currentTime > ".$times[$ind]."){ document.getElementById('slide').src = slideimages[".$ind."].src }";
 		$ind = 0;
+		}else{
+			echo "document.getElementById('slide').src ='images/noslide.png'";
 		}
 
 		?>
