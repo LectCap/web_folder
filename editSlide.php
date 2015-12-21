@@ -7,47 +7,108 @@ include($_SERVER['DOCUMENT_ROOT']."/php/db.php");
 <html>
     <head>
         <?php echo "<title>Add slide</title>"; ?>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="/js/editCourse.js"></script>
-		<script src="/js/closeCourse.js"></script>
+		<link rel="icon" href="images/favicon.ico">
+		<meta charset='utf-8'>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="bootstrap/css/style.css" rel="stylesheet">
+		<link href="css/master.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="/css/master.css">
+		<link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script src="/js/viewCourses.js"></script>
+		<script src="/js/login_register.js"></script>
+		<script src="js/editAcc.js"></script>
+		<script src="/js/createCourse.js"></script>
+		<script src="/js/myCourses.js"></script>
+		<script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
     </head>
     <body>
-		<?php //include($_SERVER['DOCUMENT_ROOT']."/php/headermenuCourse.php");?>
+	<?php session_start(); include($_SERVER['DOCUMENT_ROOT']."/php/headermenu.php");?>
+	<script>
+	$(document).ready( function () {
+    $('#slides').DataTable({
+    dom: 'Bfrtip',
+	"bFilter": false,
+	
+    buttons: [
+        'colvis',
+        'excel',
+        'print'
+    ]
+}
+	);
+	$('#add_slide-form').submit(function(e){
+	e.preventDefault();
+	$.post("php/upload_slide.php",
+		{
+		  start_sec: document.getElementById('start_sec').value,
+		  lect_id: <?php echo $_GET['lecture_id']; ?>,
+		  fileToUpload: document.getElementById('fileToUpload').value
+		})
+	});
+
+	
+	
+	});
+		
+	function myFunction(){
+
+	}
+</script>
+		
+				<div id="startdiv" class="startdiv">
+			<div class="page-header">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4">
+							<img src="bootstrap/images/logo.png" class="img-responsible pull-left" >
+						</div>
+						<div class="col-lg-6">
+							<h1><?php echo $_SESSION['lect_name']; ?></h1>
+						</div>
+					</div>
+				</div>	
+			</div>
 		<div class="wrapper">
+		
 			<div class="content">
+			<h1>Slides</h1>
+		    <table id="slides" class="display" cellspacing="0" width="100%"><thead><tr>
 			<?php
 			// sending query
 			$result = db_query("SELECT * FROM slides WHERE id = ".$_GET['lecture_id']);
 			if (!$result) {
 				die("Query to show fields from table failed");
 			}
-
-
-			echo "<h1>Slides</h1>";
-			echo "<table border='1'><tr>";
 			// printing table headers
-			echo "<td>Start ime</td>";
-			echo "<td>Path</td>";
-			echo "<td>Action</td>";
-			echo "</tr>\n";
+			echo "<td>Start time</td>";
+			echo "<td>Slide</td>";
+			echo "<td align=\"center\">Action</td>";
+			echo "</thead></tr>\n";
 			// printing table rows
 			while($row = mysqli_fetch_array($result, MYSQLI_NUM))
 			{
 				echo "<tr>";
 				echo "<td>".$row[2]."</td>";
-				echo "<td>".$row[3]."</td>";
-				echo "<td><input type=\"submit\" value=\"edit\" name=\"edit\"><input type=\"submit\" value=\"delete\" name=\"delete\"></td>";
+				echo "<td align=\"center\"><img src=\"".$row[3]."\" id=\"slide\" width=\"228\" height=\"190\" /></td>";
+				echo "<td align=\"right\"><button class='tableButton'>Edit</button><button class='tableButton'>Delete</button></td>";
 				echo "</tr>\n";
 			}
 			?>
-			<form method="POST" action="php/upload_slide.php" enctype="multipart/form-data">
-			<td><input type="number" value="0" name="start_sec"></td>
-			<td><input type="file" name="fileToUpload" id="fileToUpload"></td>
+			</table>
+			<div>
+			<form id="add_slide" method="POST" action="php/upload_slide.php" enctype="multipart/form-data">
+			<input type="number" name="start_sec" placeholder="Enter start time">
+			<input type="file" name="fileToUpload" id="fileToUpload">
 			<input type="hidden" name="lect_id" value="<?php echo $_GET['lecture_id']; ?>">
-			<td><input type="submit" value="upload" name="submit"></td>
-			</form>
+			<input type="submit" value="upload" name="submit">
+			</div>
 
 </body></html>
 			</div>

@@ -5,6 +5,7 @@ $lecture_id = db_quote($_GET['lecture_id']);
 $user= db_quote($_GET['user']);
 $result = db_query("SELECT * FROM videos WHERE course_id = $course_id AND id = $lecture_id");
 $lect = mysqli_fetch_array($result, MYSQLI_ASSOC);
+$_SESSION['lect_name'] = $lect['title'];
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -81,7 +82,7 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 			</div>	
 		</div>
 		
-		<?php echo "<h>".$lect['title']."</h><br>".$lect['description']."<br>"; ?>
+		<?php echo "<h1>".$lect['title']."</h1><br>".$lect['description']."<br>"; ?>
 		
 		
 		<?php
@@ -93,7 +94,7 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 		}?>
 	    <div id="player" align="left">
 		</div>
-		<img src="images/bgslide.png" id="slide" align="right" width="558" height="390" />
+		<img src="images/default.png" id="slide" align="right" width="558" height="390" />
 
 		<script type="text/javascript">
 				//loads the pictures

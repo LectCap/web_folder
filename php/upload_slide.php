@@ -1,13 +1,16 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT']."php/db.php");
+session_start();
 $lect_id = $_POST['lect_id'];
 $slideTime = $_POST['start_sec'];
 $target_dir = "images/";
-$target_file = $_SERVER['DOCUMENT_ROOT'] . $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$filename = generateRandomString().".";
+$imageFileType = pathinfo($_FILES["fileToUpload"]["name"],PATHINFO_EXTENSION);
+$target_file = $_SERVER['DOCUMENT_ROOT'] . $target_dir . $filename . $imageFileType;
 $uploadOk = 1;
-$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
 echo $slideTime;
-$path = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$path = $target_dir . $filename . $imageFileType;
 $path = db_quote($path);
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
@@ -50,5 +53,15 @@ if ($uploadOk == 0) {
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
+}
+
+function generateRandomString($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
 }
 ?>
