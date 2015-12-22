@@ -25,8 +25,8 @@ if($teacher != 1) {
 		<script src="/js/viewWaitingStudents.js"></script>
 		<script src="/js/login_register.js"></script>
 		<script src="/js/getWaitingNr.js"></script>
-		<script src="js/editAcc.js"></script>
-		<script src="/js/createCourse.js"></script>
+		<script src="/js/editCourse.js"></script>
+		<script src="/js/closeCourse.js"></script>
 		<script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
     </head>

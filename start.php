@@ -26,6 +26,7 @@ if(!isset($_SESSION['username'])) {
 		<script src="/js/login_register.js"></script>
 		<script src="js/editAcc.js"></script>
 		<script src="/js/createCourse.js"></script>
+		<script src="/js/myCourses.js"></script>
 		<script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
     </head>
@@ -71,6 +72,33 @@ if(!isset($_SESSION['username'])) {
 		?>
 	</div>
 
+	<div class="container">
+	<h2>View all <span>courses</span> you have enrolled to below</h2>
+	<table id="myCourses_list" class="display" cellspacing="0" width="100%" data-userid="<?php echo $_SESSION['user_id']; ?>">
+		<thead>
+			<tr>
+				<th>Course code</th>
+				<th>Course name</th>
+				<th>Course Description</th>
+				<th>Role</th>
+				<th>Link</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<th>Course code</th>
+				<th>Course name</th>
+				<th>Course Description</th>
+				<th>Role</th>
+				<th>Link</th>
+			</tr>
+		</tfoot>
+	</table>
+	<div id="myCourses_error"></div>
+	</div>
+	
+	<div class="pagedivider"></div>
+	
 	<div class="container">	
 		<h2>Browse for new <span>courses</span> and enroll below</h2>
 		<table id="course_list" class="display" cellspacing="0" width="100%" data-userid="<?php echo $_SESSION['user_id']; ?>">
@@ -93,7 +121,7 @@ if(!isset($_SESSION['username'])) {
 		</table>
 		<div id="viewCourses_error"></div>
 	</div>
-	
+
 	<div class="pagedivider"></div>
 	
 </div>

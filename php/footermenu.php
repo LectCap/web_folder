@@ -14,7 +14,6 @@
 			<div class="col-md-7">
 				<ul class="footer-nav">
 					<li><a href='start.php'>Start</a></li>
-					<li><a href='myCourses.php'>My Courses</a></li>
 					<li><a href='php/logout.php'>Logout</a></li>
 				</li>
 				</ul>

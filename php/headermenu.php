@@ -15,9 +15,7 @@
 		<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li id="start"><a href='start.php'>Start</a></li>
-				<li id="myCourses"><a href='myCourses.php'>My Courses</a></li>
 				<li><a href="#form_wrapper_create" class="createCourseButton">Create a Course</a></li>
-				<li><a href='php/logout.php'>Logout</a></li>
 				
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Edit Account <span class="caret"></span></a>
@@ -29,6 +27,7 @@
 						<li><a href="#form_wrapper_pwd" class="editPwdButton">Edit password</a></li>
 					</ul>
 				</li>
+				<li><a href='php/logout.php'>Logout</a></li>
 			</ul>
 		</div>
 	</div>
