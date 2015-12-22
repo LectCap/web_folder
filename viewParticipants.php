@@ -64,6 +64,7 @@ include($_SERVER['DOCUMENT_ROOT']."/php/courseHeader.php");
 							<th>Username</th>
 							<th>Role</th>
 							<?php if($teacher == 1): ?>
+							<th>Change Role</th>
 							<th>Remove from course</th>
 							<?php endif; ?>
 						</tr>
@@ -74,6 +75,7 @@ include($_SERVER['DOCUMENT_ROOT']."/php/courseHeader.php");
 							<th>Username</th>
 							<th>Role</th>
 							<?php if($teacher == 1): ?>
+							<th>Change Role</th>
 							<th>Remove from course</th>
 							<?php endif; ?>
 						</tr>
