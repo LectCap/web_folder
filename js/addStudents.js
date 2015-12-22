@@ -68,7 +68,7 @@ $(document).ready(function() {
 			},			
 			{ //Add student button
 				"data": null,
-				"defaultContent": "<button class='addBtn'>Add Student</button>",
+				"defaultContent": "<button class='addBtn tableButton'>Add Student</button>",
 				"class": "acceptBtn",
 				"searchable": false,
 				"targets": 2

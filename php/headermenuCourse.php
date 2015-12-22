@@ -21,14 +21,11 @@
 			<ul class="nav navbar-nav">
 				<li id="start"><a href='start.php'>Start</a></li>
 				<li id="course"><a href="/course.php?user=<?php echo $_SESSION['user_id']; ?>&course=<?php echo $_GET['course']; ?>">Course</a></li>
-				<li id="viewParticipants"><a href="/viewParticipants.php?user=<?php echo $_SESSION['user_id']; ?>&course=<?php echo $_GET['course']; ?>">View Participants</a></li>
 				
 				<?php if($teacher == 1): ?>
 				<li id="viewWaitingStudents"><a href="viewWaitingStudents.php?user=<?php echo $_SESSION['user_id']; ?>&course=<?php echo $_GET['course']; ?>">Waiting students 
 				<span id="waitingNr" data-user="<?php echo $_SESSION['user_id']; ?>" data-course="<?php echo $_GET['course']; ?>" style="color: red; font-weight: bold"></span></a></li>
 				<li id="addStudents"><a href="addStudents.php?user=<?php echo $_SESSION['user_id']; ?>&course=<?php echo $_GET['course']; ?>">Add Students</a></li>
-				<li id="editLecture"><a href='lecture.php'>Edit Lecture</a></li>
-				<li id="editSlide"><a href="#form_wrapper_slide" class="editSlideButton">Edit Slides</a></li>
 				<li id="addLecture"><a href="#form_wrapper_video" class="addVideoButton">Add Lecture</a></li>
 				<li id="dropdownCourse" class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Edit Course <span class="caret"></span></a>
@@ -36,6 +33,14 @@
 						<li><a href="#form_wrapper_editC" class="editCourseButton">Edit Course info</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="#form_wrapper_closeC" class="closeCourseButton">Close Course</a></li>
+					</ul>
+				</li>
+				<li id="editLecture" class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Edit Lecture <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li id="editLecture"><a href='lecture.php'>Edit Video</a></li>
+						<li role="separator" class="divider"></li>
+						<li id="editSlide"><a href="#form_wrapper_slide" class="editSlideButton">Edit Slides</a></li>
 					</ul>
 				</li>
 				<?php endif; ?>

@@ -3,9 +3,9 @@
 			<div class="col-md-5">
 				<h4>Contact Address</h4>
 				<address>
-					#999, Street <br>
-					City <br>
-					Country <br>
+					37140, Utridarevägen 9A <br>
+					Karlskrona <br>
+					Sweden <br>
 				</address>
 			</div>
 		</div>

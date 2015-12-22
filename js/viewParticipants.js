@@ -56,10 +56,10 @@ $(document).ready(function() {
 					// Inserts value 'Teacher' or 'Student' in 'Role' column depending on db value returned
 					"createdCell": function (td, cellData, rowData, row, col) {
 					  if ( cellData == 1 ) {
-						$(td).html(cellData.replace(1, '<button class="changeBtn" data-teacher="0"> Make Student</button>'));
+						$(td).html(cellData.replace(1, '<button class="changeBtn tableButton" data-teacher="0"> Make Student</button>'));
 					  }
 					  else {
-						$(td).html(cellData.replace(0, '<button class="changeBtn" data-teacher="1">Make Teacher</button>'));
+						$(td).html(cellData.replace(0, '<button class="changeBtn tableButton" data-teacher="1">Make Teacher</button>'));
 					  }
 					}
 				},
@@ -97,7 +97,7 @@ $(document).ready(function() {
 				},			
 				{ //Remove student button
 					"data": null,
-					"defaultContent": "<button class='removeBtn'>Remove</button>",
+					"defaultContent": "<button class='removeBtn tableButton'>Remove</button>",
 					"class": "removeBtn",
 					"searchable": false,
 					"targets": 4

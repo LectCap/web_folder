@@ -24,6 +24,9 @@ $_SESSION['lect_name'] = $lect['title'];
 		<link href="bootstrap/css/style.css" rel="stylesheet">
 		<link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
 		<script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>	
+		<?php if($teacher == 1): ?>
+		<script src="/js/getWaitingNr.js"></script>
+		<?php endif; ?>
 
 <script language="JavaScript">
 
@@ -66,6 +69,9 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 		<script>
 			$( "#addLecture" ).addClass( "hidden" );
 		</script>
+		<script>
+			$( "#addStudents" ).addClass( "hidden" );
+		</script>
 		
 		<div id="lecturediv" class="startdiv">
 		
@@ -75,8 +81,12 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 					<div class="col-lg-4">
 						<img src="bootstrap/images/logo.png" class="img-responsible pull-left" >
 					</div>
-					<div class="col-lg-6">
-						<p></p>
+					<div class="col-lg-6" style="font-family:'Trebuchet MS', 'Myriad Pro', sans-serif font-size: 14px;font-weight: bold">
+						<p>On the lecture page you watch the lecture that has been uploaded
+						by the course teacher. Teachers are also able to upload slides to accompany
+						their lecture video, these slides will automatically switch pages at
+						appropriate timers during the duration of the lecture video. 
+						A teacher can edit both the video content and the slides.</p>
 					</div>
 				</div>
 			</div>	

@@ -12,10 +12,12 @@ $lectnr = 1;
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/css/master.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
 		<?php if($teacher == 1): ?>
 		<script src="/js/getWaitingNr.js"></script>
 		<?php endif; ?>
 		<script src="/js/exitCourse.js"></script>
+		<script src="/js/viewParticipants.js"></script>
 		<script src="/js/createVideo.js"></script>
 		<script src="/js/editCourse.js"></script>
 		<script src="/js/closeCourse.js"></script>
@@ -23,6 +25,7 @@ $lectnr = 1;
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="bootstrap/css/style.css" rel="stylesheet">
 		<link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+		<script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>		
         <?php echo "<title>$course_name</title>" ?>
     </head>
@@ -46,16 +49,12 @@ $lectnr = 1;
 					<div class="col-lg-4">
 						<img src="bootstrap/images/logo.png" class="img-responsible pull-left" >
 					</div>
-					<div class="col-lg-6">
-						<p>"Lorem ipsum dolor sit amet,
-						consectetur adipiscing elit,
-						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-						Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-						Duis aute irure dolor in reprehenderit in voluptate
-						velit esse cillum dolore eu fugiat nulla pariatur.
-						Excepteur sint occaecat cupidatat non proident,
-						sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+					<div class="col-lg-6" style="font-family:'Trebuchet MS', 'Myriad Pro', sans-serif font-size: 14px;font-weight: bold">
+						<p>This is the course page where you are participating as teacher or student.
+						Here you can find a list of lectures for this course, as well as a list of other participants
+						in this course. As a teacher you are able to assign teacher status to other students and
+						remove participants. A teacher can add new lectures by uploading a video and also edit course
+						information or close down the course.</p>
 					</div>
 				</div>
 			</div>	
@@ -78,6 +77,37 @@ $lectnr = 1;
 		</form>
 		<div id="exitCourse_error">
 		</div>
+
+		<div class="container">
+			<h2>View all <span>courses</span> you have enrolled to below</h2>
+			<table id="viewParticipants_list" class="display" cellspacing="0" width="100%" data-course="<?php echo $_GET['course']; ?>">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Username</th>
+						<th>Role</th>
+						<?php if($teacher == 1): ?>
+						<th>Change Role</th>
+						<th>Remove from course</th>
+						<?php endif; ?>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th></th>
+						<th>Username</th>
+						<th>Role</th>
+						<?php if($teacher == 1): ?>
+						<th>Change Role</th>
+						<th>Remove from course</th>
+						<?php endif; ?>
+					</tr>
+				</tfoot>
+			</table>
+			<div id="viewParticipants_error"></div>
+		</div>
+		
+		<div class="pagedivider"></div>		
 
 		</div>
 		

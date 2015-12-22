@@ -45,16 +45,12 @@ if(!isset($_SESSION['username'])) {
 				<div class="col-lg-4">
 					<img src="bootstrap/images/logo.png" class="img-responsible pull-left" >
 				</div>
-				<div class="col-lg-6">
-					<p>"Lorem ipsum dolor sit amet,
-					consectetur adipiscing elit,
-					sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-					Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					Duis aute irure dolor in reprehenderit in voluptate
-					velit esse cillum dolore eu fugiat nulla pariatur.
-					Excepteur sint occaecat cupidatat non proident,
-					sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+				<div class="col-lg-6" style="font-family:'Trebuchet MS', 'Myriad Pro', sans-serif font-size: 14px;font-weight: bold">
+					<p>Welcome to Online Lecture! This is a free website where anyone can host courses as a teacher
+					and participate in courses as a student. On the start page you can browse for interesting courses you wish
+					to enroll to, and also see the courses you are participating in.
+					You are also able to create a new course which you will become the teacher in. If you so wish you are able  to edit
+					your account information, email or password.</p>
 				</div>
 			</div>
 		</div>	
