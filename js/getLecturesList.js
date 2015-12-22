@@ -1,9 +1,4 @@
 /* Belongs to course.php. Used for generating tables and giving users links to lectures */
-function format ( d ) {
-    return 'Full name: '+d.code+' '+d.name+'<br>'+
-        'Salary: '+d.description+'<br>'+
-        'The child row can contain any data you wish, including links, images, inner tables etc.';
-}
  /* DataTables jQuery plugin is used here to show the table */
 $(document).ready(function() {
 	var course_id = $('#lectures_list').data('courseid');

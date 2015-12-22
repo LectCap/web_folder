@@ -1,9 +1,4 @@
 /* Belongs to myCourses.php. Used for generating tables and giving users links to course pages */
-function format ( d ) {
-    return 'Full name: '+d.code+' '+d.name+'<br>'+
-        'Salary: '+d.description+'<br>'+
-        'The child row can contain any data you wish, including links, images, inner tables etc.';
-}
  /* DataTables jQuery plugin is used here to show the tables */
 $(document).ready(function() {
     var dt = $('#myCourses_list').DataTable( {
@@ -67,12 +62,5 @@ $(document).ready(function() {
 		var user_id = $('#myCourses_list').data('userid');
 		console.log(course_id+'\n'+user_id);
 		window.location.replace("http://localhost:8080/course.php?user="+user_id+"&course="+course_id); 
-    } );
- 
-    // On each draw, loop over the `detailRows` array and show any child rows
-    dt.on( 'draw', function () {
-        $.each( detailRows, function ( i, id ) {
-            $('#'+id+' td.details-control').trigger( 'click' );
-        } );
     } );
 } );

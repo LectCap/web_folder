@@ -121,12 +121,12 @@
 		<h3>Add new slide [page x]</h3>
 		<div>
 			<label>Path(upload soon)<em class="reqfield"> *</em></label>
-			<input type="text" name="edit_course_name" required="required" maxlength="45"/>
+			<input type="text" name="edit_slide_path" required="required" maxlength="45"/>
 			<span class="error">This is an error</span>
 		</div>
 		<div>
 			<label>Seconds</label>
-			<input type="text" name="edit_course_name" required="required" maxlength="45"/>
+			<input type="text" name="edit_slide_timer" required="required" maxlength="45"/>
 		</div>
 		<div class="bottom">
 			<div id="editSlide_error" style="color: #ffa800"></div>
