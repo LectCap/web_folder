@@ -370,3 +370,15 @@ form.start {
 	box-shadow: 0px 0px 8px #f0f0f0;
 	resize: none;
 }
+
+.clear {
+	clear: both;
+}
+
+#player {
+	padding: 10px;
+}
+
+#slide {
+	padding: 10px;
+}

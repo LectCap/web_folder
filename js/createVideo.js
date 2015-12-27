@@ -3,7 +3,7 @@ $(document).ready(function(){
   $('#createVideo-form').submit(function(e){
     e.preventDefault();
 	var video_title = $('input[name=video_title]').val();
-	var video_description = $('input[name=video_description]').val();
+	var video_description = $('textarea[name=video_description]').val();
 	var url = $('input[name=url]').val();
 		
 		var course_id = $("#createVideo-form").data("course");

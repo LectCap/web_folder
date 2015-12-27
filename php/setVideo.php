@@ -2,8 +2,8 @@
 /** Called by createCourse.js in order to create a course entry in the database **/
 session_start();
 include($_SERVER['DOCUMENT_ROOT']."/php/db.php");
-setCourseinfo();
-function setCourseinfo() {
+setVideo();
+function setVideo() {
 	header('Content-Type: application/json; charset=UTF-8');
 	$json = file_get_contents('php://input');
 	$values = json_decode($json, true);

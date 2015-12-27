@@ -64,7 +64,7 @@
 	background:#fff;
 	border:1px solid #ddd;
 	margin:0 auto;
-	width:1200px;
+	width:80%;
 	font-size:16px;
 	-moz-box-shadow:1px 1px 7px #ccc;
 	-webkit-box-shadow:1px 1px 7px #ccc;
@@ -75,7 +75,7 @@
 	background:#fff;
 	border:1px solid #ddd;
 	margin:0 auto;
-	width:1400px;
+	width:80%;
 	font-size:16px;
 	-moz-box-shadow:1px 1px 7px #ccc;
 	-webkit-box-shadow:1px 1px 7px #ccc;
@@ -83,7 +83,7 @@
 }
 
 .lectureContainer {
-	width:1400px;
+	width:100%;
 }
 
 .youtube-player{
@@ -130,14 +130,18 @@ h2boot span{
 }
 
 .pagedivider {
-	width:1140px;
+	width:100%;
 	border-top:1px solid #b2b2b2;
 	margin-top:10px;
-	margin-left:30px;
+	margin-left: 0;
 	padding:10px;
 	color:#b2b2b2;
 }
 
 .hidden {
 	display:none;
+}
+
+.container {
+	width: 100%;
 }

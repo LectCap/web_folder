@@ -92,7 +92,7 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 			</div>	
 		</div>
 		
-		<?php echo "<h1>".$lect['title']."</h1><br>".$lect['description']."<br>"; ?>
+		<?php echo "<h1 style='margin-left: 10px'>".$lect['title']."</h1><p style='margin-left: 10px'>".$lect['description']."<p>"; ?>
 		
 		
 		<?php
@@ -102,9 +102,12 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 		while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
 			array_push($times, $row[0]);
 		}?>
-	    <div id="player" align="left">
+		<div id=lectureContainer">
+			<div id="player" align="left" style="padding: 10px"></div>
+			<img src="images/default.png" id="slide" width="558" height="390" style="padding: 10px"/>
+			<!--Clear div necessary to prevent overlapping divs. DO NOT REMOVE -->
+			<div class="clear"></div>
 		</div>
-		<img src="images/default.png" id="slide" align="right" width="558" height="390" />
 
 		<script type="text/javascript">
 				//loads the pictures
@@ -125,7 +128,7 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 
       // 3. This function creates an <iframe> (and YouTube player)
       //    after the API code downloads.
-      
+      var player;
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('player', {
           height: '390',
@@ -183,7 +186,6 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 			<input type="hidden" name="lecture_id" value="<?php echo $lecture_id; ?>"/>
 
 			</form>
-			</div>
 			</div>
 		<?php endif; ?>
 		

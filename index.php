@@ -28,7 +28,7 @@ if(isset($_SESSION['username'])) {
 					<h3>Login <i class="fa fa-sign-in"></i></h3>
 						<div>
 							<label>Username:</label> 
-							<input type="text" name="username" required="required" />
+							<input type="text" name="username" required="required" maxlength="45" />
 						</div>
 						<div>
 							<label>Password:</label> 
@@ -47,44 +47,44 @@ if(isset($_SESSION['username'])) {
 						<div class="column">
 							<div>
 								<label>First Name<em class="reqfield"> *</em></label>
-								<input type="text" name="firstname" required="required"/>
+								<input type="text" name="firstname" required="required" maxlength="45" />
 								<span class="error">This is an error</span>
 							</div>
 							<div>
 								<label>Last Name<em class="reqfield"> *</em></label>
-								<input type="text" name="lastname" required="required"/>
+								<input type="text" name="lastname" required="required" maxlength="45" />
 								<span class="error">This is an error</span>
 							</div>
 							<div>
 								<label>School</label>
-								<input type="text" name="school"/>
+								<input type="text" name="school" maxlength="45" />
 								<span class="error">This is an error</span>
 							</div>
 							<div>
 								<label>Programme</label>
-								<input type="text" name="programme"/>
+								<input type="text" name="programme" maxlength="45" />
 								<span class="error">This is an error</span>
 							</div>
 						</div>
 						<div class="column">
 							<div>
 								<label>Username<em class="reqfield"> *</em></label>
-								<input type="text" name="username_reg" required="required"/>
+								<input type="text" name="username_reg" required="required" maxlength="45" />
 								<span class="error">This is an error</span>
 							</div>
 							<div>
 								<label>Email<em class="reqfield"> *</em></label>
-								<input type="email" name="email" required="required"/>
+								<input type="email" name="email" required="required" maxlength="45" />
 								<span class="error">This is an error</span>
 							</div>
 							<div>
 								<label>Password<em class="reqfield"> *</em></label>
-								<input type="password" name="password_reg"  required="required"/>
+								<input type="password" name="password_reg"  required="required" />
 								<span class="error">This is an error</span>
 							</div>
 							<div>
 								<label>Confirm Password<em class="reqfield" > *</em></label>
-								<input type="password" name="password_confirm" required="required"/>
+								<input type="password" name="password_confirm" required="required" />
 								<span class="error">This is an error</span>
 							</div>
 						</div>

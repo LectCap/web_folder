@@ -55,15 +55,15 @@
 	<h3>Upload Lecture <i class="fa fa-eject"></i></h3>
 		<div>
 			<label>Title</label> 
-			<input type="text" name="video_title" required="required" />
+			<input type="text" name="video_title" required="required" maxlength="45" />
 		</div>
 		<div>
 			<label>Description</label> 
-			<input type="text" name="video_description" required="required" />
+			<textarea id="styled" rows="5" cols="40" name="video_description" placeholder="Write a short video description" maxlength="250"></textarea>
 		</div>
 		<div>
 			<label>YouTube-Link</label> 
-			<input type="text" name="url" required="required" />
+			<input type="text" name="url" required="required" maxlength="255" />
 		</div>
 		<div class="bottom">
 			<input type="submit" name="setVideo" value="Add video"/>
@@ -121,7 +121,7 @@
 		<h3>Add new slide [page x]</h3>
 		<div>
 			<label>Path(upload soon)<em class="reqfield"> *</em></label>
-			<input type="text" name="edit_slide_path" required="required" maxlength="45"/>
+			<input type="text" name="edit_slide_path" required="required" />
 			<span class="error">This is an error</span>
 		</div>
 		<div>
