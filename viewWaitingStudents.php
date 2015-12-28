@@ -45,7 +45,7 @@ if($teacher != 1) {
 		
 		<div id="startdiv" class="startdiv">
 			<div class="page-header">
-				<div class="container">
+				<div class="container-fluid">
 					<div class="row">
 						<div class="col-lg-4">
 							<img src="bootstrap/images/logo.png" class="img-responsible pull-left" >
@@ -65,7 +65,7 @@ if($teacher != 1) {
 				</div>	
 			</div>
 		
-			<div class="container">
+			<div class="container-fluid">
 				<h2>View all <span>courses</span> you have enrolled to below</h2>
 				<table id="waitingStudents_list" class="display" cellspacing="0" width="100%" data-course="<?php echo $_GET['course']; ?>">
 					<thead>
