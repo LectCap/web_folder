@@ -65,7 +65,7 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 		<div id="lecturediv" class="startdiv">
 		
 		<div class="page-header">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-4">
 						<img src="bootstrap/images/logo.png" class="img-responsible pull-left" >
@@ -91,11 +91,17 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 		while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
 			array_push($times, $row[0]);
 		}?>
-		<div id=lectureContainer">
-			<div id="player" align="left" style="padding: 10px"></div>
-			<img src="images/default.png" id="slide" width="558" height="390" style="padding: 10px"/>
-			<!--Clear div necessary to prevent overlapping divs. DO NOT REMOVE -->
-			<div class="clear"></div>
+		<div class="container-fluid" style="max-width: none">
+			<div id="lectureContainer" class="row-fluid">
+				<div style="min-width: 640px" class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+					<div id="player"  class="lecture_content" ></div>
+				</div>
+				<div style="min-width: 640px" class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+					<img src="images/default.png" id="slide" class="lecture_content" width="640" height="390"/>
+					<!--Clear div necessary to prevent overlapping divs. DO NOT REMOVE -->
+					<div class="clear"></div>
+				</div>
+			</div>
 		</div>
 
 		<script type="text/javascript">
@@ -179,7 +185,7 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 		<?php endif; ?>
 		
 		</div>
-		
+			<div class="pagedivider" style="margin-top: 30px; margin-bottom: 30px"></div>
 	<footer class="site-footer no-margin">
 		<?php include($_SERVER['DOCUMENT_ROOT']."/php/footermenu.php"); ?>
 	</footer>

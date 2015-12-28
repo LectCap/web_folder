@@ -32,7 +32,7 @@ $lectnr = 1;
 		<div id="coursediv" class="startdiv">
 		
 		<div class="page-header">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-4">
 						<img src="bootstrap/images/logo.png" class="img-responsible pull-left" >
@@ -47,7 +47,7 @@ $lectnr = 1;
 				</div>
 			</div>	
 		</div>
-		<div class="container">
+		<div class="container-fluid">
 			<div id="form_wrapper_exit_slide">
 		<?php //echo "<h1>Course $course_name</p>";?>
 				<form id="exitCourse_form" data-user="<?php echo $_SESSION['user_id'] ?>" data-course="<?php echo $_GET['course'] ?>" data-teacher="<?php echo $teacher ?>">
@@ -82,7 +82,7 @@ $lectnr = 1;
 		
 		</br>
 
-		<div class="container">
+		<div class="container-fluid"">
 			<h2>View all <span>courses</span> you have enrolled to below</h2>
 			<table id="viewParticipants_list" class="display" cellspacing="0" width="100%" data-course="<?php echo $_GET['course']; ?>">
 				<thead>

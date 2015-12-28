@@ -86,28 +86,12 @@
 	width:100%;
 }
 
-.youtube-player{
-	border:1px solid #ccc;
-    height: 390px;
-    width: 580px;
-    padding: 0px;
-    margin-left: 25px;
-    margin-bottom: 25px;
-	-moz-box-shadow:5px 5px 7px #ccc;
-	-webkit-box-shadow:5px 5px 7px #ccc;
-	box-shadow:5px 5px 7px #ccc;
-}
+.lecture_content{
 
-.youtube-playerbig {
-	border:1px solid #ccc;
-    height: 720px;
-    width: 1280px;
-    padding: 0px;
-    margin-left: 25px;
-    margin-bottom: 25px;
 	-moz-box-shadow:5px 5px 7px #ccc;
 	-webkit-box-shadow:5px 5px 7px #ccc;
-	box-shadow:5px 5px 7px #ccc;
+	box-shadow:5px 5px 7px 3px #ccc;
+	margin-bottom: 20px;
 }
 
 .youtubeCol {
@@ -130,14 +114,19 @@ h2boot span{
 }
 
 .pagedivider {
-	width:100%;
+	width:90%;
 	border-top:1px solid #b2b2b2;
 	margin-top:10px;
-	margin-left: 0;
+	margin-left: 5%;
+	margin-right: 5%;
 	padding:10px;
 	color:#b2b2b2;
 }
 
 .hidden {
 	display:none;
+}
+
+.container-fluid {
+	max-width: 1140px;
 }

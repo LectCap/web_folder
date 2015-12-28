@@ -49,9 +49,9 @@ include($_SERVER['DOCUMENT_ROOT']."/php/db.php");
 	}
 </script>
 		
-				<div id="startdiv" class="startdiv">
+		<div id="editSlidediv" class="startdiv">
 			<div class="page-header">
-				<div class="container">
+				<div class="container-fluid">
 					<div class="row">
 						<div class="col-lg-4">
 							<img src="bootstrap/images/logo.png" class="img-responsible pull-left" >
@@ -61,10 +61,9 @@ include($_SERVER['DOCUMENT_ROOT']."/php/db.php");
 						</div>
 					</div>
 				</div>	
-			</div>
-		<div class="wrapper">
+		<div class="container-fluid">
 		
-			<div class="content">
+			<div class="content container-fluid">
 			<h1>Slides</h1>
 		    <table id="slides" class="display" cellspacing="0" width="100%"><thead><tr>
 			<?php
@@ -96,9 +95,8 @@ include($_SERVER['DOCUMENT_ROOT']."/php/db.php");
 			<input type="hidden" name="lect_id" value="<?php echo $_GET['lecture_id']; ?>">
 			<input type="submit" value="upload" name="submit">
 			</div>
-
-</body></html>
 			</div>
+		</div>
 		</div>
     </body>
 </html>
