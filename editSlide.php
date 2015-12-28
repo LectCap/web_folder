@@ -7,26 +7,13 @@ include($_SERVER['DOCUMENT_ROOT']."/php/db.php");
 <html>
     <head>
         <?php echo "<title>Add slide</title>"; ?>
-		<link rel="icon" href="images/favicon.ico">
-		<meta charset='utf-8'>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link href="bootstrap/css/style.css" rel="stylesheet">
-		<link href="css/master.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+		<?php include($_SERVER['DOCUMENT_ROOT']."/php/headerIncluder.php"); ?>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
 		<script src="/js/viewCourses.js"></script>
 		<script src="/js/login_register.js"></script>
 		<script src="js/editAcc.js"></script>
 		<script src="/js/createCourse.js"></script>
 		<script src="/js/myCourses.js"></script>
-		<script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
-		<script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
     </head>
     <body>
 	<?php session_start(); include($_SERVER['DOCUMENT_ROOT']."/php/headermenu.php");?>

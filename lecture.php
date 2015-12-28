@@ -10,20 +10,9 @@ $_SESSION['lect_name'] = $lect['title'];
 <!DOCTYPE HTML>
 <html>
     <head>
-		<link rel="icon" href="images/favicon.ico">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta charset="utf-8">		
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<?php include($_SERVER['DOCUMENT_ROOT']."/php/headerIncluder.php"); ?>
 		<script src="/js/createVideo.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="/css/master.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="/js/exitCourse.js"></script>
-		<script src="bootstrap/js/bootstrap.min.js"></script>
-		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link href="bootstrap/css/style.css" rel="stylesheet">
-		<link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
-		<script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>	
 		<?php if($teacher == 1): ?>
 		<script src="/js/getWaitingNr.js"></script>
 		<?php endif; ?>
