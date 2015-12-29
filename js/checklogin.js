@@ -1,3 +1,5 @@
+/** Belongs to index.php.
+ ** Used to login users **/
 $(document).ready(function(){
   $('#login-form').submit(function(e){
 	console.log("JS entered");
@@ -14,18 +16,22 @@ $(document).ready(function(){
       data: JSON.stringify({'username' : username, 'password' : pwd}), //The data to send. Needs to turned into JSON compatible data
       success: function(data) { //Data is the returned variable with echo.
 		  $('#login_error').html(""); 
+		  $('#login_error').css('opacity', 1);
 		  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 		  if(recv === -1) {
 			$('#login_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');  
+			$('#login_error').fadeTo(2000, 0.7);
 		  }
 		  else if(recv === 0) {
-			$('#login_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspWrong username or password!</p>');  
+			$('#login_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspWrong username or password!</p>'); 
+			$('#login_error').fadeTo(2000, 0.7);
 		  }
 		  else if(recv === 1) {
 			window.location.replace("http://localhost:8080/start.php");
 		  }
 		  else{
-			$('#login_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
+			$('#login_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');
+			$('#login_error').fadeTo(2000, 0.7);
 		  }
 		  console.log(recv);
       },

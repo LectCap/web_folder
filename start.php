@@ -41,20 +41,17 @@ if(!isset($_SESSION['username'])) {
 		</div>	
 	</div>
 
-	<div>	
-		<?php //include($_SERVER['DOCUMENT_ROOT']."/php/navigator.php");
+	<div class="container-fluid">
+		<?php
 		if(isset($_GET['info'])) {
 			if($_GET['info'] == 'courseClosed') {	
-					echo "</br><p>The course has been successfully closed</p>";				
+					echo "</br><p>The course has been successfully closed!</p>";				
 			} else if($_GET['info'] == 'exitedCourse')	{
-				echo "</br><p>You have successfully left the course</p>";	
+				echo "</br><p>You have successfully left the course!</p>";	
 			}		
 		}
 		?>
-	</div>
-
-	<div class="container-fluid">
-	<h2>View all <span>courses</span> you have enrolled to below</h2>
+	<h2 class="tableHeader">View all <span>courses</span> you have enrolled in below</h2>
 	<table id="myCourses_list" class="display" cellspacing="0" width="100%" data-userid="<?php echo $_SESSION['user_id']; ?>">
 		<thead>
 			<tr>
@@ -81,7 +78,7 @@ if(!isset($_SESSION['username'])) {
 	<div class="pagedivider"></div>
 	
 	<div class="container-fluid">	
-		<h2>Browse for new <span>courses</span> and enroll below</h2>
+		<h2 class="tableHeader">Browse for new <span>courses</span> and enroll below</h2>
 		<table id="course_list" class="display" cellspacing="0" width="100%" data-userid="<?php echo $_SESSION['user_id']; ?>">
 			<thead>
 				<tr>

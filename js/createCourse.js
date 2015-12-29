@@ -1,4 +1,5 @@
-/** Belongs to createCourse.php and is responsible for creating a new course **/
+/** Belongs to headermenu.php and is responsible for creating a new course 
+ ** Is displayed on all non course pages **/
 
 $(document).ready(function(){
   $('#createCourse-form').submit(function(e){
@@ -14,14 +15,22 @@ $(document).ready(function(){
       data: JSON.stringify({'course_code' : course_code, 'course_name' : course_name, 'course_description' : course_description}), //The data to send. Needs to turned into JSON compatible data
       success: function(data) { //Data is the returned variable with echo.
 		  $('#createCourse_error').html(""); 
+		  $('#createCourse_error').css('opacity', 1);
 		  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 		  if(recv === -2) {
 			$('#createCourse_error').css('color', '#ffa800');
 			$('#createCourse_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
+			$('#createCourse_error').fadeTo(2000, 0.7);
 		  }
 		  else if(recv === -1) {
 			$('#createCourse_error').css('color', '#ffa800');
 			$('#createCourse_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspCourse code already taken!</p>');
+			$('#createCourse_error').fadeTo(2000, 0.7);
+		  }
+		  else if(recv === -4) {
+			$('#createCourse_error').css('color', '#ffa800');
+			$('#createCourse_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspCourse code contains illegal characters!</p>');
+			$('#createCourse_error').fadeTo(2000, 0.7);
 		  }
 		  else if(recv === 1) {
 			var user_id = data["user_id"];
@@ -30,7 +39,8 @@ $(document).ready(function(){
 		  }
 		  else{
 			$('#createCourse_error').css('color', '#ffa800');
-			$('#createCourse_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
+			$('#createCourse_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');
+			$('#createCourse_error').fadeTo(2000, 0.7);
 		  }
       },
       error: function(xhr, desc, err) {

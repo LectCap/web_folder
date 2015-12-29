@@ -1,5 +1,5 @@
 <nav class="navbar navbar-inverse navbar-static-top no-margin colorClass" role="navigation">
-	<div class="container-fluid">
+	<div class="container-fluid" style="max-width: none">
 		<div class="navbar-header">
 		    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 				<span class="sr-only">Toggle navigation</span>
@@ -70,12 +70,12 @@
 			<div class="clear"></div>
 		</div>
 	</form>
-	<div id="createVideo_error"></div>
+	<div id="createVideo_error" class="edit_error"></div>
 </div>
 
 <div id="form_wrapper_editC" class="form_wrapper lightboxWrap" style="display:none">					
 	<form id="editCourse-form" class="edit active" data-courseid="<?php echo $course_id; ?>" data-userid="<?php echo $_SESSION['user_id']; ?>">
-		<?php echo '<h3>Edit course '.$course_code.' <i class="fa fa-book"></i></h3>'; ?>
+		<?php echo '<h3>Edit course: '.$course_code.' <i class="fa fa-book"></i></h3>'; ?>
 		<div>
 			<label>Course code<em class="reqfield"> *</em></label>
 			<input type="text" name="edit_course_code" required="required" maxlength="45"/>
@@ -91,7 +91,7 @@
 			<textarea rows="5" cols="40" name="edit_course_description" placeholder="Write a short course description" maxlength="250"></textarea>
 		</div>
 		<div class="bottom">
-			<div id="editCourse_error" style="color: #ffa800"></div>
+			<div id="editCourse_error" class="edit_error"></div>
 			<input type="submit" name="editCourse" value="Apply changes" />
 			<a href="#form_wrapper_closeC" rel="edit" class="linkform closeCourseButton">You wish to close this course?</a>
 			<div class="clear"></div>
@@ -108,7 +108,7 @@
 			<span class="error">This is an error</span>
 		</div>
 		<div class="bottom">
-			<div id="closeCourse_error" style="color: #ffa800"></div>
+			<div id="closeCourse_error" class="edit_error"></div>
 			<input type="submit" name="closeCourse" value="Close course" />
 			<a href="#form_wrapper_editC" rel="edit" class="linkform editCourseButton">You wish to edit the course instead?</a>
 			<div class="clear"></div>
@@ -129,7 +129,7 @@
 			<input type="text" name="edit_slide_timer" required="required" maxlength="45"/>
 		</div>
 		<div class="bottom">
-			<div id="editSlide_error" style="color: #ffa800"></div>
+			<div id="editSlide_error" class="edit_error"></div>
 			<input type="submit" name="editCourse" value="Add slide" />
 			<div class="clear"></div>
 		</div>

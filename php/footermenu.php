@@ -3,9 +3,8 @@
 			<div class="col-md-5">
 				<h4>Contact Address</h4>
 				<address>
-					37140, Utridarevägen 9A <br>
-					Karlskrona <br>
-					Sweden <br>
+					info@onlinelecture.com <br>
+					Karlskrona, Sweden <br>
 				</address>
 			</div>
 		</div>

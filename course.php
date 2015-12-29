@@ -49,41 +49,38 @@ $lectnr = 1;
 		</div>
 		<div class="container-fluid">
 			<div id="form_wrapper_exit_slide">
-		<?php //echo "<h1>Course $course_name</p>";?>
 				<form id="exitCourse_form" data-user="<?php echo $_SESSION['user_id'] ?>" data-course="<?php echo $_GET['course'] ?>" data-teacher="<?php echo $teacher ?>">
-					<h1 style="text-align: left;"><?php echo "Course $course_name ";?><input type="submit" class="exitCourseBtn" value="Exit course" style=""></h1>
+					<h1 class="courseHeader" style="text-align: left;"><?php echo "Course <span>$course_name</span> ";?><input type="submit" class="exitCourseBtn" value="Exit course" style=""></h1>
 				</form>
 				<div id="exitCourse_error"></div>
 			</div>
-		<?php $result = db_query("SELECT * FROM videos WHERE course_id = $course_id");
-		while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-			echo "<b>Lecture " . $lectnr." - </b><a href='./lecture.php?user=".$user_id."&course=".$course_id."&lecture_id=".$row['id']."'>".$row['title']."</a><br>";
-			$lectnr++;
-		}
-		$lectnr = 0;
-		?>
-		<table id="lectures_list" class="display" cellspacing="0" width="100%" data-courseid="<?php echo $_GET['course']; ?>" data-userid="<?php echo $_SESSION['user_id'] ?>">
-					<thead>
-						<tr>
-							<th>Lecture</th>
-							<th>Description</th>
-							<th>Link</th>
-						</tr>
-					</thead>
-					<tfoot>
-						<tr>
-							<th>Lecture</th>
-							<th>Description</th>
-							<th>Link</th>
-						</tr>
-					</tfoot>
-				</table>
+			<div class="row">
+				<div class="col-xs-8 col-sm-6 col-md-5 col-lg-4">
+					<p class="course_description"><?php echo "$course_description" ?></p>
+				</div>
+			</div>
+			<h2 class="tableHeader">View all <span>lectures</span> in this course</h2>
+			<table id="lectures_list" class="display" cellspacing="0" width="100%" data-courseid="<?php echo $_GET['course']; ?>" data-userid="<?php echo $_SESSION['user_id'] ?>">
+				<thead>
+					<tr>
+						<th>Lecture</th>
+						<th>Description</th>
+						<th>Link</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>Lecture</th>
+						<th>Description</th>
+						<th>Link</th>
+					</tr>
+				</tfoot>
+			</table>
 		</div>
-		
 		</br>
-
-		<div class="container-fluid"">
-			<h2>View all <span>courses</span> you have enrolled to below</h2>
+		<div class="pagedivider"></div>		
+		<div class="container-fluid">
+			<h2 class="tableHeader">View all <span>participants</span> in this course</h2>
 			<table id="viewParticipants_list" class="display" cellspacing="0" width="100%" data-course="<?php echo $_GET['course']; ?>">
 				<thead>
 					<tr>

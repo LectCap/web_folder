@@ -1,3 +1,4 @@
+/* Belongs to index.php and is used when registering a new account */
 $(document).ready(function(){
   $('#register-form').submit(function(e){
 	console.log("JS entered");
@@ -20,24 +21,34 @@ $(document).ready(function(){
       data: JSON.stringify({'username_reg' : username, 'password_reg' : pwd, 'password_confirm' : pwd2, 'firstname' : firstname, 'lastname' : lastname, 'school' : school, 'programme' : programme, 'email' : email}), //The data to send. Needs to turned into JSON compatible data
       success: function(data) { //Data is the returned variable with echo.
 		  $('#register_error').html(""); 
+		  $('#register_error').css('opacity', 1);
 		  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 		  if(recv === -2) {
 			$('#register_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');  
+			$('#register_error').fadeTo(2000, 0.7);
 		  }
 		  else if(recv === -1) {
 			$('#register_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspPasswords do not match!</p>');  
+			$('#register_error').fadeTo(2000, 0.7);
 		  }
 		  else if(recv === 0) {
 			$('#register_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspUsername already exists!</p>');  
+			$('#register_error').fadeTo(2000, 0.7);
 		  }
 		  else if(recv === -3) {
-			$('#register_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspEmail already exists!</p>');  
+			$('#register_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspEmail already exists!</p>'); 
+			$('#register_error').fadeTo(2000, 0.7);			
+		  }
+		  else if(recv === -4) {
+			$('#register_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspUsername contains illegal characters!</p>');  
+			$('#register_error').fadeTo(2000, 0.7);
 		  }
 		  else if(recv === 1) {
 			window.location.replace("http://localhost:8080/start.php");
 		  }
 		  else{
-			$('#register_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
+			$('#register_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');
+			$('#register_error').fadeTo(2000, 0.7);
 		  }
       },
       error: function(xhr, desc, err) {

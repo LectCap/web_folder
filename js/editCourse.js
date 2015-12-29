@@ -1,4 +1,5 @@
-/*** Belongs to editCourse.php ***/
+/** Belongs to headermenuCourse.php 
+ ** Allows teacher to change course variables **/
 
 /* Fills in default course values */
 $(document).ready(function(){
@@ -46,30 +47,27 @@ $(document).ready(function(){
       data: JSON.stringify({'course_code' : course_code, 'course_name' : course_name, 'course_description' : course_description}), //The data to send. Needs to turned into JSON compatible data
       success: function(data) { //Data is the returned variable with echo.
 		  $('#editCourse_error').html("");
-		  $('#editCourse_error').css('opacity', '1');
+		  $('#editCourse_error').css('opacity', 1);
 		  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 		  if(recv === -2) {
-			$('#editCourse_error').css('color', '#ffa800');
+
 			$('#editCourse_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
-			$('#editCourse_error').fadeTo(1000, 0.5);	
+			$('#editCourse_error').fadeTo(2000, 0.7);	
 		  }
 		  else if(recv === -1) {
-			$('#editCourse_error').css('color', '#ffa800');
 			$('#editCourse_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspCourse code already taken!</p>');
-			$('#editCourse_error').fadeTo(1000, 0.5);	
+			$('#editCourse_error').fadeTo(2000, 0.7);
 		  }
 		  else if(recv === -3) {
 			window.location.replace("http://localhost:8080/index.php"); 
 		  }
 		  else if(recv === 1) {
-			$('#editCourse_error').css('color', '#ffa800');
 			$('#editCourse_error').append('<p><i class="fa fa-check" style="color: lime"></i>&nbspCourse information successfully changed!</p>'); 
-			$('#editCourse_error').fadeTo(1000, 0.5);		
+			$('#editCourse_error').fadeTo(2000, 0.7);	
 		  }
 		  else{
-			$('#editCourse_error').css('color', '#ffa800');
 			$('#editCourse_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
-			$('#editCourse_error').fadeTo(1000, 0.5);
+			$('#editCourse_error').fadeTo(2000, 0.7);
 		  }
       },
       error: function(xhr, desc, err) {

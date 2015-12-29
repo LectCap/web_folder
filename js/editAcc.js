@@ -1,3 +1,6 @@
+/** Belongs to headermenu.php and is responsible for editing account information 
+ ** Is displayed on all non course pages **/
+
 /* Fills in default account values */
 $(document).ready(function(){
     $.ajax({
@@ -35,26 +38,24 @@ $(document).ready(function(){
       data: JSON.stringify({'firstname' : firstname, 'lastname' : lastname, 'school' : school, 'programme' : programme}), //The data to send. Needs to turned into JSON compatible data
       success: function(data) { //Data is the returned variable with echo.
 		  $('#editAcc_error').html("");
-		  $('#editAcc_error').show();
+		  $('#editAcc_error').css('opacity', 1);
 		  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 		  if(recv === -1) {
-			$('#editAcc_error').css('color', '#ffa800');
-			$('#editAcc_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');  
+			$('#editAcc_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
+			$('#editAcc_error').fadeTo(2000, 0.7);
 		  }
 		  else if(recv === 0) {
-			$('#editAcc_error').css('color', '#ffa800');
-			$('#editAcc_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspEmail already taken!</p>');  
+			$('#editAcc_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspEmail already taken!</p>');
+			$('#editAcc_error').fadeTo(2000, 0.7);
 		  }
 		  else if(recv === 1) {
-			$('#editAcc_error').css('color', '#ffa800');
-			$('#editAcc_error').append('<p><i class="fa fa-check" style="color: green"></i>&nbspAccount information successfully changed!</p>'); 
-			$('#editAcc_error').fadeOut(3000);
+			$('#editAcc_error').append('<p><i class="fa fa-check" style="color: lime"></i>&nbspAccount information successfully changed!</p>');
+			$('#editAcc_error').fadeTo(2000, 0.7);
 		  }
 		  else{
-			$('#editAcc_error').css('color', '#ffa800');
-			$('#editAcc_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
+			$('#editAcc_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');
+			$('#editAcc_error').fadeTo(2000, 0.7);
 		  }
-		  console.log(recv);
       },
       error: function(xhr, desc, err) {
         console.log(xhr);
@@ -78,30 +79,28 @@ $(document).ready(function(){
       data: JSON.stringify({'password' : pwd, 'email' : email}), //The data to send. Needs to turned into JSON compatible data
       success: function(data) { //Data is the returned variable with echo.
 		  $('#editEmail_error').html(""); 
-		  $('#editEmail_error').show();
+		  $('#editEmail_error').css('opacity', 1);
 		  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 		  if(recv === -1) {
-			$('#editEmail_error').css('color', 'red');
-			$('#editEmail_error').append("<p>Database error! Please consult administrator</p>");  
+			$('#editEmail_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
+			$('#editEmail_error').fadeTo(2000, 0.7);
 		  }
 		  else if(recv === 0) {
-			$('#editEmail_error').css('color', 'red');
-			$('#editEmail_error').append("<p>Email already taken or it\'s your current email!</p>");  
+			$('#editEmail_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspEmail already taken or it\'s your current email!</p>');
+			$('#editEmail_error').fadeTo(2000, 0.7);
 		  }
 		  else if(recv === 1) {
-			$('#editEmail_error').css('color', 'green');
-			$('#editEmail_error').append("<p>Email successfully changed!</p>"); 
-			$('#editEmail_error').fadeOut(3000);
+			$('#editEmail_error').append('<p><i class="fa fa-check" style="color: lime"></i>&nbspEmail successfully changed!</p>');
+			$('#editEmail_error').fadeTo(2000, 0.7);
 		  }
 		  else if(recv === -2) {
-			$('#editEmail_error').css('color', 'red');
-			$('#editEmail_error').append("<p>Incorrect password!</p>"); 
+			$('#editEmail_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspIncorrect password!</p>');
+			$('#editEmail_error').fadeTo(2000, 0.7);
 		  }
 		  else{
-			$('#editEmail_error').css('color', 'red');
-			$('#editEmail_error').append("<p>Something went terribly wrong</p>");  
+			$('#editEmail_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');
+			$('#editEmail_error').fadeTo(2000, 0.7);
 		  }
-		  console.log(recv);
       },
       error: function(xhr, desc, err) {
         console.log(xhr);
@@ -126,23 +125,27 @@ $(document).ready(function(){
       data: JSON.stringify({'current_password' : current_pwd, 'new_password' : new_pwd, 'password_confirm' : pwd_confirm}), //The data to send. Needs to turned into JSON compatible data
       success: function(data) { //Data is the returned variable with echo.
 		  $('#editPwd_error').html(""); 
-		  $('#editPwd_error').show();
+		  $('#editPwd_error').css('opacity', 1);
 		  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 		  if(recv === -1) {
-			$('#editPwd_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');  
+			$('#editPwd_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
+			$('#editPwd_error').fadeTo(2000, 0.7);
 		  }
 		  else if(recv === 0) {
-			$('#editPwd_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspEntered passwords don\'t match!</p>');  
+			$('#editPwd_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspEntered passwords don\'t match!</p>');
+			$('#editPwd_error').fadeTo(2000, 0.7);
 		  }
 		  else if(recv === 1) {
-			$('#editPwd_error').append('<p><i class="fa fa-check" style="color: green"></i>&nbspPassword successfully changed!</p>'); 
-			$('#editPwd_error').fadeOut(3000);
+			$('#editPwd_error').append('<p><i class="fa fa-check" style="color: lime"></i>&nbspPassword successfully changed!</p>');
+			$('#editPwd_error').fadeTo(2000, 0.7);
 		  }
 		  else if(recv === -2) {
-			$('#editPwd_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspIncorrect password!</p>'); 
+			$('#editPwd_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspIncorrect password!</p>');
+			$('#editPwd_error').fadeTo(2000, 0.7);
 		  }
 		  else{
-			$('#editPwd_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
+			$('#editPwd_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');
+			$('#editPwd_error').fadeTo(2000, 0.7);
 		  }
 		  console.log(recv);
       },
