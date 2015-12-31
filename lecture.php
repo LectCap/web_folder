@@ -9,16 +9,31 @@ $_SESSION['lect_name'] = $lect['title'];
 ?>
 <!DOCTYPE HTML>
 <html>
-    <head>
-		<?php include($_SERVER['DOCUMENT_ROOT']."/php/headerIncluder.php"); ?>
-		<script src="/js/createVideo.js"></script>
-		<script src="/js/exitCourse.js"></script>
-		<?php if($teacher == 1): ?>
-		<script src="/js/getWaitingNr.js"></script>
-		<?php endif; ?>
+<head>
+	
+<?php include($_SERVER['DOCUMENT_ROOT']."/php/headerIncluder.php"); ?>
+<script src="/js/createVideo.js"></script>
+<script src="/js/exitCourse.js"></script>
+<?php if($teacher == 1): ?>
+<script src="/js/getWaitingNr.js"></script>
+<?php endif; ?>
 
 <script language="JavaScript">
-
+function editVideo(){
+	if(document.getElementById("url")){
+		$('#url').remove();
+		$('#ed_url_but').remove();
+	}
+	else{
+	document.getElementById("url_field").innerHTML='<input type="text" value="<?php echo $lect['url'];?>" id="url" /><br><button class="exitCourseBtn" id="ed_url_but" onClick="changeURL()">Edit</button>';
+	}
+}
+function changeURL(){
+	location.href='./php/editVideo.php?url=' + document.getElementById("url").value + "&lecture_id=<?php echo $_GET['lecture_id'];?>";
+}
+function editSlide(){
+	location.href='./editSlide.php?user=<?php echo $_GET['user']; ?>&lecture_id=<?php echo $_GET['lecture_id']; ?>'
+}
 var slideimages = new Array()
 var player;
 
@@ -45,6 +60,7 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 	}
 	}
 }
+
 </script>
 
         <?php echo "<title>".$lect['title']."</title>" ?>
@@ -172,18 +188,14 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 		
 		<?php if($teacher == 1): ?>
 			<div class="content">
-			<form action="" method="POST">
-			<input type="submit" name="edit_lecture" value="Edit lecture"/>
-			</form>
-			<form action="editslide.php" method="GET">
-			<input type="submit" name="edit_slide" value="Edit slides"/>
-			<input type="hidden" name="user" value="<?php echo $user;?>"/>
-			<input type="hidden" name="lecture_id" value="<?php echo $lecture_id; ?>"/>
-
-			</form>
+			
+			<button onClick = "editVideo()" class='tableButton'>Edit Video</button>
+			<button onClick = "editSlide()" class='tableButton'>Edit slides</button>
+			<p id="url_field"></p>
 			</div>
 		<?php endif; ?>
 		
+
 		</div>
 			<div class="pagedivider" style="margin-top: 30px; margin-bottom: 30px"></div>
 	<footer class="site-footer no-margin">

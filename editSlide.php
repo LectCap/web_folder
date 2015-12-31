@@ -14,6 +14,12 @@ include($_SERVER['DOCUMENT_ROOT']."/php/db.php");
 		<script src="js/editAcc.js"></script>
 		<script src="/js/createCourse.js"></script>
 		<script src="/js/myCourses.js"></script>
+		<script> 
+		
+		$('#slides').on( 'click', 'button.tableButton', function () {
+			   alert('test');
+    } );
+	</script>
     </head>
     <body>
 	<?php session_start(); include($_SERVER['DOCUMENT_ROOT']."/php/headermenu.php");?>
@@ -30,25 +36,12 @@ include($_SERVER['DOCUMENT_ROOT']."/php/db.php");
     ]
 }
 	);
-	$('#add_slide-form').submit(function(e){
-	e.preventDefault();
-	$.post("php/upload_slide.php",
-		{
-		  start_sec: document.getElementById('start_sec').value,
-		  lect_id: <?php echo $_GET['lecture_id']; ?>,
-		  fileToUpload: document.getElementById('fileToUpload').value
-		})
-	});
-
-	
-	
 	});
 		
-	function myFunction(){
-
+	function deleteSlide(id){
+		location.href='./php/deleteSlide.php?slide_id=' + id;
 	}
 </script>
-		
 		<div id="editSlidediv" class="startdiv">
 			<div class="page-header">
 				<div class="container-fluid">
@@ -83,7 +76,7 @@ include($_SERVER['DOCUMENT_ROOT']."/php/db.php");
 				echo "<tr>";
 				echo "<td>".$row[2]."</td>";
 				echo "<td align=\"center\"><img src=\"".$row[3]."\" id=\"slide\" width=\"228\" height=\"190\" /></td>";
-				echo "<td align=\"right\"><button class='tableButton'>Edit</button><button class='tableButton'>Delete</button></td>";
+				echo "<td align=\"right\"><button onclick=\"deleteSlide(".$row[0].")\" class='tableButton'>Delete</button></td>";
 				echo "</tr>\n";
 			}
 			?>
@@ -98,5 +91,6 @@ include($_SERVER['DOCUMENT_ROOT']."/php/db.php");
 			</div>
 		</div>
 		</div>
+
     </body>
 </html>
