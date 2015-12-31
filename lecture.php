@@ -10,8 +10,70 @@ $_SESSION['lect_name'] = $lect['title'];
 <!DOCTYPE HTML>
 <html>
 <head>
-	
-<?php include($_SERVER['DOCUMENT_ROOT']."/php/headerIncluder.php"); ?>
+
+		<link rel="icon" href="images/favicon.ico">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>OnlineLecture</title>
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="bootstrap/css/style.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+		
+		
+		
+		<link rel="stylesheet" type="text/css" href="css/jquery-comments.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+		
+       <!-- Styles -->
+        <link rel="stylesheet" type="text/css" href="css/jquery-comments.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+
+        <!-- Data -->
+        <script type="text/javascript" src="data/comments-data.js"></script>
+
+        <!-- Libraries -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery-comments.js"></script>
+		
+
+		<script type="text/javascript">
+            $(function() {
+                $('#comments-container').comments({
+                    profilePictureURL: 'https://app.viima.com/static/media/user_profiles/user-icon.png',
+                    roundProfilePictures: true,
+                    textareaRows: 1,
+                    getComments: function(success, error) {
+                        setTimeout(function() {
+                            success(commentsArray);
+                        }, 500);
+                    },
+                    putComment: function(data, success, error) {
+                      setTimeout(function() {
+                        success(data);
+                      }, 200)
+                    },
+                    deleteComment: function(data, success, error) {
+                      setTimeout(function() {
+                        success();
+                      }, 200)
+                    },
+                    upvoteComment: function(data, success, error) {
+                      setTimeout(function() {
+                        success(data);
+                      }, 200)
+                    }
+                });
+            });
+        </script>
+		
 <script src="/js/createVideo.js"></script>
 <script src="/js/exitCourse.js"></script>
 <?php if($teacher == 1): ?>
@@ -61,6 +123,7 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 	}
 }
 
+        
 </script>
 
         <?php echo "<title>".$lect['title']."</title>" ?>
@@ -185,7 +248,6 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 		?>
 		}
 		</script>
-		
 		<?php if($teacher == 1): ?>
 			<div class="content">
 			
@@ -195,6 +257,7 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 			</div>
 		<?php endif; ?>
 		
+				<div id="comments-container"></div>
 
 		</div>
 			<div class="pagedivider" style="margin-top: 30px; margin-bottom: 30px"></div>
