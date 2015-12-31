@@ -38,7 +38,7 @@
 				<li id="editLecture" class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Edit Lecture <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li id="editLecture"><a href='lecture.php'>Edit Video</a></li>
+						<li id="editVideo"><a href="#form_wrapper_editVideo" class="editVideoButton">Edit Video</a></li>
 						<li role="separator" class="divider"></li>
 						<li id="editSlide"><a href="#form_wrapper_slide" class="editSlideButton">Edit Slides</a></li>
 					</ul>
@@ -116,24 +116,56 @@
 	</form>
 </div>
 
-<div id="form_wrapper_slide" class="form_wrapper lightboxWrap" style="display:none">					
-	<form id="editSlide-form" class="edit active" >
-		<h3>Add new slide [page x]</h3>
+<div id="form_wrapper_editVideo" class="form_wrapper lightboxWrap" style="display:none">
+	<form id="editVideo-form" class="vid active" data-user="<?php echo $_SESSION['user_id']; ?>" data-course="<?php echo $_GET['course']; ?>">
+	<h3>Edit Lecture <i class="fa fa-eject"></i></h3>
 		<div>
-			<label>Path(upload soon)<em class="reqfield"> *</em></label>
-			<input type="text" name="edit_slide_path" required="required" />
-			<span class="error">This is an error</span>
+			<label>Title</label> 
+			<input type="text" name="edit_video_title" required="required" maxlength="45" />
 		</div>
 		<div>
-			<label>Seconds</label>
-			<input type="text" name="edit_slide_timer" required="required" maxlength="45"/>
+			<label>Description</label> 
+			<textarea id="styled" rows="5" cols="40" name="edit_video_description" placeholder="Write a short video description" maxlength="250"></textarea>
+		</div>
+		<div>
+			<label>YouTube-Link</label> 
+			<input type="text" name="edit_url" required="required" maxlength="255" />
 		</div>
 		<div class="bottom">
-			<div id="editSlide_error" class="edit_error"></div>
-			<input type="submit" name="editCourse" value="Add slide" />
+			<input type="submit" name="editVideo" value="Add video"/>
 			<div class="clear"></div>
 		</div>
 	</form>
+	<div id="editVideo_error" class="edit_error"></div>
+</div>
+
+<div id="form_wrapper_slide" class="form_wrapper lightboxWrap" style="display:none">					
+	<h1>Slides</h1>
+	<table id="slides" class="display" cellspacing="0" width="100%" data-lectureid="<?php echo $_GET['lecture_id']; ?>" data-userid="<?php echo $_SESSION['user_id'] ?>">
+		<thead>
+			<tr>
+				<th>Start Time</th>
+				<th>Slide</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<th>Start Time</th>
+				<th>Slide</th>
+				<th>Action</th>
+			</tr>
+		</tfoot>
+	</table>
+	<div>
+		<div id="slides_error"></div>
+		<form id="add_slide" method="POST" action="php/upload_slide.php" enctype="multipart/form-data">
+			<input type="number" name="start_sec" placeholder="Enter start time">
+			<input type="file" name="fileToUpload" id="fileToUpload">
+			<input type="hidden" name="lect_id" value="<?php echo $_GET['lecture_id']; ?>">
+			<input type="submit" value="upload" name="submit">
+		</form>
+	</div>
 </div>
 
 <script type="text/javascript">
@@ -162,6 +194,14 @@
 
 <script type="text/javascript">
     $(".editSlideButton").fancybox({
+		"scrolling":"yes",
+		"arrows":false,
+		"padding":[0,15,15,15]
+	});
+</script>
+
+<script type="text/javascript">
+    $(".editVideoButton").fancybox({
 		"scrolling":"no",
 		"arrows":false,
 		"padding":[0,15,15,15]
