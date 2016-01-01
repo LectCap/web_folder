@@ -1,9 +1,12 @@
-/* Belongs to lecture.php. Used for generating table for slides */
+/** Belongs to lecture.php. Used for generating table for slides 
+ ** Permits the deletion of individual slides 
+ ** Permits the addition of new slides **/
 /* DataTables jQuery plugin is used here to show the tables */
 $(document).ready(function() {
 	var video_id = $("#slides").data("lectureid");
-    var slideTable = $('#slides').DataTable( {
+    slideTable = $('#slides').DataTable( {
         "processing": true,
+		"lengthMenu": [ 5, 10, 25, 50, 75, 100 ],
         "ajax": "php/getSlidesList.php?lecture="+video_id,
         "columnDefs": [
             { 
@@ -69,7 +72,7 @@ $(document).ready(function() {
 					row.remove();
 					slideTable.draw();
 					$('#slides_error').append('<p><i class="fa fa-check" style="color: green"></i>&nbspSlide has been removed!</p>');  
-					$('#slides_error').fadeTo(1000, 0.5);			
+					$('#slides_error').fadeTo(1000, 0.5);
 				  }
 				  else{
 					$('#slides_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
@@ -84,6 +87,64 @@ $(document).ready(function() {
 		} else {
 			return 0;
 		}
-    } );	
+    });
+
+	$('#add_slide').submit(function(e){
+		e.preventDefault();
+		var formInput = $("#add_slide")[0];
+		var formData = new FormData(formInput);
+		$.ajax({
+		  url: '/php/upload_slide.php', //PHP file you want to access
+		  type: 'POST',
+		  async: false,
+		  contentType: false, //Needed when sending formData
+		  processData: false, //Needed when sending formData,
+		  dataType: "json", //Tells AJAX to expect JSON data to be returned
+		  data: formData, //The data to send.
+		  success: function(data) { //Data is the returned variable with echo.
+			  $('#slides_error').html("");
+			  $('#slides_error').css('opacity', 1);
+			  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
+			  if(recv === -2) {
+				$('#slides_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
+				$('#slides_error').fadeTo(2000, 0.7);
+			  }
+			  else if(recv === 0) {
+				$('#slides_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspFile is not an image!</p>');
+				$('#slides_error').fadeTo(2000, 0.7);
+			  }
+			  else if(recv === -1) {
+				$('#slides_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspFile already exists!</p>');
+				$('#slides_error').fadeTo(2000, 0.7);
+			  }
+			  else if(recv === -3) {
+				$('#slides_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspFile too large!</p>');
+				$('#slides_error').fadeTo(2000, 0.7);
+			  }
+			  else if(recv === -4) {
+				$('#slides_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspIncompatible image format! Only JPG, JPEG, PNG & GIF files are allowed</p>');
+				$('#slides_error').fadeTo(2000, 0.7);
+			  }
+			  else if(recv === -5) {
+				$('#slides_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspThere was an error uploading the file!</p>');
+				$('#slides_error').fadeTo(2000, 0.7);
+			  }
+			  else if(recv === 1) {
+				$('#slides_error').append('<p><i class="fa fa-check" style="color: green"></i>&nbspSlide has been added!</p>');
+				$('#slides_error').fadeTo(2000, 0.7);
+				slideTable.ajax.reload();
+				$('#add_slide').trigger("reset");
+			  }
+			  else{
+				$('#slides_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');
+				$('#slides_error').fadeTo(2000, 0.7);
+			  }
+		  },
+		  error: function(xhr, desc, err) {
+			console.log(xhr);
+			console.log("Details: " + desc + "\nError:" + err);
+		  }
+		}); // end ajax call
+	});	
 } );	
 		

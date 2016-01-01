@@ -74,9 +74,7 @@ function editVideo(){
 function changeURL(){
 	location.href='./php/editVideo.php?url=' + document.getElementById("url").value + "&lecture_id=<?php echo $_GET['lecture_id'];?>";
 }
-function editSlide(){
-	location.href='./editSlide.php?user=<?php echo $_GET['user']; ?>&lecture_id=<?php echo $_GET['lecture_id']; ?>'
-}
+
 var slideimages = new Array()
 var player;
 
@@ -232,7 +230,6 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 			<div class="content">
 			
 			<button onClick = "editVideo()" class='tableButton'>Edit Video</button>
-			<button onClick = "editSlide()" class='tableButton'>Edit slides</button>
 			<p id="url_field"></p>
 			</div>
 		<?php endif; ?>

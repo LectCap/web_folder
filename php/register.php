@@ -15,7 +15,6 @@ function register() {
 	$email = db_quote($values['email']);
 	$school = db_quote($values['school']);
 	$programme = db_quote($values['programme']);
-	$preg_value = preg_match('/[^a-zA-Z0-9_]/', $username);
 	/* Check if username contains invalid characters */
 	if(preg_match('/[^a-z0-9_]{1,45}/i', $username) == 1) {
 		$return = array('code' => -4);
@@ -56,7 +55,7 @@ function register() {
 					}
 				}
 			}
-		}		
+		}
 	}
 }
 ?>

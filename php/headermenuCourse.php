@@ -159,11 +159,12 @@
 	</table>
 	<div>
 		<div id="slides_error"></div>
-		<form id="add_slide" method="POST" action="php/upload_slide.php" enctype="multipart/form-data">
-			<input type="number" name="start_sec" placeholder="Enter start time">
-			<input type="file" name="fileToUpload" id="fileToUpload">
+		<div class="pagedivider"></div>
+		<form id="add_slide" style="display: block" enctype="multipart/form-data">
+			<input type="number" name="start_sec" placeholder="Enter start time" required="required">
+			<input type="file" name="fileToUpload" id="fileToUpload" required="required">
 			<input type="hidden" name="lect_id" value="<?php echo $_GET['lecture_id']; ?>">
-			<input type="submit" value="upload" name="submit">
+			<input type="submit" value="Upload" name="submit">
 		</form>
 	</div>
 </div>
