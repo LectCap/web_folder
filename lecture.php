@@ -62,19 +62,6 @@ $_SESSION['lect_name'] = $lect['title'];
 <?php endif; ?>
 
 <script language="JavaScript">
-function editVideo(){
-	if(document.getElementById("url")){
-		$('#url').remove();
-		$('#ed_url_but').remove();
-	}
-	else{
-	document.getElementById("url_field").innerHTML='<input type="text" value="<?php echo $lect['url'];?>" id="url" /><br><button class="exitCourseBtn" id="ed_url_but" onClick="changeURL()">Edit</button>';
-	}
-}
-function changeURL(){
-	location.href='./php/editVideo.php?url=' + document.getElementById("url").value + "&lecture_id=<?php echo $_GET['lecture_id'];?>";
-}
-
 var slideimages = new Array()
 var player;
 
@@ -137,9 +124,16 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 				</div>
 			</div>	
 		</div>
-		
-		<?php echo "<h1 style='margin-left: 10px'>".$lect['title']."</h1><p style='margin-left: 10px'>".$lect['description']."<p>"; ?>
-		
+		<div class="container-fluid" style="max-width: none">
+			<div class="row">
+			<div class="col-xs-12">
+								<h1 class="courseHeader" style="margin-left: 10px">Lecture &ndash; <span><?php echo $lect['title']; ?></span></h1>
+</div>
+				<div class="col-xs-8 col-sm-6 col-md-5 col-lg-4">
+					<p class="course_description" style="margin-left: 10px"><?php echo $lect['description']; ?><p>
+				</div>	
+			</div>
+		</div>
 		
 		<?php
 		$times = array();
@@ -225,19 +219,12 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 
 		?>
 		}
-		</script>
-		<?php if($teacher == 1): ?>
-			<div class="content">
-			
-			<button onClick = "editVideo()" class='tableButton'>Edit Video</button>
-			<p id="url_field"></p>
-			</div>
-		<?php endif; ?>
-		
-				<div id="comments-container"></div>
-
-		</div>
+		</script>	
 			<div class="pagedivider" style="margin-top: 30px; margin-bottom: 30px"></div>
+			<div id="comments-container"></div>
+			<div class="pagedivider" style="margin-top: 30px; margin-bottom: 30px"></div>
+		</div>
+			
 	<footer class="site-footer no-margin">
 		<?php include($_SERVER['DOCUMENT_ROOT']."/php/footermenu.php"); ?>
 	</footer>

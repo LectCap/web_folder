@@ -117,7 +117,7 @@
 </div>
 
 <div id="form_wrapper_editVideo" class="form_wrapper lightboxWrap" style="display:none">
-	<form id="editVideo-form" class="vid active" data-user="<?php echo $_SESSION['user_id']; ?>" data-course="<?php echo $_GET['course']; ?>">
+	<form id="editVideo-form" class="vid active" data-lectureid="<?php echo $_GET['lecture_id'];?>">
 	<h3>Edit Lecture <i class="fa fa-eject"></i></h3>
 		<div>
 			<label>Title</label> 
@@ -132,6 +132,7 @@
 			<input type="text" name="edit_url" required="required" maxlength="255" />
 		</div>
 		<div class="bottom">
+			<div id="editVideo_error" class="edit_error"></div>
 			<input type="submit" name="editVideo" value="Add video"/>
 			<div class="clear"></div>
 		</div>
@@ -139,8 +140,8 @@
 	<div id="editVideo_error" class="edit_error"></div>
 </div>
 
-<div id="form_wrapper_slide" class="form_wrapper lightboxWrap" style="display:none">					
-	<h1>Slides</h1>
+<div id="form_wrapper_slide" class="" style="display:none; margin-right: 15px">					
+	<h2 class="tableHeader" style="padding: 0">Add or remove <span>slides</span></h2>
 	<table id="slides" class="display" cellspacing="0" width="100%" data-lectureid="<?php echo $_GET['lecture_id']; ?>" data-userid="<?php echo $_SESSION['user_id'] ?>">
 		<thead>
 			<tr>
@@ -164,7 +165,7 @@
 			<input type="number" name="start_sec" placeholder="Enter start time" required="required">
 			<input type="file" name="fileToUpload" id="fileToUpload" required="required">
 			<input type="hidden" name="lect_id" value="<?php echo $_GET['lecture_id']; ?>">
-			<input type="submit" value="Upload" name="submit">
+			<input type="submit" class="tableButton" style="float: right; margin-top: -45px" value="Upload" name="submit">
 		</form>
 	</div>
 </div>
@@ -197,6 +198,9 @@
     $(".editSlideButton").fancybox({
 		"scrolling":"yes",
 		"arrows":false,
+		"width": "80%",
+		"height": "80%",
+		"autoSize": false,
 		"padding":[0,15,15,15]
 	});
 </script>

@@ -54,7 +54,7 @@ if($teacher != 1) {
 			</div>
 		
 			<div class="container-fluid">
-				<h2>View all <span>courses</span> you have enrolled to below</h2>
+				<h2 class="tableHeader">View all <span>courses</span> you have enrolled to below</h2>
 				<table id="addStudents_list" class="display" cellspacing="0" width="100%" data-course="<?php echo $_GET['course']; ?>">
 					<thead>
 						<tr>

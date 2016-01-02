@@ -1,14 +1,17 @@
 <?php
 /** Belongs to editVideo.js
- ** Retrieves attributes about a lecture and provides them for editing purposes **/
+ ** Edits attributes in VIDEOS table according to user input **/
 session_start();
 include($_SERVER['DOCUMENT_ROOT']."/php/db.php");
-getVideoinfo();
-function getVideoinfo() {
+editVideoinfo();
+function editVideoinfo() {
 	header('Content-Type: application/json; charset=UTF-8');
 	$json = file_get_contents('php://input');
 	$values = json_decode($json, true);
 	$lecture_id = db_quote($values['lecture_id']);
+	$title = db_quote($values['title']);
+	$description = db_quote($values['description']);
+	$url = db_quote($values['url_id']);
 	$user_id = db_quote($_SESSION['user_id']);
 	/* Check if user is teacher for the course */
 	//Get course that video (and lecture) belong to
@@ -31,17 +34,12 @@ function getVideoinfo() {
 		echo json_encode($return);
 	//Provide the information
 	} else {
-		$result = db_query("SELECT * FROM videos WHERE id = $lecture_id");
+		$result = db_query("UPDATE videos SET title = $title, description = $description, url = $url WHERE id = $lecture_id");
 		if(!$result) {
 			$return = array('code' => -2);
 			echo json_encode($return);
 		} else {
-			$row=mysqli_fetch_array($result, MYSQLI_ASSOC);
-			$title = $row['title'];
-			$description = $row['description'];
-			$url_id = $row['url'];
-			$url = "https://www.youtube.com/watch?v=$url_id";
-			$return = array('title' => $title, 'description' => $description, 'url' => $url);
+			$return = array('code' => 1);
 			echo json_encode($return);
 		}
 	}

@@ -18,7 +18,7 @@ if(isset($_SESSION['username'])) {
 		<link rel="stylesheet" type="text/css" href="/css/master.css">
     </head>
     <body>
-		<div class="wrapper">
+		<div class="index_wrapper">
 			<h1>Online Lecture</h1>
 			<h2>Log in <span>or register</span> to take part of online lectures</h2>
 			<div class="content">

@@ -50,7 +50,7 @@ $lectnr = 1;
 		<div class="container-fluid">
 			<div id="form_wrapper_exit_slide">
 				<form id="exitCourse_form" data-user="<?php echo $_SESSION['user_id'] ?>" data-course="<?php echo $_GET['course'] ?>" data-teacher="<?php echo $teacher ?>">
-					<h1 class="courseHeader" style="text-align: left;"><?php echo "Course <span>$course_name</span> ";?><input type="submit" class="exitCourseBtn" value="Exit course" style=""></h1>
+					<h1 class="courseHeader" style="text-align: left;"><?php echo "Course &ndash; <span>$course_name</span> ";?><input type="submit" class="exitCourseBtn" value="Exit course" style=""></h1>
 				</form>
 				<div id="exitCourse_error"></div>
 			</div>
