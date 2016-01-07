@@ -66,13 +66,19 @@ $lectnr = 1;
 						<th>Lecture</th>
 						<th>Description</th>
 						<th>Link</th>
-					</tr>
+						<?php if($teacher == 1): ?>
+						<th>Delete lecture</th>
+						<?php endif; ?>					</tr>
 				</thead>
 				<tfoot>
 					<tr>
 						<th>Lecture</th>
 						<th>Description</th>
 						<th>Link</th>
+						<?php if($teacher == 1): ?>
+						<th>Delete lecture</th>
+						<?php endif; ?>
+
 					</tr>
 				</tfoot>
 			</table>
