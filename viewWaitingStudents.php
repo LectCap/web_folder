@@ -50,16 +50,11 @@ if($teacher != 1) {
 						<div class="col-lg-4">
 							<img src="bootstrap/images/logo.png" class="img-responsible pull-left" >
 						</div>
-						<div class="col-lg-6">
-							<p>"Lorem ipsum dolor sit amet,
-							consectetur adipiscing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-							Ut enim ad minim veniam,
-							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-							Duis aute irure dolor in reprehenderit in voluptate
-							velit esse cillum dolore eu fugiat nulla pariatur.
-							Excepteur sint occaecat cupidatat non proident,
-							sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+						<div class="col-lg-6" style="font-family:'Trebuchet MS', 'Myriad Pro', sans-serif font-size: 14px;font-weight: bold">
+							<p>
+								Here you can see a list of students that have enrolled to your course and are waiting to be accepted or rejected by you, the teacher. 
+								This page can only be visited when there are students awaiting approval.
+							</p>
 						</div>
 					</div>
 				</div>	
