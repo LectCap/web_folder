@@ -158,7 +158,7 @@ for (i=0;i<slideshowimages.arguments.length;i++){
 		<script type="text/javascript">
 				//loads the pictures
 		<?php 
-			$result = db_query("SELECT * FROM slides WHERE id = ".$lect['id']."");
+			$result = db_query("SELECT * FROM slides WHERE id = ".$lect['id']." ORDER BY time");
 			echo "slideshowimages(";
 			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 			echo '"'.$row['path'].'",';
