@@ -213,20 +213,24 @@ $(document).ready(function() {
 				  $('#viewParticipants_error').css('opacity', '1');
 				  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 				  if(recv === -2) {
-					$('#viewParticipants_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
+					$('#viewParticipants_error').append('<p><a name="#viewParticipants_msg"></a><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
 					$('#viewParticipants_error').fadeTo(1000, 0.5);	
+					scrollToAnchor('#viewParticipants_msg');
 				  } else if(recv === -1) {
-					$('#viewParticipants_error').append('<p><i class="fa fa-check" style="color: red"></i>&nbspYou cannot remove yourself from this menu!<br/>&nbspIn order to exit the course do this through the main course page.</p>');  
-					$('#viewParticipants_error').fadeTo(1000, 0.5);			
+					$('#viewParticipants_error').append('<p><a name="#viewParticipants_msg"></a><i class="fa fa-check" style="color: red"></i>&nbspYou cannot remove yourself from this menu!<br/>&nbspIn order to exit the course do this through the main course page.</p>');  
+					$('#viewParticipants_error').fadeTo(1000, 0.5);	
+					scrollToAnchor('#viewParticipants_msg');
 				  } else if(recv === 1) {
 					row.remove();
 					add_table.draw();
-					$('#viewParticipants_error').append('<p><i class="fa fa-check" style="color: green"></i>&nbspUser has been removed from the course!</p>');  
-					$('#viewParticipants_error').fadeTo(1000, 0.5);			
+					$('#viewParticipants_error').append('<p><a name="#viewParticipants_msg"></a><i class="fa fa-check" style="color: green"></i>&nbspUser has been removed from the course!</p>');  
+					$('#viewParticipants_error').fadeTo(1000, 0.5);
+					scrollToAnchor('#viewParticipants_msg');
 				  }
 				  else{
-					$('#viewParticipants_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
+					$('#viewParticipants_error').append('<p><a name="#viewParticipants_msg"></a><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
 					$('#viewParticipants_error').fadeTo(1000, 0.5);
+					scrollToAnchor('#viewParticipants_msg');
 				  }
 			  },
 			  error: function(xhr, desc, err) {
@@ -264,19 +268,23 @@ $(document).ready(function() {
 				  $('#viewParticipants_error').css('opacity', '1');
 				  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 				  if(recv === -2) {
-					$('#viewParticipants_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
-					$('#viewParticipants_error').fadeTo(1000, 0.5);	
+					$('#viewParticipants_error').append('<p><a name="#viewParticipants_msg"></a><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
+					$('#viewParticipants_error').fadeTo(1000, 0.5);
+					scrollToAnchor('#viewParticipants_msg');
 				  } else if(recv === -1) {
-					$('#viewParticipants_error').append('<p><i class="fa fa-check" style="color: red"></i>&nbspFor safety reasons you cannot demote yourself to student status!<br/>&nbspAsk another teacher to perform this action for you.</p>');  
-					$('#viewParticipants_error').fadeTo(1000, 0.5);			
+					$('#viewParticipants_error').append('<p><a name="#viewParticipants_msg"></a><i class="fa fa-check" style="color: red"></i>&nbspFor safety reasons you cannot demote yourself to student status!<br/>&nbspAsk another teacher to perform this action for you.</p>');  
+					$('#viewParticipants_error').fadeTo(1000, 0.5);
+					scrollToAnchor('#viewParticipants_msg');
 				  } else if(recv === 1) {
 					add_table.ajax.reload();
-					$('#viewParticipants_error').append('<p><i class="fa fa-check" style="color: green"></i>&nbspUser role has been changed!</p>');  
-					$('#viewParticipants_error').fadeTo(1000, 0.5);			
+					$('#viewParticipants_error').append('<p><a name="#viewParticipants_msg"></a><i class="fa fa-check" style="color: green"></i>&nbspUser role has been changed!</p>');  
+					$('#viewParticipants_error').fadeTo(1000, 0.5);
+					scrollToAnchor('#viewParticipants_msg');
 				  }
 				  else{
-					$('#viewParticipants_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
+					$('#viewParticipants_error').append('<p><a name="#viewParticipants_msg"></a><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
 					$('#viewParticipants_error').fadeTo(1000, 0.5);
+					scrollToAnchor('#viewParticipants_msg');
 				  }
 			  },
 			  error: function(xhr, desc, err) {
@@ -288,4 +296,10 @@ $(document).ready(function() {
 			return 0;
 		}
     } );
+	
+	//Enables smooth scrolling down to the status message
+	function scrollToAnchor(aid){
+		var aTag = $("a[name='"+ aid +"']");
+		$('html,body').animate({scrollTop: aTag.offset().top},'slow');
+	}
 } );

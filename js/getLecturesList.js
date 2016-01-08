@@ -82,7 +82,7 @@ $(document).ready(function() {
  }
     // Array to track the ids of the details displayed rows
     var detailRows = [];
-/* When clicking the Open button, the user is redirected to the lecture page */
+	/* When clicking the Open button, the user is redirected to the lecture page */
     $('#lectures_list tbody').on( 'click', '.lectureLink', function () {
 		var button = $(this);
 		var lecture_id = button.data("lecture");
@@ -90,7 +90,7 @@ $(document).ready(function() {
 		window.location.replace(lectureLink); 
     } );
 	
-		/* When clicking Remove button, the lecture is removed from the course */
+	/* When clicking Remove button, the lecture is removed from the course */
     $('#lectures_list tbody').on( 'click', 'button.removeBtn', function () {
 		if(confirm("Do you really want to remove this lecture from the course?")) {
 			var tr = $(this).closest('tr');
@@ -112,20 +112,24 @@ $(document).ready(function() {
 				  $('#lectures_list_error').css('opacity', '1');
 				  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 				  if(recv === -2) {
-					$('#lectures_list_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
-					$('#lectures_list_error').fadeTo(1000, 0.5);	
+					$('#lectures_list_error').append('<p><a name="#lectures_list_msg"></a><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
+					$('#lectures_list_error').fadeTo(1000, 0.5);
+					scrollToAnchor('#lectures_list_msg');					
 				  } else if(recv === -1) {
-					$('#lectures_list_error').append('<p><i class="fa fa-check" style="color: red"></i>&nbspYou cannot remove yourself from this menu!<br/>&nbspIn order to exit the course do this through the main course page.</p>');  
-					$('#lectures_list_error').fadeTo(1000, 0.5);			
+					$('#lectures_list_error').append('<p><a name="#lectures_list_msg"></a><i class="fa fa-check" style="color: red"></i>&nbspYou cannot remove yourself from this menu!<br/>&nbspIn order to exit the course do this through the main course page.</p>');  
+					$('#lectures_list_error').fadeTo(1000, 0.5);	
+					scrollToAnchor('#lectures_list_msg');					
 				  } else if(recv === 1) {
 					row.remove();
 					lectures_table.draw();
-					$('#lectures_list_error').append('<p><i class="fa fa-check" style="color: green"></i>&nbspLecture has been removed from the course!</p>');  
-					$('#lectures_list_error').fadeTo(1000, 0.5);			
+					$('#lectures_list_error').append('<p><a name="#lectures_list_msg"></a><i class="fa fa-check" style="color: green"></i>&nbspLecture has been removed from the course!</p>');  
+					$('#lectures_list_error').fadeTo(1000, 0.5);
+					scrollToAnchor('#lectures_list_msg');					
 				  }
 				  else{
-					$('#lectures_list_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
+					$('#lectures_list_error').append('<p><a name="#lectures_list_msg"></a><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
 					$('#lectures_list_error').fadeTo(1000, 0.5);
+					scrollToAnchor('#lectures_list_msg');
 				  }
 			  },
 			  error: function(xhr, desc, err) {
@@ -137,4 +141,11 @@ $(document).ready(function() {
 			return 0;
 		}
     } );
+	
+	//Enables smooth scrolling down to the status message
+	function scrollToAnchor(aid){
+		var aTag = $("a[name='"+ aid +"']");
+		$('html,body').animate({scrollTop: aTag.offset().top},'slow');
+	}
+	
 } );
