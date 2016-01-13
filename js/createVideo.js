@@ -7,6 +7,13 @@ $(document).ready(function(){
 	var video_description = $('textarea[name=video_description]').val();
 	var url = $('input[name=url]').val();
 	url = youtube_parser(url);
+	if(!url) {
+		$('#createVideo_error').html("");
+		$('#createVideo_error').css('opacity', 1);
+		$('#createVideo_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspLink incorrect!</p>');
+		$('#createVideo_error').fadeTo(2000, 0.7);
+		return 0;
+	}
 	var course_id = $("#createVideo-form").data("course");
 	var user_id = $("#createVideo-form").data("user");
 	console.log(user_id);
@@ -43,7 +50,6 @@ $(document).ready(function(){
 	  }
 	}); // end ajax call
   });
-  
 	 /* Function which extracts Youtube video id */
 	function youtube_parser(url){
 		var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;

@@ -82,6 +82,7 @@ $lectnr = 1;
 					</tr>
 				</tfoot>
 			</table>
+			<div id="lectures_list_error"></div>
 		</div>
 		</br>
 		<div class="pagedivider"></div>		

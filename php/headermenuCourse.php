@@ -66,11 +66,11 @@
 			<input type="text" name="url" required="required" maxlength="255" />
 		</div>
 		<div class="bottom">
+			<div id="createVideo_error" class="edit_error"></div>
 			<input type="submit" name="setVideo" value="Add video"/>
 			<div class="clear"></div>
 		</div>
 	</form>
-	<div id="createVideo_error" class="edit_error"></div>
 </div>
 
 <div id="form_wrapper_editC" class="form_wrapper lightboxWrap" style="display:none">					
@@ -133,7 +133,7 @@
 		</div>
 		<div class="bottom">
 			<div id="editVideo_error" class="edit_error"></div>
-			<input type="submit" name="editVideo" value="Add video"/>
+			<input type="submit" name="editVideo" value="Edit video"/>
 			<div class="clear"></div>
 		</div>
 	</form>

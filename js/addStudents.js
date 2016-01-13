@@ -150,17 +150,20 @@ $(document).ready(function() {
 			  $('#addStudents_error').css('opacity', '1');
 			  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 			  if(recv === -2) {
-				$('#addStudents_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
-				$('#addStudents_error').fadeTo(1000, 0.5);	
+				$('#addStudents_error').append('<p><a name="#addStudents_msg"></a><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
+				$('#addStudents_error').fadeTo(1000, 0.5);
+				scrollToAnchor('#addStudents_msg');
 			  } else if(recv === 1) {
 				row.remove();
 				add_table.draw();
-				$('#addStudents_error').append('<p><i class="fa fa-check" style="color: green"></i>&nbspUser has been added to course!</p>');  
-				$('#addStudents_error').fadeTo(1000, 0.5);			
+				$('#addStudents_error').append('<p><a name="#addStudents_msg"></a><i class="fa fa-check" style="color: green"></i>&nbspUser has been added to course!</p>');  
+				$('#addStudents_error').fadeTo(1000, 0.5);
+				scrollToAnchor('#addStudents_msg');
 			  }
 			  else{
-				$('#addStudents_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
+				$('#addStudents_error').append('<p><a name="#addStudents_msg"></a><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
 				$('#addStudents_error').fadeTo(1000, 0.5);
+				scrollToAnchor('#addStudents_msg');
 			  }
 		  },
 		  error: function(xhr, desc, err) {
@@ -169,4 +172,10 @@ $(document).ready(function() {
 		  }
 		}); // end ajax call
     } );
+	
+	//Enables smooth scrolling down to the status message
+	function scrollToAnchor(aid){
+		var aTag = $("a[name='"+ aid +"']");
+		$('html,body').animate({scrollTop: aTag.offset().top},'slow');
+	}
 } );

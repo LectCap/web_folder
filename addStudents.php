@@ -38,23 +38,19 @@ if($teacher != 1) {
 						<div class="col-lg-4">
 							<img src="bootstrap/images/logo.png" class="img-responsible pull-left" >
 						</div>
-						<div class="col-lg-6">
-							<p>"Lorem ipsum dolor sit amet,
-							consectetur adipiscing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-							Ut enim ad minim veniam,
-							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-							Duis aute irure dolor in reprehenderit in voluptate
-							velit esse cillum dolore eu fugiat nulla pariatur.
-							Excepteur sint occaecat cupidatat non proident,
-							sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+						<div class="col-lg-6" style="font-family:'Trebuchet MS', 'Myriad Pro', sans-serif font-size: 14px;font-weight: bold">
+							<p>
+								In this page you can view all students able to join your course. 
+								If a student for instance is unable to enroll themselves you, as a teacher, can add them to the course. 
+								You can search for students by name or perhaps find all students in a certain program.
+							</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		
 			<div class="container-fluid">
-				<h2 class="tableHeader">View all <span>courses</span> you have enrolled to below</h2>
+				<h2 class="tableHeader">View all <span>students</span> you can add to the course</h2>
 				<table id="addStudents_list" class="display" cellspacing="0" width="100%" data-course="<?php echo $_GET['course']; ?>">
 					<thead>
 						<tr>

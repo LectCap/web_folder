@@ -83,13 +83,15 @@ $(document).ready(function() {
 			  var recv = data["code"]; //data["code"] is set in the PHP file with array('code' => -1) e.g.
 			  if(recv === -2) {
 				$('#viewCourses_error').css('color', '#ffa800');
-				$('#viewCourses_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
-				$('#viewCourses_error').fadeTo(1000, 0.5);	
+				$('#viewCourses_error').append('<p><a name="#viewCourses_msg"></a><i class="fa fa-times" style="color: red"></i>&nbspDatabase error! Please consult administrator</p>');
+				$('#viewCourses_error').fadeTo(1000, 0.5);
+				scrollToAnchor('#viewCourses_msg');
 			  }
 			  else if(recv === -1) {
 				$('#viewCourses_error').css('color', '#ffa800');
-				$('#viewCourses_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspAlready enrolled!</p>');
-				$('#viewCourses_error').fadeTo(1000, 0.5);	
+				$('#viewCourses_error').append('<p><a name="#viewCourses_msg"></a><i class="fa fa-times" style="color: red"></i>&nbspAlready enrolled!</p>');
+				$('#viewCourses_error').fadeTo(1000, 0.5);
+				scrollToAnchor('#viewCourses_msg');
 			  }
 			  else if(recv === -3) {
 				window.location.replace("http://localhost:8080/index.php"); 
@@ -98,13 +100,16 @@ $(document).ready(function() {
 				//Removes row and notifies user that he/she is enrolled
 				row.remove();
 				dt.draw();
-				$('#viewCourses_error').append('<p><i class="fa fa-check" style="color: green"></i>&nbspYou have enrolled and are now awaiting teacher confirmation!</p>');  
+				$('#viewCourses_error').append('<p><a name="#viewCourses_msg"></a><i class="fa fa-check" style="color: green"></i>&nbspYou have enrolled and are now awaiting teacher confirmation!</p>');  
 				$('#viewCourses_error').fadeTo(1000, 0.5);
+				scrollToAnchor("#viewCourses_msg");
+				
 			  }
 			  else{
 				$('#viewCourses_error').css('color', '#ffa800');
-				$('#viewCourses_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
+				$('#viewCourses_error').append('<p><a name="#viewCourses_msg"></a><i class="fa fa-times" style="color: red"></i>&nbspSomething went terribly wrong</p>');  
 				$('#viewCourses_error').fadeTo(1000, 0.5);
+				scrollToAnchor('#viewCourses_msg');
 			  }
 		  },
 		  error: function(xhr, desc, err) {
@@ -113,4 +118,9 @@ $(document).ready(function() {
 		  }
 		}); // end ajax call
     } );
+	//Enables smooth scrolling down to the status message
+	function scrollToAnchor(aid){
+		var aTag = $("a[name='"+ aid +"']");
+		$('html,body').animate({scrollTop: aTag.offset().top},'slow');
+	}
 } );

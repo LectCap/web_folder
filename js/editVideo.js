@@ -31,6 +31,13 @@ $(document).ready(function(){
 	var description = $('textarea[name=edit_video_description]').val();
 	var url = $('input[name=edit_url]').val();
 	var url_id = youtube_parser(url);
+	if(!url_id) {
+		$('#editVideo_error').html("");
+		$('#editVideo_error').css('opacity', 1);
+		$('#editVideo_error').append('<p><i class="fa fa-times" style="color: red"></i>&nbspLink incorrect!</p>');
+		$('#editVideo_error').fadeTo(2000, 0.7);
+		return 0;
+	}
     $.ajax({
       url: '/php/editVideoinfo.php', //PHP file you want to access
       type: 'POST',
